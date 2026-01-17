@@ -1,0 +1,882 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catalogue Électronique — Demo (Structure Élégante)</title>
+  <meta name="description"
+    content="Catalogue interactif avec thème sombre élégant, contrôles de layout, sections accordéon et cartes produits électroniques." />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap');
+
+    /* =========================
+   Palette & Thème (Elegant)
+   ========================= */
+    :root {
+      /* Elegant (par défaut) */
+      --bg: #0f1115;
+      --panel: #151922;
+      --card: #1b2028;
+      --ink: #e8eaed;
+      --muted: #a1acba;
+      --border: #2d3644;
+      --accent: #6ea8fe;
+      --accent-2: #8bd3f7;
+      --price: #63d2c6;
+      --shadow: 0 18px 48px rgba(0, 0, 0, .5);
+      --card-shadow: 0 10px 26px rgba(0, 0, 0, .35);
+    }
+
+    body.theme-pop {
+      --bg: #0b0d12;
+      --panel: #131722;
+      --card: #161b24;
+      --ink: #f0f2f6;
+      --muted: #b7c0cf;
+      --border: #354056;
+      --accent: #e89af7;
+      /* pop violet-rose */
+      --accent-2: #9ae7ff;
+      /* pop bleu clair */
+      --price: #ffb86b;
+      /* pop orange doux */
+    }
+
+    /* Base */
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, #10141b, transparent 60%),
+        radial-gradient(900px 500px at 85% 10%, #131720, transparent 60%),
+        var(--bg);
+      color: var(--ink);
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    /* Header / Title */
+    .header {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 3rem;
+      letter-spacing: 0.5px;
+      color: var(--ink);
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+    }
+
+    .header p {
+      max-width: 860px;
+      margin: .5rem auto 0;
+      color: var(--muted);
+    }
+
+    /* Control Strips (layout & theme) */
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      /* two columns */
+      gap: 16px;
+      max-width: 1100px;
+      margin: 60px auto 18px;
+    }
+
+    @media (max-width: 700px) {
+      .controls {
+        grid-template-columns: 1fr;
+      }
+
+      /* stack on mobile */
+    }
+
+    /* ========================= Valentine ========================= */
+
+    .valentine {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: 9999;
+    }
+
+    .valentine::before,
+    .valentine::after {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: 100%;
+      left: 0;
+      background-image:
+        radial-gradient(circle at 20px 20px, rgba(255, 80, 120, 0.8) 50%, transparent 50%),
+        radial-gradient(circle at 80px 60px, rgba(255, 120, 160, 0.7) 50%, transparent 50%),
+        radial-gradient(circle at 140px 40px, rgba(255, 60, 100, 0.8) 50%, transparent 50%),
+        radial-gradient(circle at 200px 100px, rgba(255, 100, 140, 0.7) 50%, transparent 50%);
+      background-size: 200px 200px;
+      animation: hearts 22s linear infinite;
+      opacity: 0.6;
+    }
+
+    .valentine::after {
+      animation-duration: 32s;
+      opacity: 0.4;
+    }
+
+    @keyframes hearts {
+      0% {
+        transform: translateY(0) scale(1);
+      }
+
+      100% {
+        transform: translateY(-100%) scale(1.2);
+      }
+    }
+
+
+    /* ========================= ❄️ SNOW EFFECT ========================= */
+    .snow {
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    .snow::before,
+    .snow::after {
+      content: "";
+      position: absolute;
+      top: -10%;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background-image: radial-gradient(2px 2px at 20px 20px, white 50%, transparent 50%), radial-gradient(3px 3px at 50px 80px, white 50%, transparent 50%), radial-gradient(2px 2px at 90px 40px, white 50%, transparent 50%), radial-gradient(3px 3px at 130px 120px, white 50%, transparent 50%);
+      background-size: 200px 200px;
+      animation: snowfall 18s linear infinite;
+      opacity: 0.6;
+    }
+
+    .snow::after {
+      animation-duration: 28s;
+      opacity: 0.4;
+      top: -200%;
+    }
+
+    @keyframes snowfall {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(100%);
+      }
+    }
+
+    /*.controls{
+display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  max-width: 1100px; margin: 60px auto 18px;
+}*/
+
+    .control {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .control h3 {
+      margin: 0 0 10px 0;
+      font: 700 1.05rem/1.2 Georgia, "Times New Roman", serif;
+    }
+
+    .pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .pill .btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0d0f14;
+      border: 1px solid var(--border);
+      color: var(--ink);
+    }
+
+    .pill .btn:hover {
+      border-color: #3a4454;
+    }
+
+    .pill .label {
+      min-width: 150px;
+      text-align: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #0d0f14;
+      border: 1px solid var(--border);
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .pill .label.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #041019;
+      border: 0;
+    }
+
+    /* Sections (Accordion) */
+    .section {
+      max-width: 1100px;
+      margin: 18px auto 18px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      cursor: pointer;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font: 700 1.25rem/1.25 Georgia, "Times New Roman", serif;
+    }
+
+    .section-header .toggle {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: #0d0f14;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+    }
+
+    .section-content {
+      padding: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Layouts: Grid & Carousel */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .scrollwrap {
+      position: relative;
+    }
+
+    .track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+    }
+
+    .track .card {
+      flex: 0 0 260px;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .carousel-btn {
+      pointer-events: auto;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background: #0d0f14;
+      border: 1px solid var(--border);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-btn:hover {
+      border-color: #3a4454;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      display: grid;
+      grid-template-rows: 140px auto;
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: #3a4454;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .5);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .meta {
+      padding: 12px 14px;
+    }
+
+    .meta h4 {
+      margin: 0 0 4px;
+      font: 700 1rem/1.2 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .meta p {
+      margin: 0 0 8px;
+      color: var(--muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .price {
+      font-weight: 700;
+      color: var(--price);
+    }
+
+    /* Card actions */
+    .actions {
+      margin-top: 8px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-order {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #041019;
+      font-weight: 700;
+    }
+
+    .btn-order .wa {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #25D366;
+      display: inline-block;
+    }
+
+    /* Helper & footer nav */
+    .helper {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .footer-nav {
+      max-width: 1100px;
+      margin: 20px auto 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .footer-nav .btn {
+      background: #0d0f14;
+      color: var(--ink);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+
+    .footer-nav .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #041019;
+      border: 0;
+    }
+
+    .suggest-box {
+      background: #0d0f14;
+      padding: 50px;
+      margin-top: 30px;
+      border-radius: 30px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .suggest-textarea {
+      width: 100%;
+      height: 140px;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #131722;
+      color: var(--ink);
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    .suggest-textarea::placeholder {
+      color: #6f7a89;
+    }
+
+    .submit-btn {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #25D366;
+      display: inline-block;
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .controls {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== Header ===== -->
+  <div class="header">
+    <h1>Bienvenu sur notre catalogue!!</h1>
+    <p>Une sélection raffinée d’appareils haut de gamme, présentés avec style et simplicité.</p>
+  </div>
+
+  <!-- ===== Controls (layout & theme) ===== -->
+  <!-- <div class="controls">
+    <div class="control" id="layoutControl">
+      <h3 align="center">Promo du moment</h3>
+      <div class="pill">
+        <button class="btn" id="layoutPrev" aria-label="layout previous">⟵</button>
+        <div class="label" id="layoutLabel">Casques & Audio</div>
+        <button class="btn" id="layoutNext" aria-label="layout next">⟶</button>
+      </div>
+      <article class="card">
+        <img src="<?= htmlspecialchars($row['Ima1'])?>">
+        <div class="meta">
+          <h4>
+            <?= htmlspecialchars($row['Tit_pro1'])?>
+          </h4>
+          <p>
+            <?= htmlspecialchars($row['desc1'])?>
+          </p>
+          <div class="price">129 €</div>
+          <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Casque ANC Sans Fil',129)"><span
+                class="wa"></span> Commander via WhatsApp</button></div>
+        </div>
+      </article>
+    </div>
+  </div>-->
+
+  <!-- ===== Sections (Accordion style) ===== -->
+  <section class="section" data-collapsed="true">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-title">
+        <h2>Gamme Airpods</h2>
+      </div>
+      <div class="toggle">></div>
+    </div>
+    <div class="section-content">
+      <div class="scrollwrap layout-carousel">
+        <div class="track" id="track-audio">
+          <!-- Cards -->
+          <article class="card">
+            <img src="https://drive.google.com/uc?export=view&id=17qBkPw_QY69qhyukLa7w_S2bTNCJU4cH" alt="AirPods 2">
+            <div class="meta">
+              <h4>AirPods 2</h4>
+              <p>Apple AirPods (2ᵉ génération) –Connexion Bluetooth 5.0 –Autonomie 5 h d’écoute / 24 h avec boîtier
+                –Boîtier de charge Lightning –Poids 4 g par écouteur –Compatibles iPhone, iPad, Mac, Apple Watch. </p>
+              <div class="price">70 €</div>
+              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods 2',70)"><span
+                    class="wa"></span> Commander via WhatsApp</button></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://drive.google.com/uc?export=view&id=1dywWE8v3O2tfmIMiAmGBarrLcCm0Zz9J" alt="AirPods Pro 2">
+            <div class="meta">
+              <h4>AirPods Pro 2</h4>
+              <p>AirPods Pro 2 (USB‑C) – Réduction de bruit– Autonomie 6 h / 30 h avec boîtier – Bluetooth 5.3.</p>
+              <div class="price">100 €</div>
+              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods Pro 2',100)"><span
+                    class="wa"></span> Commander</button></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/speakerx/640/">
+            <div class="meta">
+              <h4>AirPods 3</h4>
+              <p>AirPods 3 – Autonomie 6 h / 30 h avec boîtier – Bluetooth 5.0.</p>
+              <div class="price">70 €</div>
+              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods 3',70)"><span
+                    class="wa"></span> Commander</button></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/dacamp/640/400" alt="DAC/Ammeta">
+            <div class="meta">
+              <h4>AirPods 4</h4>
+              <p>AirPods 4 – Autonomie 6 h / 30 h avec boîtier USB‑ Bluetooth 5.3.</p>
+              <div class="price">100 €</div>
+              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods 4',100)"><span
+                    class="wa"></span> Commander</button></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/speakerx/640/">
+            <div class="meta">
+              <h4>AirPods 3</h4>
+              <p>AirPods 3 – Autonomie 6 h / 30 h avec boîtier – Bluetooth 5.0.</p>
+              <div class="price">70 €</div>
+              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods 3',70)"><span
+                    class="wa"></span> Commander</button></div>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" onclick="scrollTrack('track-audio',-1)">⟵</button>
+          <button class="carousel-btn" onclick="scrollTrack('track-audio',+1)">⟶</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-collapsed="true">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-title">
+        <h2>Gamme AirPods max</h2>
+      </div>
+      <div class="toggle">></div>
+    </div>
+    <div class="section-content">
+      <div class="scrollwrap layout-carousel">
+        <div class="track" id="track-smartphones">
+          <article class="card">
+            <img src="https://picsum.photos/seed400">
+            <div class="meta">
+              <h4>AirPods Max lighting</h4>
+              <p>AirPods Max (Lightning) – Transducteurs Apple haute fidélité – Autonomie 10h – Bluetooth 5.0 – Port
+                Lightning.</p>
+              <div class="price">120 €</div>
+              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods Max lighting',120)"><span
+                    class="wa"></span> Commander</button></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/arcpro/640/400">
+            <div class="meta">
+              <h4>AirPods Max USB-C</h4>
+              <p>AirPods Max (USB‑C) – Transducteurs haute fidélité – Autonomie 10 h – Bluetooth 5.3 – Port USB‑C.</p>
+              <div class="price">120 €</div>
+              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods Max USB-C',120)"><span
+                    class="wa"></span> Commander</button></div>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" onclick="scrollTrack('track-smartphones',-1)">⟵</button>
+          <button class="carousel-btn" onclick="scrollTrack('track-smartphones',+1)">⟶</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" data-collapsed="true">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-title">
+        <h2>Enceinte Bluetooth</h2>
+      </div>
+      <div class="toggle">></div>
+    </div>
+    <div class="section-content">
+      <div class="scrollwrap layout-carousel">
+        <div class="track" id="track-accessoires">
+          <article class="card">
+            <img src="https://picsum.photos/seed/powerbank20/640/">
+            <div class="meta">
+              <h4>Enceinte JBL Pulse 5</h4>
+              <p>JBL Pulse 5 – Son 360° – Lumières LED personnalisables – Puissance 40 W – Autonomie 12 h – Bluetooth
+                5.3 – Port USB‑C – Design transparent lumineux.</p>
+              <div class="price">120 €</div>
+              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Enceinte JBL Pulse 5',120)"><span
+                    class="wa"></span> Commander</button></div>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/wirelesscharger/640/400">
+            <div class="meta">
+              <h4>Enceinte JBL FLIP 7</h4>
+              <p>JBL Flip 7 – Son stéréo amélioré – Puissance 30 W – Autonomie 15 h – Bluetooth 5.3 – Port USB‑C –
+                Design compact renforcé.</p>
+              <div class="price">140 €</div>
+              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Enceinte JBL FLIP 7',140)"><span
+                    class="wa"></span> Commander</button></div>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" onclick="scrollTrack('track-accessoires',-1)">⟵</button>
+          <button class="carousel-btn" onclick="scrollTrack('track-accessoires',+1)">⟶</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-collapsed="true">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-title">
+        <h2>Gift Box</h2>
+      </div>
+      <div class="toggle">></div>
+    </div>
+    <div class="section-content">
+      <div class="scrollwrap layout-carousel">
+        <div class="track" id="track-coffrets">
+          <article class="card">
+            <img src="https://picsum.photos/seed/gift00">
+            <div class="meta">
+              <h4>Coffret Accessoire Iphone 13</h4>
+              <p>Casque ANC + Écouteurs + Pochette.</p>
+              <div class="price">100 €</div>
+              <div class="Stock">8 en Stock</div>
+              <div class="actions"><button class="btn-order"
+                  onclick="orderWhatsApp('Coffret Accessoire Iphone',100)"><span class="wa"></span> Commander</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" onclick="scrollTrack('track-coffrets',-1)">⟵</button>
+          <button class="carousel-btn" onclick="scrollTrack('track-coffrets',+1)">⟶</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" data-collapsed="true">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-title">
+        <h2>Apple Watch</h2>
+      </div>
+      <div class="toggle">C</div>
+    </div>
+    <div class="section-content">
+      <div class="scrollwrap layout-carousel">
+        <div class="track" id="track-maison">
+          <article class="card">
+            <img src="https://picsum.photos/seed/bulb/640/400">
+            <div class="meta">
+              <h4>Apple Watch Ultra 2</h4>
+              <p>Apple Watch Ultra 2 (2023) GPS + Cellular 49 mm - Titane Titane naturel - Bracelet Océan Orange</p>
+              <div class="price">120 €</div>
+              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Apple Watch Ultra 2',120)"><span
+                    class="wa"></span> Commander</button></div>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" onclick="scrollTrack('track-maison',-1)">⟵</button>
+          <button class="carousel-btn" onclick="scrollTrack('track-maison',+1)">⟶</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="suggest-box">
+    <h2>💡 Suggestion de nouveaux produits</h2>
+    <p>Dites-nous quels sont les produits que vous aimeriez que nous ajoutions.</p>
+    <textarea class="suggest-textarea" placeholder="Exemple : Pouvez-vous ajouter des câbles USB-C, etc."></textarea>
+    <div class="actions">
+      <a class="btn-order" href="mailto:lalannefrancis431@gmail.com"><span class="wa"></span>
+        Soumettre votre demande
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer navigation -->
+  <div class="footer-nav">
+    <button class="btn" onclick="scrollToTop()">↑ Haut</button>
+    <button class="btn primary"
+      onclick="openWhatsApp('Bonjour, Je veux avoir des renseignements sur un/des produits')">Aide</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // ton code ici
+
+
+      /* ===== Config WhatsApp (optionnel) ===== */
+      const WHATSAPP_NUMBER = '594694978921'; // Remplacez par votre numéro au format international sans "+"
+
+      /* ===== Accordion toggle ===== */
+      function toggleSection(el) {
+        const section = el.closest('.section');
+        const collapsed = section.getAttribute('data-collapsed') === 'true';
+        section.setAttribute('data-collapsed', collapsed ? 'false' : 'true');
+        section.querySelector('.section-content').style.display = collapsed ? '' : 'none';
+        el.querySelector('.toggle').textContent = collapsed ? '⌄' : '›';
+      }
+      window.toggleSection = toggleSection;
+
+      /* Init: ensure open by default */
+      document.querySelectorAll('.section').forEach(sec => {
+        const collapsed = sec.getAttribute('data-collapsed') === 'true';
+        sec.querySelector('.section-content').style.display = collapsed ? 'none' : '';
+      });
+
+      /* ===== Carousel scrolling ===== */
+      function scrollTrack(id, dir) {
+        const el = document.getElementById(id);
+        const card = el.querySelector('.card');
+        const delta = card ? (card.offsetWidth + 16) : 260;
+        el.scrollBy({ left: dir * delta, behavior: 'smooth' });
+      }
+      window.scrollTrack = scrollTrack;
+
+      /* ===== Layout & Theme choosers ===== */
+      let layoutIndex = 0; // 0=Carousel, 1=Grid
+      let Tit_pro1 = "Casqu Audio";
+      let desc1 = "reduction de bruit";
+      let Ima1 = "https://picsum.photos/seed/headphone";
+      const layoutLabel = document.getElementById('layoutLabel');
+      document.getElementById('layoutPrev').addEventListener('click', () => setLayout((layoutIndex + 1) % 2));
+      document.getElementById('layoutNext').addEventListener('click', () => setLayout((layoutIndex + 1) % 2));
+
+      function setLayout(idx) {
+        layoutIndex = idx;
+        const isCarousel = layoutIndex === 0;
+        layoutLabel.textContent = isCarousel ? 'Casques & Audio' : 'Smartphones';
+        layoutLabel.classList.toggle('active', true);
+
+        document.querySelectorAll('.section-content').forEach(sc => {
+          const wrap = sc.querySelector('.scrollwrap');
+          const track = sc.querySelector('.track');
+          const controls = sc.querySelector('.carousel-controls');
+
+          if (isCarousel) {
+            wrap.classList.add('layout-carousel');
+            wrap.classList.remove('layout-grid');
+            track.style.display = 'flex';
+            track.style.flexWrap = 'nowrap';
+            track.style.overflow = 'hidden';
+            controls.style.display = 'flex';
+            Tit_pro1 = "Casqu Audio";
+            desc1 = "reduction de bruit";
+            Ima1 = "https://picsum.photos/seed/headphone";
+          } else {
+            wrap.classList.add('layout-grid');
+            wrap.classList.remove('layout-carousel');
+            controls.style.display = 'none';
+            // Transform the track into a grid
+            track.style.display = 'grid';
+            track.style.gridTemplateColumns = 'repeat(4, 1fr)';
+            track.style.gap = '16px';
+            track.style.overflow = 'visible';
+            Tit_pro1 = "Smartphone";
+            desc1 = "qualité photo";
+            Ima1 = "https://picsum.photos/seed/giftbox3/640/400";
+          }
+        });
+      }
+      setLayout(0); // default Carousel
+
+      let themeIndex = 0; // 0=Elegant, 1=Pop
+      const themeLabel = document.getElementById('themeLabel');
+      document.getElementById('themePrev').addEventListener('click', () => setTheme((themeIndex + 1) % 2));
+      document.getElementById('themeNext').addEventListener('click', () => setTheme((themeIndex + 1) % 2));
+
+      function setTheme(idx) {
+        themeIndex = idx;
+        const isElegant = themeIndex === 0;
+        themeLabel.textContent = isElegant ? 'Elegant' : 'Pop';
+        themeLabel.classList.toggle('active', true);
+        document.body.classList.toggle('theme-pop', !isElegant);
+      }
+      setTheme(0); // default Elegant
+
+      /* ===== WhatsApp helpers ===== */
+      function openWhatsApp(message) {
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        location.href = url;
+      }
+      function orderWhatsApp(name, price) {
+        openWhatsApp(`Bonjour, je souhaite commander : ${name} (${price} €).`);
+      }
+
+      /* ===== Scroll helper ===== */
+      function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    });
+  </script>
+  <div class="snow"></div>
+</body>
+
+</html>
