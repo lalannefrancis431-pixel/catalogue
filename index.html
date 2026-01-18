@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Catalogue Électronique — Demo (Structure Élégante)</title>
+  <title>Sound Industrie</title>
   <meta name="description"
     content="Catalogue interactif avec thème sombre élégant, contrôles de layout, sections accordéon et cartes produits électroniques." />
 
@@ -16,23 +16,23 @@
    ========================= */
     :root {
       /* Elegant (par défaut) */
-      --bg: #0f1115;
-      --panel: #151922;
-      --card: #1b2028;
+      --bg: #000000 ;/*chrismas color : #0f1115*/
+      --panel: #000000;/*chrismas color :#151922*/
+      --card: #000000;/*chrismas color :#1b2028*/
       --ink: #e8eaed;
       --muted: #a1acba;
       --border: #2d3644;
       --accent: #6ea8fe;
       --accent-2: #8bd3f7;
       --price: #63d2c6;
-      --shadow: 0 18px 48px rgba(0, 0, 0, .5);
-      --card-shadow: 0 10px 26px rgba(0, 0, 0, .35);
+      --shadow: 0 18px 48px rgba(0, 0, 0, .5);/*chrismas shadow : #0f1115*/
+      --card-shadow: 0 10px 26px rgba(0, 0, 0, .35);/*chrismas color : #0f1115*/
     }
 
     body.theme-pop {
-      --bg: #0b0d12;
-      --panel: #131722;
-      --card: #161b24;
+      --bg: #000000;/*chrismas color :#0b0d12 */
+      --panel: #000000;/*chrismas color :#131722*/
+      --card: #000000;/*chrismas color :#161b24*/
       --ink: #f0f2f6;
       --muted: #b7c0cf;
       --border: #354056;
@@ -57,10 +57,10 @@
     body {
       margin: 0;
       padding: 24px;
-      background:
-        radial-gradient(1200px 600px at 20% -10%, #10141b, transparent 60%),
+      background: #000000;
+        /*chrismas background : radial-gradient(1200px 600px at 20% -10%, #10141b, transparent 60%),
         radial-gradient(900px 500px at 85% 10%, #131720, transparent 60%),
-        var(--bg);
+        var(--bg);*/
       color: var(--ink);
       font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     }
@@ -313,8 +313,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     .track {
       display: flex;
       gap: 16px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+      overflow: hidden;
       scroll-behavior: smooth;
     }
 
@@ -455,7 +454,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
     .suggest-box {
-      background: #0d0f14;
+      background: #000000;/*chrismas color:#0d0f14 */
       padding: 50px;
       margin-top: 30px;
       border-radius: 30px;
@@ -468,7 +467,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       padding: 14px;
       border-radius: 12px;
       border: 1px solid var(--border);
-      background: #131722;
+      background: #000000;/*chrismas color:#131722 */
       color: var(--ink);
       font-size: 1rem;
       resize: vertical;
@@ -543,7 +542,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   <section class="section" data-collapsed="true">
     <div class="section-header" onclick="toggleSection(this)">
       <div class="section-title">
-        <h2>Gamme Airpods</h2>
+        <h2>Airpods</h2>
       </div>
       <div class="toggle">></div>
     </div>
@@ -614,7 +613,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   <section class="section" data-collapsed="true">
     <div class="section-header" onclick="toggleSection(this)">
       <div class="section-title">
-        <h2>Gamme AirPods max</h2>
+        <h2>AirPods max</h2>
       </div>
       <div class="toggle">></div>
     </div>
@@ -709,7 +708,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <div class="price">100 €</div>
               <div class="Stock">8 en Stock</div>
               <div class="actions"><button class="btn-order"
-                  onclick="orderWhatsApp('Coffret Accessoire Iphone',100)"><span class="wa"></span> Commander</button>
+                  onclick="event.stopPropagation();orderWhatsApp('Coffret Accessoire Iphone',100)"><span class="wa"></span> Commander</button>
               </div>
             </div>
           </article>
@@ -727,7 +726,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       <div class="section-title">
         <h2>Apple Watch</h2>
       </div>
-      <div class="toggle">C</div>
+      <div class="toggle">></div>
     </div>
     <div class="section-content">
       <div class="scrollwrap layout-carousel">
@@ -770,12 +769,11 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
       // ton code ici
 
 
       /* ===== Config WhatsApp (optionnel) ===== */
-      const WHATSAPP_NUMBER = '594694978921'; // Remplacez par votre numéro au format international sans "+"
+      const WHATSAPP_NUMBER = '759679709'; // Remplacez par votre numéro au format international sans "+"
 
       /* ===== Accordion toggle ===== */
       function toggleSection(el) {
@@ -866,7 +864,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       /* ===== WhatsApp helpers ===== */
       function openWhatsApp(message) {
         const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-        location.href = url;
+        window.open(url, '_blank');
       }
       function orderWhatsApp(name, price) {
         openWhatsApp(`Bonjour, je souhaite commander : ${name} (${price} €).`);
@@ -874,9 +872,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
       /* ===== Scroll helper ===== */
       function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-    });
   </script>
-  <div class="snow"></div>
+  <!--<div class="snow"></div>-->
 </body>
 
 </html>
