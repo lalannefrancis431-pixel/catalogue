@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sound Industry</title>
   <meta name="description"
-    content="Catalogue interactif avec thème sombre élégant, contrôles de layout, sections accordéon et cartes produits électroniques." />
+    content="Découvrez notre catalogue interactif et l’ensemble de nos gammes de produits." />
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap');
@@ -24,10 +24,14 @@
       /*chrismas color :#1b2028*/
       --ink: #e8eaed;
       --muted: #a1acba;
+      --h4tit: #65686c;
       --border: #2d3644;
-      --accent: #d2b976;/*#6ea8fe*/
-      --accent-2: #d2b976;/*#8bd3f7*/
-      --price: #d2b976;/*#63d2c6*/
+      --accent: #d2b976;
+      /*#6ea8fe*/
+      --accent-2: #d2b976;
+      /*#8bd3f7*/
+      --price: #d2b976;
+      /*#63d2c6*/
       --shadow: 0 18px 48px rgba(0, 0, 0, .5);
       /*chrismas shadow : #0f1115*/
       --card-shadow: 0 10px 26px rgba(0, 0, 0, .35);
@@ -147,36 +151,46 @@
       z-index: 9999;
     }
 
-    .valentine::before,
-    .valentine::after {
+    .valentine .heart {
+      position: absolute;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background: red;
+      transform: rotate(45deg);
+      animation: fall 10s linear infinite;
+      opacity: 0.8;
+    }
+
+    .valentine .heart::before,
+    .valentine .heart::after {
       content: "";
       position: absolute;
-      width: 200%;
-      height: 200%;
-      top: 100%;
+      width: 30px;
+      height: 30px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .valentine .heart::before {
+      top: -15px;
       left: 0;
-      background-image:
-        radial-gradient(circle at 20px 20px, rgba(255, 80, 120, 0.8) 50%, transparent 50%),
-        radial-gradient(circle at 80px 60px, rgba(255, 120, 160, 0.7) 50%, transparent 50%),
-        radial-gradient(circle at 140px 40px, rgba(255, 60, 100, 0.8) 50%, transparent 50%),
-        radial-gradient(circle at 200px 100px, rgba(255, 100, 140, 0.7) 50%, transparent 50%);
-      background-size: 200px 200px;
-      animation: hearts 22s linear infinite;
-      opacity: 0.6;
     }
 
-    .valentine::after {
-      animation-duration: 32s;
-      opacity: 0.4;
+    .valentine .heart::after {
+      left: -15px;
+      top: 0;
     }
 
-    @keyframes hearts {
+    @keyframes fall {
       0% {
-        transform: translateY(0) scale(1);
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
       }
 
       100% {
-        transform: translateY(-100%) scale(1.2);
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
       }
     }
 
@@ -201,7 +215,10 @@
       left: 0;
       width: 200%;
       height: 200%;
-      background-image: radial-gradient(2px 2px at 20px 20px, white 50%, transparent 50%), radial-gradient(3px 3px at 50px 80px, white 50%, transparent 50%), radial-gradient(2px 2px at 90px 40px, white 50%, transparent 50%), radial-gradient(3px 3px at 130px 120px, white 50%, transparent 50%);
+      background-image: radial-gradient(2px 2px at 20px 20px, white 50%, transparent 50%),
+        radial-gradient(3px 3px at 50px 80px, white 50%, transparent 50%),
+        radial-gradient(2px 2px at 90px 40px, white 50%, transparent 50%),
+        radial-gradient(3px 3px at 130px 120px, white 50%, transparent 50%);
       background-size: 200px 200px;
       animation: snowfall 18s linear infinite;
       opacity: 0.6;
@@ -342,8 +359,27 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     .track {
       display: flex;
       gap: 16px;
-      overflow: hidden;
+      overflow-x: auto;
+      /* horizontal scroll enabled */
+      overflow-y: hidden;
       scroll-behavior: smooth;
+      padding-bottom: 10px;
+      /* space for scrollbar */
+      -webkit-overflow-scrolling: touch;
+      /* smooth on iPhone */
+    }
+
+    .track::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .track::-webkit-scrollbar-thumb {
+      background: var(--accent);
+      border-radius: 10px;
+    }
+
+    .track::-webkit-scrollbar-track {
+      background: #111;
     }
 
     .track .card {
@@ -376,6 +412,46 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       border-color: #3a4454;
     }
 
+    /*swipe image*/
+    .image-carousel {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-carousel img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .image-carousel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.2);
+      border: none;
+      color: white;
+      font-size: 18px;
+      padding: 6px 6px;
+      cursor: pointer;
+      border-radius: 30px;
+    }
+
+    .image-carousel .img-prev {
+      left: 4px;
+    }
+
+    .image-carousel .img-next {
+      right: 4px;
+    }
+
+    .image-carousel button:hover {
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+
     /* Cards */
     .card {
       background: var(--card);
@@ -406,6 +482,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
     .meta h4 {
+      color: var(--h4tit);
       margin: 0 0 4px;
       font: 700 1rem/1.2 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     }
@@ -414,7 +491,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       margin: 0 0 8px;
       color: var(--muted);
       display: -webkit-box;
-      -webkit-line-clamp: 2;
+      -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -449,7 +526,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      background: #3D3D3D; /*#25D366*/
+      background: #3D3D3D;
+      /*#25D366*/
       display: inline-block;
     }
 
@@ -463,7 +541,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       max-width: 1100px;
       margin: 20px auto 0;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       gap: 10px;
     }
 
@@ -485,8 +563,9 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     .suggest-box {
       background: #000000;
       /*chrismas color:#0d0f14 */
-      padding: 50px;
-      margin-top: 30px;
+      padding: 10px;
+      margin-top: 60px;
+      margin-bottom: 5px;
       border-radius: 30px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
@@ -516,6 +595,57 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       display: inline-block;
     }
 
+    .info-flexbox {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background-color: #000000;
+      color: #f0f0f0;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .info-card {
+      flex: 1 1 300px;
+      margin: 10px;
+      padding: 15px;
+      background-color: #000000;
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .info-card h3 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      color: white;
+    }
+
+    .info-card p {
+      text-align: center;
+      margin: 6px 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    #desc-popup {
+      position: fixed;
+      max-width: 300px;
+      background: #000;
+      color: var(--ink);
+      border: 1px solid var(--accent);
+      padding: 14px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      z-index: 9999;
+      display: none;
+      font-size: 0.95rem;
+    }
+
+
     /* Responsive */
     @media (max-width: 1100px) {
       .grid {
@@ -536,41 +666,17 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 </head>
 
 <body>
+  <div id="desc-popup"></div>
 
   <!-- ===== Header ===== -->
   <div class="header-wrapper">
-    <img src="images/Industry_logo.jpeg" alt="Logo" class="brand-logo">
+    <img src="images/Industry_logo.png" alt="Logo" class="brand-logo">
     <div class="header">
-      <h1>Bienvenu sur notre catalogue!!</h1>
-      <p>Une sélection raffinée d’appareils haut de gamme, présentés avec style et simplicité.</p>
+      <h1>Bienvenu chez Sound Industry!!</h1>
+      <p>Une sélection raffinée d’appareils haut de gamme, présentés avec style et simplicité, tout en offrant les prix
+        les plus bas du marché pour une qualité incomparable. </p>
     </div>
   </div>
-
-  <!-- ===== Controls (layout & theme) ===== -->
-  <!-- <div class="controls">
-    <div class="control" id="layoutControl">
-      <h3 align="center">Promo du moment</h3>
-      <div class="pill">
-        <button class="btn" id="layoutPrev" aria-label="layout previous">⟵</button>
-        <div class="label" id="layoutLabel">Casques & Audio</div>
-        <button class="btn" id="layoutNext" aria-label="layout next">⟶</button>
-      </div>
-      <article class="card">
-        <img src="<?= htmlspecialchars($row['Ima1'])?>">
-        <div class="meta">
-          <h4>
-            <?= htmlspecialchars($row['Tit_pro1'])?>
-          </h4>
-          <p>
-            <?= htmlspecialchars($row['desc1'])?>
-          </p>
-          <div class="price">129 €</div>
-          <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Casque ANC Sans Fil',129)"><span
-                class="wa"></span> Commander via WhatsApp</button></div>
-        </div>
-      </article>
-    </div>
-  </div>-->
 
   <!-- ===== Sections (Accordion style) ===== -->
   <section class="section" data-collapsed="true">
@@ -585,50 +691,83 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         <div class="track" id="track-audio">
           <!-- Cards -->
           <article class="card">
-            <img src="images/Airpod_2.png" alt="AirPods 2">
+            <div class="image-carousel" data-images='[
+              "images/Airpod_2.png",
+              "images/Airpods_2_1.png",
+              "images/Airpods_2_2.png",
+              "images/Airpod_2_3.png"
+              ]'>
+              <button class="img-prev">⟵</button>
+              <img class="product-img" src="images/Airpod_2.png" alt="AirPods 2">
+              <button class="img-next">⟶</button>
+            </div>
             <div class="meta">
               <h4>AirPods 2</h4>
-              <p>Apple AirPods (2ᵉ génération) –Connexion Bluetooth 5.0 –Autonomie 5 h d’écoute / 24 h avec boîtier
-                –Boîtier de charge Lightning –Poids 4 g par écouteur –Compatibles iPhone, iPad, Mac, Apple Watch. </p>
+              <p>AirPods (2ᵉ génération)–Autonomie 5h d’écoute/24h avec boîtier
+                 –Poids 4g/écouteur. </p>
               <div class="price">70 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods 2',70)"><span
                     class="wa"></span> Commander </button></div>
             </div>
           </article>
           <article class="card">
-            <img src="images/Airpod_Pro_2.png" alt="AirPods Pro 2">
+            <div class="image-carousel" data-images='[
+              "images/Airpod_Pro_2.png",
+              "images/Airpod_pro_2_1.png",
+              "images/Airpods_pro_2_4.png",
+              "images/Airpod_pro_2_2.png"
+              ]'>
+              <button class="img-prev">⟵</button>
+              <img class="product-img" src="images/Airpod_Pro_2.png" alt="AirPods Pro 2">
+              <button class="img-next">⟶</button>
+            </div>
             <div class="meta">
               <h4>AirPods Pro 2</h4>
-              <p>AirPods Pro 2 (USB‑C) – Réduction de bruit– Autonomie 6 h / 30 h avec boîtier – Bluetooth 5.3.</p>
+              <p>AirPods Pro 2 (USB‑C)– Réduction de bruit– Autonomie 6 h / 30 h avec boîtier.</p>
               <div class="price">100 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods Pro 2',100)"><span
                     class="wa"></span> Commander</button></div>
             </div>
           </article>
           <article class="card">
-            <img src="images/Airpod _3.png" alt="Airpod _3">
+            <div class="image-carousel" data-images='[
+              "images/Airpod_3.png",
+              "images/Airpod_3_2.png",
+              "images/Airpod_3_1.png",
+              "images/Airpod_3_3.png"
+              ]'>
+              <button class="img-prev">⟵</button>
+              <img class="product-img" src="images/Airpod_3.png" alt="Airpod 3">
+              <button class="img-next">⟶</button>
+            </div>
             <div class="meta">
               <h4>AirPods 3</h4>
-              <p>AirPods 3 – Autonomie 6 h / 30 h avec boîtier – Bluetooth 5.0.</p>
+              <p>AirPods 3 – Autonomie 6 h / 30 h avec boîtier - Design compact et
+                ergonomique.</p>
               <div class="price">70 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods 3',70)"><span
                     class="wa"></span> Commander</button></div>
             </div>
           </article>
           <article class="card">
-            <img src="images/Airpod_4.png" alt="Airpod_4">
+            <div class="image-carousel" data-images='[
+              "images/Airpod_4.png",
+              "images/Airpod_4_1.png",
+              "images/Airpod_4_2.png",
+              "images/Airpod_4_3.png"
+              ]'>
+              <button class="img-prev">⟵</button>
+              <img class="product-img" src="images/Airpod_4.png" alt="Airpod 4">
+              <button class="img-next">⟶</button>
+            </div>
             <div class="meta">
               <h4>AirPods 4</h4>
-              <p>AirPods 4 – Autonomie 6 h / 30 h avec boîtier USB‑ Bluetooth 5.3.</p>
+              <p>AirPods 4 – Qualité sonore améliorée - Autonomie 6h / 30h avec boîtier USB.</p>
               <div class="price">100 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods 4',100)"><span
                     class="wa"></span> Commander</button></div>
             </div>
           </article>
-        </div>
-        <div class="carousel-controls">
-          <button class="carousel-btn" onclick="scrollTrack('track-audio',-1)">⟵</button>
-          <button class="carousel-btn" onclick="scrollTrack('track-audio',+1)">⟶</button>
         </div>
       </div>
     </div>
@@ -645,30 +784,43 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       <div class="scrollwrap layout-carousel">
         <div class="track" id="track-smartphones">
           <article class="card">
-            <img src="images/Airpod_Max_Lighting.png" alt="Airpod_Max_Lighting">
+            <div class="image-carousel" data-images='[
+              "images/Airpod_Max_Lighting.png",
+              "images/Airpod_Max_Lighting_1.png",
+              "images/Airpod_Max_Lighting_2.png",
+              "images/Airpod_Max_Lighting_3.png"
+              ]'>
+              <button class="img-prev">⟵</button>
+              <img class="product-img" src="images/Airpod_Max_Lighting.png" alt="Airpod Max Lighting">
+              <button class="img-next">⟶</button>
+            </div>
             <div class="meta">
               <h4>AirPods Max lighting</h4>
-              <p>AirPods Max (Lightning) – Transducteurs Apple haute fidélité – Autonomie 10h – Bluetooth 5.0 – Port
-                Lightning.</p>
+              <p>AirPods Max – Autonomie 10h – Bluetooth 5.0 – Port Lightning.</p>
               <div class="price">120 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods Max lighting',120)"><span
                     class="wa"></span> Commander</button></div>
             </div>
           </article>
           <article class="card">
-            <img src="images/Airpods_Max_USB-C.png" alt="Airpods_Max_USB-C">
+            <div class="image-carousel" data-images='[
+              "images/Airpods_Max_USB-C.png",
+              "images/Airpods_Max_USB-C_1.png",
+              "images/Airpods_Max_USB-C_2.png",
+              "images/Airpods_Max_USB-C_3.png"
+              ]'>
+              <button class="img-prev">⟵</button>
+              <img class="product-img" src="images/Airpods_Max_USB-C.png" alt="Airpods Max USB-C">
+              <button class="img-next">⟶</button>
+            </div>
             <div class="meta">
               <h4>AirPods Max USB-C</h4>
-              <p>AirPods Max (USB‑C) – Transducteurs haute fidélité – Autonomie 10 h – Bluetooth 5.3 – Port USB‑C.</p>
+              <p>AirPods Max – Autonomie 10 h – Bluetooth 5.3 – Port USB‑C.</p>
               <div class="price">120 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods Max USB-C',120)"><span
                     class="wa"></span> Commander</button></div>
             </div>
           </article>
-        </div>
-        <div class="carousel-controls">
-          <button class="carousel-btn" onclick="scrollTrack('track-audio',-1)">⟵</button>
-          <button class="carousel-btn" onclick="scrollTrack('track-audio',+1)">⟶</button>
         </div>
       </div>
     </div>
@@ -684,10 +836,18 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       <div class="scrollwrap layout-carousel">
         <div class="track" id="track-accessoires">
           <article class="card">
-            <img src="images/JBL_Pulse_5.png" alt="JBL_Pulse_5">
+            <div class="image-carousel" data-images='[
+              "images/JBL_Pulse_5.png",
+              "images/JBL_Pulse_5_1.png",
+              "images/JBL_Pulse_5_2.png"
+              ]'>
+              <button class="img-prev">⟵</button>
+              <img class="product-img" src="images/JBL_Pulse_5.png" alt="JBL Pulse 5">
+              <button class="img-next">⟶</button>
+            </div>
             <div class="meta">
               <h4>Enceinte JBL Pulse 5</h4>
-              <p>JBL Pulse 5 – Son 360° – Lumières LED personnalisables – Puissance 40 W – Autonomie 12 h – Bluetooth
+              <p>JBL Pulse 5 – Son 360° – Puissance 40 W – Autonomie 12 h – Bluetooth
                 5.3 – Port USB‑C – Design transparent lumineux.</p>
               <div class="price">120 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Enceinte JBL Pulse 5',120)"><span
@@ -695,20 +855,25 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
             </div>
           </article>
           <article class="card">
-            <img src="images/JBL_Flip_7.png" alt="JBL_Flip_7">
+            <div class="image-carousel" data-images='[
+              "images/JBL_Flip_7.png",
+              "images/JBL_Flip_7_1.png",
+              "images/JBL_Flip_7_2.png",
+              "images/JBL_Flip_7_3.png"
+              ]'>
+              <button class="img-prev">⟵</button>
+              <img class="product-img" src="images/JBL_Flip_7.png" alt="JBL Flip 7">
+              <button class="img-next">⟶</button>
+            </div>
             <div class="meta">
               <h4>Enceinte JBL FLIP 7</h4>
-              <p>JBL Flip 7 – Son stéréo amélioré – Puissance 30 W – Autonomie 15 h – Bluetooth 5.3 – Port USB‑C –
-                Design compact renforcé.</p>
+              <p>JBL Flip 7 (USB‑C) – Son stéréo amélioré – Puissance 30 W – Autonomie 15 h – Bluetooth 5.3 – Design
+                compact renforcé.</p>
               <div class="price">140 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Enceinte JBL FLIP 7',140)"><span
                     class="wa"></span> Commander</button></div>
             </div>
           </article>
-        </div>
-        <div class="carousel-controls">
-          <button class="carousel-btn" onclick="scrollTrack('track-audio',-1)">⟵</button>
-          <button class="carousel-btn" onclick="scrollTrack('track-audio',+1)">⟶</button>
         </div>
       </div>
     </div>
@@ -725,7 +890,14 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       <div class="scrollwrap layout-carousel">
         <div class="track" id="track-coffrets">
           <article class="card">
-            <img src="images/Gift_box.png" alt="Gift_box">
+            <div class="image-carousel" data-images='[
+              "images/Gift_box.png",
+              "images/gift_box_1.png"
+              ]'>
+              <button class="img-prev">⟵</button>
+              <img class="product-img" src="images/Gift_box.png" alt="Gift box">
+              <button class="img-next">⟶</button>
+            </div>
             <div class="meta">
               <h4>Coffret Accessoire</h4>
               <p>Casque ANC + Écouteurs + Pochette.</p>
@@ -753,11 +925,36 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       <div class="scrollwrap layout-carousel">
         <div class="track" id="track-maison">
           <article class="card">
-            <img src="images/Apple_watch_ultra_2.png" alt="Apple_watch_ultra_2">
+            <div class="image-carousel" data-images='[
+              "images/Apple_watch_ultra_2.png",
+              "images/Apple_watch_ultra_2_1.png"
+              ]'>
+              <button class="img-prev">⟵</button>
+              <img class="product-img" src="images/Apple_watch_ultra_2.png" alt="Apple watch ultra 2">
+              <button class="img-next">⟶</button>
+            </div>
             <div class="meta">
               <h4>Apple Watch Ultra 2</h4>
-              <p>Apple Watch Ultra 2 + Cellular 49 mm - Titane Titane naturel</p>
+              <p>Apple Watch Ultra 2 + Cellular 49 mm - Titane naturel - Bracelet Noir</p>
               <div class="price">120 €</div>
+              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Apple Watch Ultra 2',120)"><span
+                    class="wa"></span> Commander</button></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="image-carousel" data-images='[
+              "images/Apple_watch_serie_10.png",
+              "images/Apple_watch_serie_10_1.png",
+              "images/Apple_watch_serie_10_2.png"
+              ]'>
+              <button class="img-prev">⟵</button>
+              <img class="product-img" src="images/Apple_watch_serie_10.png" alt="Apple watch serie 10">
+              <button class="img-next">⟶</button>
+            </div>
+            <div class="meta">
+              <h4>Apple Watch série 10</h4>
+              <p>Apple Watch Series 10 - GPS 46 mm - Aluminium Noir de jais - Bracelet sport Noir</p>
+              <div class="price">100 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Apple Watch Ultra 2',120)"><span
                     class="wa"></span> Commander</button></div>
             </div>
@@ -766,7 +963,6 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       </div>
     </div>
   </section>
-
   <div class="suggest-box">
     <h2>💡 Suggestion de nouveaux produits</h2>
     <p>Dites-nous quels sont les produits que vous aimeriez que nous ajoutions.</p>
@@ -779,6 +975,23 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     </div>
   </div>
 
+  <div class="info-flexbox">
+    <div class="info-card">
+      <h3>🕒 Livraison partout en Guyane!!</h3>
+      <p>7j/7</p>
+      <p>On s'adapte à votre emploi du temps</p>
+      <p>En développement pour tout les DROM-TOM</p>
+    </div>
+
+    <div class="info-card">
+      <h3>📞 Contact</h3>
+      <p><strong>Téléphone :</strong> +594 694 97 89 21</p>
+      <p><strong>Email :</strong> SoundIndustry@gmail.fr</p>
+      <p><strong>Réponse moyenne :</strong> moins de 24h</p>
+    </div>
+  </div>
+
+
   <!-- Footer navigation -->
   <div class="footer-nav">
     <button class="btn" onclick="scrollToTop()">↑ Haut</button>
@@ -787,11 +1000,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   </div>
 
   <script>
-    // ton code ici
-
-
     /* ===== Config WhatsApp (optionnel) ===== */
-    const WHATSAPP_NUMBER = '759679709'; // Remplacez par votre numéro au format international sans "+"
+    const WHATSAPP_NUMBER = '594694978921';
 
     /* ===== Accordion toggle ===== */
     function toggleSection(el) {
@@ -818,66 +1028,22 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
     window.scrollTrack = scrollTrack;
 
-    /* ===== Layout & Theme choosers ===== */
-    let layoutIndex = 0; // 0=Carousel, 1=Grid
-    let Tit_pro1 = "Casqu Audio";
-    let desc1 = "reduction de bruit";
-    let Ima1 = "https://picsum.photos/seed/headphone";
-    const layoutLabel = document.getElementById('layoutLabel');
-    document.getElementById('layoutPrev').addEventListener('click', () => setLayout((layoutIndex + 1) % 2));
-    document.getElementById('layoutNext').addEventListener('click', () => setLayout((layoutIndex + 1) % 2));
+    /* ===== Product Image Carousel (inside cards) ===== */
+    document.querySelectorAll('.image-carousel').forEach(carousel => {
+      const img = carousel.querySelector('.product-img');
+      const images = JSON.parse(carousel.getAttribute('data-images'));
+      let index = 0;
 
-    function setLayout(idx) {
-      layoutIndex = idx;
-      const isCarousel = layoutIndex === 0;
-      layoutLabel.textContent = isCarousel ? 'Casques & Audio' : 'Smartphones';
-      layoutLabel.classList.toggle('active', true);
-
-      document.querySelectorAll('.section-content').forEach(sc => {
-        const wrap = sc.querySelector('.scrollwrap');
-        const track = sc.querySelector('.track');
-        const controls = sc.querySelector('.carousel-controls');
-
-        if (isCarousel) {
-          wrap.classList.add('layout-carousel');
-          wrap.classList.remove('layout-grid');
-          track.style.display = 'flex';
-          track.style.flexWrap = 'nowrap';
-          track.style.overflow = 'hidden';
-          controls.style.display = 'flex';
-          Tit_pro1 = "Casqu Audio";
-          desc1 = "reduction de bruit";
-          Ima1 = "https://picsum.photos/seed/headphone";
-        } else {
-          wrap.classList.add('layout-grid');
-          wrap.classList.remove('layout-carousel');
-          controls.style.display = 'none';
-          // Transform the track into a grid
-          track.style.display = 'grid';
-          track.style.gridTemplateColumns = 'repeat(4, 1fr)';
-          track.style.gap = '16px';
-          track.style.overflow = 'visible';
-          Tit_pro1 = "Smartphone";
-          desc1 = "qualité photo";
-          Ima1 = "https://picsum.photos/seed/giftbox3/640/400";
-        }
+      carousel.querySelector('.img-prev').addEventListener('click', () => {
+        index = (index - 1 + images.length) % images.length;
+        img.src = images[index];
       });
-    }
-    setLayout(0); // default Carousel
 
-    let themeIndex = 0; // 0=Elegant, 1=Pop
-    const themeLabel = document.getElementById('themeLabel');
-    document.getElementById('themePrev').addEventListener('click', () => setTheme((themeIndex + 1) % 2));
-    document.getElementById('themeNext').addEventListener('click', () => setTheme((themeIndex + 1) % 2));
-
-    function setTheme(idx) {
-      themeIndex = idx;
-      const isElegant = themeIndex === 0;
-      themeLabel.textContent = isElegant ? 'Elegant' : 'Pop';
-      themeLabel.classList.toggle('active', true);
-      document.body.classList.toggle('theme-pop', !isElegant);
-    }
-    setTheme(0); // default Elegant
+      carousel.querySelector('.img-next').addEventListener('click', () => {
+        index = (index + 1) % images.length;
+        img.src = images[index];
+      });
+    });
 
     /* ===== WhatsApp helpers ===== */
     function openWhatsApp(message) {
@@ -897,11 +1063,25 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       const mailto = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.location.href = mailto;
     }
+    /* ===== heart falling ===== */
+    document.addEventListener("DOMContentLoaded", () => {
+      const valentine = document.querySelector('.valentine');
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (6 + Math.random() * 6) + 's';
+        heart.style.opacity = Math.random() * 0.8 + 0.2;
+        valentine.appendChild(heart);
+      }
+    });
+
 
     /* ===== Scroll helper ===== */
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
   </script>
   <!--<div class="snow"></div>-->
+  <!--<div class="valentine"></div>-->
 </body>
 
 </html>
