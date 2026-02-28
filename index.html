@@ -5,8 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sound Industry</title>
-  <meta name="description"
-    content="Découvrez notre catalogue interactif et l’ensemble de nos gammes de produits." />
+  <meta name="description" content="Découvrez notre catalogue interactif et l’ensemble de nos gammes de produits." />
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap');
@@ -299,6 +298,73 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       border: 0;
     }
 
+    /* coup de coeur section*/
+
+    .coup-de-coeur {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 20px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .coup-de-coeur h2 {
+      margin-bottom: 5px;
+      margin-top: 5px;
+      font-size: 1.8rem;
+      color: #d2b976;
+      /*#b8860b;*/
+    }
+
+    .cdc-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cdc-card img {
+      width: 140px;
+      border-radius: 10px;
+    }
+
+    .cdc-info {
+      max-width: 300px;
+      text-align: left;
+    }
+
+    .cdc-info h3 {
+      color: var(--h4tit);
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .cdc-info p {
+      margin: 8px 0;
+      color: var(--muted);
+    }
+
+    .coup-de-coeur .price {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .coup-de-coeur .btn-order {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #041019;
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+
     /* Sections (Accordion) */
     .section {
       max-width: 1100px;
@@ -539,7 +605,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
     .footer-nav {
       max-width: 1100px;
-      margin: 20px auto 0;
+      margin: 10px auto;
+      padding: 10px;
       display: flex;
       justify-content: center;
       gap: 10px;
@@ -645,6 +712,129 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       font-size: 0.95rem;
     }
 
+    /* ===== Popup Overlay ===== */
+    /* ===== Overlay (fond noir flouté) ===== */
+    .popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      /* évite que la popup touche les bords sur mobile */
+      z-index: 99999;
+    }
+
+    /* ===== Boîte popup ===== */
+    .popup-content {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: 16px;
+      padding: 24px;
+      width: 90%;
+      max-width: 420px;
+      max-height: 90vh;
+      /* évite qu’elle dépasse l’écran */
+      overflow-y: auto;
+      color: var(--ink);
+      animation: popIn 0.25s ease-out;
+    }
+
+    /* Animation d’apparition */
+    @keyframes popIn {
+      from {
+        transform: scale(0.85);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* ===== Titre ===== */
+    .popup-content h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    /* ===== Liste des avis ===== */
+    #avisList {
+      max-height: 180px;
+      overflow-y: auto;
+      padding-right: 6px;
+      margin-bottom: 18px;
+    }
+
+    #avisList p {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: var(--card-shadow);
+    }
+
+    /* ===== Formulaire ===== */
+    .popup-content form {
+      display: flex;
+      /* empile les champs */
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+
+    .popup-content input,
+    .popup-content textarea {
+      width: 100%;
+      height: 50%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #0d0f14;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .popup-content textarea {
+      min-height: 60px;
+      /* plus compact */
+      resize: horizontal;
+    }
+
+    /* ===== Boutons ===== */
+    .popup-content button {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      width: 50%;
+      height: 50%;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #041019;
+      transition: 0.2s;
+    }
+
+    .popup-content button:hover {
+      filter: brightness(1.1);
+    }
+
+    /* ===== Bouton Fermer centré ===== */
+    .close-btn {
+      display: block;
+      margin: 10px auto 0;
+      width: 140px;
+      text-align: center;
+    }
+
 
     /* Responsive */
     @media (max-width: 1100px) {
@@ -672,11 +862,26 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   <div class="header-wrapper">
     <img src="images/Industry_logo.png" alt="Logo" class="brand-logo">
     <div class="header">
-      <h1>Bienvenu chez Sound Industry!!</h1>
+      <h1>Bienvenu chez Sound Industry!!!</h1>
       <p>Une sélection raffinée d’appareils haut de gamme, présentés avec style et simplicité, tout en offrant les prix
         les plus bas du marché pour une qualité incomparable. </p>
     </div>
   </div>
+
+  <!-- ===== Coup de Coeur Highlight ===== -->
+  <div class="coup-de-coeur">
+    <h2>⭐ Coup de cœur du mois</h2>
+    <div class="cdc-card">
+      <img src="images/Airpod_Pro_2.png" alt="Produit Coup de Coeur">
+      <div class="cdc-info">
+        <h3>AirPods Pro 2</h3>
+        <p>Notre sélection premium : réduction de bruit, autonomie renforcée, confort absolu.</p>
+        <div class="price">100 €</div>
+        <button class="btn-order" onclick="orderWhatsApp('AirPods Pro 2',100)">Commander</button>
+      </div>
+    </div>
+  </div>
+
 
   <!-- ===== Sections (Accordion style) ===== -->
   <section class="section" data-collapsed="true">
@@ -703,9 +908,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
             </div>
             <div class="meta">
               <h4>AirPods 2</h4>
-              <p>AirPods (2ᵉ génération)–Autonomie 5h d’écoute/24h avec boîtier
-                 –Poids 4g/écouteur. </p>
-              <div class="price">70 €</div>
+              <p>AirPods (2ᵉ génération)–Autonomie 5h d’écoute/24h avec boîtier. </p>
+              <div class="price">60 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods 2',70)"><span
                     class="wa"></span> Commander </button></div>
             </div>
@@ -723,8 +927,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
             </div>
             <div class="meta">
               <h4>AirPods Pro 2</h4>
-              <p>AirPods Pro 2 (USB‑C)– Réduction de bruit– Autonomie 6 h / 30 h avec boîtier.</p>
-              <div class="price">100 €</div>
+              <p>AirPods Pro 2 (USB‑C)- Réduction de bruit - Autonomie 6h/30h avec boîtier.</p>
+              <div class="price">80 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods Pro 2',100)"><span
                     class="wa"></span> Commander</button></div>
             </div>
@@ -732,19 +936,19 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
           <article class="card">
             <div class="image-carousel" data-images='[
               "images/Airpod_3.png",
-              "images/Airpod_3_2.png",
+              "images/Airpod_3_3.png",
               "images/Airpod_3_1.png",
-              "images/Airpod_3_3.png"
+              "images/Airpod_3_2.png"
               ]'>
               <button class="img-prev">⟵</button>
               <img class="product-img" src="images/Airpod_3.png" alt="Airpod 3">
               <button class="img-next">⟶</button>
             </div>
             <div class="meta">
-              <h4>AirPods 3</h4>
-              <p>AirPods 3 – Autonomie 6 h / 30 h avec boîtier - Design compact et
+              <h4>AirPods pro 3</h4>
+              <p>AirPods pro 3 – Autonomie 6 h / 30 h avec boîtier - Design compact et
                 ergonomique.</p>
-              <div class="price">70 €</div>
+              <div class="price">90 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods 3',70)"><span
                     class="wa"></span> Commander</button></div>
             </div>
@@ -763,7 +967,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
             <div class="meta">
               <h4>AirPods 4</h4>
               <p>AirPods 4 – Qualité sonore améliorée - Autonomie 6h / 30h avec boîtier USB.</p>
-              <div class="price">100 €</div>
+              <div class="price">95 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods 4',100)"><span
                     class="wa"></span> Commander</button></div>
             </div>
@@ -797,7 +1001,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
             <div class="meta">
               <h4>AirPods Max lighting</h4>
               <p>AirPods Max – Autonomie 10h – Bluetooth 5.0 – Port Lightning.</p>
-              <div class="price">120 €</div>
+              <div class="price">130 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods Max lighting',120)"><span
                     class="wa"></span> Commander</button></div>
             </div>
@@ -816,7 +1020,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
             <div class="meta">
               <h4>AirPods Max USB-C</h4>
               <p>AirPods Max – Autonomie 10 h – Bluetooth 5.3 – Port USB‑C.</p>
-              <div class="price">120 €</div>
+              <div class="price">130 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods Max USB-C',120)"><span
                     class="wa"></span> Commander</button></div>
             </div>
@@ -849,7 +1053,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <h4>Enceinte JBL Pulse 5</h4>
               <p>JBL Pulse 5 – Son 360° – Puissance 40 W – Autonomie 12 h – Bluetooth
                 5.3 – Port USB‑C – Design transparent lumineux.</p>
-              <div class="price">120 €</div>
+              <div class="price">80 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Enceinte JBL Pulse 5',120)"><span
                     class="wa"></span> Commander</button></div>
             </div>
@@ -869,7 +1073,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <h4>Enceinte JBL FLIP 7</h4>
               <p>JBL Flip 7 (USB‑C) – Son stéréo amélioré – Puissance 30 W – Autonomie 15 h – Bluetooth 5.3 – Design
                 compact renforcé.</p>
-              <div class="price">140 €</div>
+              <div class="price">60 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Enceinte JBL FLIP 7',140)"><span
                     class="wa"></span> Commander</button></div>
             </div>
@@ -891,6 +1095,26 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         <div class="track" id="track-coffrets">
           <article class="card">
             <div class="image-carousel" data-images='[
+              "images/Gift_box_5_1.png",
+              "images/Gift_box_5_1_2.png"
+              ]'>
+              <button class="img-prev">⟵</button>
+              <img class="product-img" src="images/Gift_box_5_1.png" alt="Gift box">
+              <button class="img-next">⟶</button>
+            </div>
+            <div class="meta">
+              <h4>Coffret Accessoire</h4>
+              <p>Compatibilité : Iphone (11/12/13/14/15/16/17).</p>
+              <p>Câble USB-C + Coque de protection + Batterie externe à induction.</p>
+              <div class="price">75 €</div>
+              <div class="actions"><button class="btn-order"
+                  onclick="event.stopPropagation();orderWhatsApp('Coffret Accessoire Iphone',75)"><span
+                    class="wa"></span> Commander</button>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="image-carousel" data-images='[
               "images/Gift_box.png",
               "images/gift_box_1.png"
               ]'>
@@ -900,11 +1124,32 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
             </div>
             <div class="meta">
               <h4>Coffret Accessoire</h4>
-              <p>Casque ANC + Écouteurs + Pochette.</p>
+              <p>Compatibilité : Iphone (11/12/13/14/15/16/17).</p>
+              <p>Câble USB-C + Airpods pro 2 + Coque de protection + Batterie externe à induction.</p>
               <div class="price">100 €</div>
-              <div class="Stock">8 en Stock</div>
               <div class="actions"><button class="btn-order"
                   onclick="event.stopPropagation();orderWhatsApp('Coffret Accessoire Iphone',100)"><span
+                    class="wa"></span> Commander</button>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="image-carousel" data-images='[
+              "images/Gift_box_7_1.png",
+              "images/Gift_box_7_1_1.png"
+              ]'>
+              <button class="img-prev">⟵</button>
+              <img class="product-img" src="images/Gift_box_7_1.png" alt="Gift box">
+              <button class="img-next">⟶</button>
+            </div>
+            <div class="meta">
+              <h4>Coffret Accessoire</h4>
+              <p>Compatibilité : Iphone (11/12/13/14/15/16/17).</p>
+              <p>Câble USB-C + Airpods pro 2 + Coque de protection + Batterie externe à induction + Montre connectée.
+              </p>
+              <div class="price">120 €</div>
+              <div class="actions"><button class="btn-order"
+                  onclick="event.stopPropagation();orderWhatsApp('Coffret Accessoire Iphone',120)"><span
                     class="wa"></span> Commander</button>
               </div>
             </div>
@@ -936,7 +1181,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
             <div class="meta">
               <h4>Apple Watch Ultra 2</h4>
               <p>Apple Watch Ultra 2 + Cellular 49 mm - Titane naturel - Bracelet Noir</p>
-              <div class="price">120 €</div>
+              <div class="price">100 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Apple Watch Ultra 2',120)"><span
                     class="wa"></span> Commander</button></div>
             </div>
@@ -952,9 +1197,9 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <button class="img-next">⟶</button>
             </div>
             <div class="meta">
-              <h4>Apple Watch série 10</h4>
-              <p>Apple Watch Series 10 - GPS 46 mm - Aluminium Noir de jais - Bracelet sport Noir</p>
-              <div class="price">100 €</div>
+              <h4>Apple Watch série 11</h4>
+              <p>Apple Watch Series 11 - GPS 46 mm - Aluminium Noir de jais - Bracelet sport Noir</p>
+              <div class="price">120 €</div>
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Apple Watch Ultra 2',120)"><span
                     class="wa"></span> Commander</button></div>
             </div>
@@ -979,14 +1224,14 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     <div class="info-card">
       <h3>🕒 Livraison partout en Guyane!!</h3>
       <p>7j/7</p>
-      <p>On s'adapte à votre emploi du temps</p>
-      <p>En développement pour tout les DROM-TOM</p>
+      <p>Nous nous adaptons à votre emploi du temps.</p>
+      <p>Notre service est en cours de déploiement pour tous les DROM‑TOM.</p>
     </div>
 
     <div class="info-card">
       <h3>📞 Contact</h3>
       <p><strong>Téléphone :</strong> +594 694 97 89 21</p>
-      <p><strong>Email :</strong> SoundIndustry@gmail.fr</p>
+      <p><strong>Email :</strong> Soundindustry.store@gmail.com</p>
       <p><strong>Réponse moyenne :</strong> moins de 24h</p>
     </div>
   </div>
@@ -997,7 +1242,30 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     <button class="btn" onclick="scrollToTop()">↑ Haut</button>
     <button class="btn primary"
       onclick="openWhatsApp('Bonjour, Je veux avoir des renseignements sur un/des produits')">Aide</button>
+    <!-- Bouton Avis -->
+    <button class="btn" onclick="toggleAvisPopup()">Avis</button>
   </div>
+
+
+  <!-- Popup Avis -->
+  <div id="avisPopup" class="popup" style="display:none;">
+    <div class="popup-content">
+      <h3>Avis des clients</h3>
+
+      <div id="avisList"></div>
+
+      <form id="avisForm">
+        <input type="text" name="nom" placeholder="Votre pseudo" required>
+        <textarea name="message" placeholder="Avis ici..." required></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+
+      <button class="close-btn" onclick="closeAvisPopup()">Fermer</button>
+    </div>
+  </div>
+
+
+
 
   <script>
     /* ===== Config WhatsApp (optionnel) ===== */
@@ -1057,10 +1325,10 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     /* ===== suggestion space ===== */
     function sendSuggestion() {
       const message = document.getElementById("suggestMessage").value.trim();
-      const email = "lalannefrancis431@gmail.com";
+      const email = "Soundindustry.store@gmail.com";
       const subject = "Suggestion de nouveau produit";
       const body = message || "Aucune suggestion écrite.";
-      const mailto = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const mailto = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body + "\n \nBien cordialement,")}`;
       window.location.href = mailto;
     }
     /* ===== heart falling ===== */
@@ -1074,6 +1342,40 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         heart.style.opacity = Math.random() * 0.8 + 0.2;
         valentine.appendChild(heart);
       }
+    });
+
+    function toggleAvisPopup() {
+      document.getElementById("avisPopup").style.display = "block";
+      fetchAvis();
+    }
+    function closeAvisPopup() {
+      document.getElementById("avisPopup").style.display = "none";
+    }
+    //Envoyer en fichier JSON
+    async function fetchAvis() {
+      const res = await fetch('/.netlify/functions/getAvis');
+      const avis = await res.json();
+      const container = document.getElementById("avisList");
+
+      container.innerHTML = avis
+        .map(a => `<p><strong>${a.nom}</strong> : ${a.message}</p>`)
+        .join('');
+    }
+    //add the form just right there
+
+    document.getElementById("avisForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const nom = e.target.nom.value;
+      const message = e.target.message.value;
+
+      await fetch('/.netlify/functions/addAvis', {
+        method: "POST",
+        body: JSON.stringify({ nom, message })
+      });
+
+      e.target.reset();
+      fetchAvis(); // refresh list
     });
 
 
