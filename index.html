@@ -7,8 +7,11 @@
   <title>Sound Industry</title>
   <meta name="description" content="Découvrez notre catalogue interactif et l’ensemble de nos gammes de produits." />
 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap');
+
 
     /* =========================
    Palette & Thème (Elegant)
@@ -29,6 +32,7 @@
       /*#6ea8fe*/
       --accent-2: #d2b976;
       /*#8bd3f7*/
+      --promo-price: red;
       --price: #d2b976;
       /*#63d2c6*/
       --shadow: 0 18px 48px rgba(0, 0, 0, .5);
@@ -51,6 +55,7 @@
       /* pop violet-rose */
       --accent-2: #9ae7ff;
       /* pop bleu clair */
+      --promo-price: red;
       --price: #ffb86b;
       /* pop orange doux */
     }
@@ -299,6 +304,31 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
     /* coup de coeur section*/
+    .highlight-rotatif {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 12px 20px;
+      background: var(--panel);
+      color: #d2b976;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      transition: opacity 0.5s ease;
+    }
+
+    .highlight-item {
+      display: none;
+    }
+
+    .highlight-item.active {
+      display: block;
+    }
+
+
 
     .coup-de-coeur {
       max-width: 1100px;
@@ -315,7 +345,6 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       margin-bottom: 5px;
       margin-top: 5px;
       font-size: 1.8rem;
-      color: #d2b976;
       /*#b8860b;*/
     }
 
@@ -328,7 +357,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
     .cdc-card img {
-      width: 140px;
+      width: 220px;
       border-radius: 10px;
     }
 
@@ -352,6 +381,11 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       font-size: 1.4rem;
       font-weight: bold;
       margin: 10px 0;
+    }
+
+    .promo-price {
+      color: var(--promo-price);
+      text-decoration: line-through;
     }
 
     .coup-de-coeur .btn-order {
@@ -597,6 +631,23 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       display: inline-block;
     }
 
+    /*slogan section*/
+    .slogan-vibe {
+      font-family: 'Poppins', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      text-align: center;
+      margin: 35px 0;
+      color: var(--ink);
+      letter-spacing: 0.5px;
+    }
+
+    .slogan-vibe span {
+      color: var(--accent);
+      text-shadow: 0 0 4px rgba(210, 185, 118, 0.5), 0 0 10px rgba(210, 185, 118, 0.3);
+      letter-spacing: 1px;
+    }
+
     /* Helper & footer nav */
     .helper {
       color: var(--muted);
@@ -835,6 +886,18 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       text-align: center;
     }
 
+    #avisPopup {
+      position: fixed;
+      inset: 0;
+      /* top:0; right:0; bottom:0; left:0 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.75);
+      /* dark overlay */
+      backdrop-filter: blur(4px);
+      z-index: 99999;
+    }
 
     /* Responsive */
     @media (max-width: 1100px) {
@@ -868,16 +931,43 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     </div>
   </div>
 
-  <!-- ===== Coup de Coeur Highlight ===== -->
-  <div class="coup-de-coeur">
-    <h2>⭐ Coup de cœur du mois</h2>
-    <div class="cdc-card">
-      <img src="images/Airpod_Pro_2.png" alt="Produit Coup de Coeur">
-      <div class="cdc-info">
-        <h3>AirPods Pro 2</h3>
-        <p>Notre sélection premium : réduction de bruit, autonomie renforcée, confort absolu.</p>
-        <div class="price">100 €</div>
-        <button class="btn-order" onclick="orderWhatsApp('AirPods Pro 2',100)">Commander</button>
+  <!-- ===== Highlight Rotatif ===== -->
+  <div class="highlight-rotatif">
+    <div class="highlight-item active">
+      <h2>🔥 Promotion du moment</h2>
+      <div class="cdc-card">
+        <img src="images/Gift_box.png" alt="Produit Promotion">
+        <div class="cdc-info">
+          <h3>Coffret Accessoire 6 en 1</h3>
+          <p>Notre sélection premium : Airpods pro 2 Inclus.</p>
+          <div class="promo-price">115 €</div>
+          <div class="price">100 €</div>
+          <button class="btn-order" onclick="orderWhatsApp('Coffret Accessoire Iphone',100)">Commander</button>
+        </div>
+      </div>
+    </div>
+    <div class="highlight-item">
+      <h2>⭐ Meilleur article</h2>
+      <div class="cdc-card">
+        <img src="images/Airpod_Pro_2.png" alt="Produit Meilleur article">
+        <div class="cdc-info">
+          <h3>AirPods Pro 2</h3>
+          <p>Notre sélection premium : réduction de bruit, autonomie renforcée, confort absolu.</p>
+          <div class="price">80 €</div>
+          <button class="btn-order" onclick="orderWhatsApp('AirPods Pro 2',80)">Commander</button>
+        </div>
+      </div>
+    </div>
+    <div class="highlight-item">
+      <h2>❤️ Coup de cœur</h2>
+      <div class="cdc-card">
+        <img src="images/Apple_watch_serie_10.png" alt="Produit Coup de Coeur">
+        <div class="cdc-info">
+          <h3>Apple Watch série 11</h3>
+          <p>Notre sélection premium : GPS 46 mm - Aluminium Noir de jais - Bracelet sport Noir.</p>
+          <div class="price">120 €</div>
+          <button class="btn-order" onclick="orderWhatsApp('Apple Watch Ultra 2',120)">Commander</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1103,7 +1193,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <button class="img-next">⟶</button>
             </div>
             <div class="meta">
-              <h4>Coffret Accessoire</h4>
+              <h4>Coffret Accessoire 5 en 1</h4>
               <p>Compatibilité : Iphone (11/12/13/14/15/16/17).</p>
               <p>Câble USB-C + Coque de protection + Batterie externe à induction.</p>
               <div class="price">75 €</div>
@@ -1123,7 +1213,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <button class="img-next">⟶</button>
             </div>
             <div class="meta">
-              <h4>Coffret Accessoire</h4>
+              <h4>Coffret Accessoire 6 en 1</h4>
               <p>Compatibilité : Iphone (11/12/13/14/15/16/17).</p>
               <p>Câble USB-C + Airpods pro 2 + Coque de protection + Batterie externe à induction.</p>
               <div class="price">100 €</div>
@@ -1143,13 +1233,13 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <button class="img-next">⟶</button>
             </div>
             <div class="meta">
-              <h4>Coffret Accessoire</h4>
+              <h4>Coffret Accessoire 7 en 1</h4>
               <p>Compatibilité : Iphone (11/12/13/14/15/16/17).</p>
-              <p>Câble USB-C + Airpods pro 2 + Coque de protection + Batterie externe à induction + Montre connectée.
+              <p>Câble USB-C + Airpods pro 2 + Coque Iphone + Batterie à induction + Montre connectée.
               </p>
-              <div class="price">120 €</div>
+              <div class="price">130 €</div>
               <div class="actions"><button class="btn-order"
-                  onclick="event.stopPropagation();orderWhatsApp('Coffret Accessoire Iphone',120)"><span
+                  onclick="event.stopPropagation();orderWhatsApp('Coffret Accessoire Iphone',130)"><span
                     class="wa"></span> Commander</button>
               </div>
             </div>
@@ -1220,6 +1310,10 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     </div>
   </div>
 
+  <p class="slogan-vibe">
+    Sound Industry — Plus qu’un son… <span>UNE VYBZ !!!</span>
+  </p>
+
   <div class="info-flexbox">
     <div class="info-card">
       <h3>🕒 Livraison partout en Guyane!!</h3>
@@ -1255,7 +1349,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       <div id="avisList"></div>
 
       <form id="avisForm">
-        <input type="text" name="nom" placeholder="Votre pseudo" required>
+        <input type="text" name="nom" placeholder="Pseudo" required>
         <textarea name="message" placeholder="Avis ici..." required></textarea>
         <button type="submit">Envoyer</button>
       </form>
@@ -1270,6 +1364,20 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   <script>
     /* ===== Config WhatsApp (optionnel) ===== */
     const WHATSAPP_NUMBER = '594694978921';
+
+    const highlights = document.querySelectorAll('.highlight-item');
+    let hIndex = 0;
+
+    function rotateHighlight() {
+      highlights.forEach(h => h.classList.remove('active'));
+      highlights[hIndex].classList.add('active');
+      hIndex = (hIndex + 1) % highlights.length;
+    }
+
+    rotateHighlight(); // affiche le premier
+    setInterval(rotateHighlight, 10000); // change toutes les 10 sec
+
+
 
     /* ===== Accordion toggle ===== */
     function toggleSection(el) {
@@ -1364,20 +1472,20 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     //add the form just right there
 
     document.getElementById("avisForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
+  e.preventDefault();
 
-      const nom = e.target.nom.value;
-      const message = e.target.message.value;
+  const nom = e.target.nom.value;
+  const message = e.target.message.value;
 
-      await fetch('/.netlify/functions/addAvis', {
-        method: "POST",
-        body: JSON.stringify({ nom, message })
-      });
+  await fetch('/.netlify/functions/addAvis', {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ nom, message })
+  });
 
-      e.target.reset();
-      fetchAvis(); // refresh list
-    });
-
+  e.target.reset();
+  fetchAvis(); // refresh list
+});
 
     /* ===== Scroll helper ===== */
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
