@@ -1,4 +1,4 @@
-import { getStore } from '@netlify/blobs';
+import { getStore } from '@netlify/blobs/node';
 
 export async function handler(event) {
   const store = getStore('soundindustry-avis');
