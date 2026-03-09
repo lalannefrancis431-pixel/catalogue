@@ -1334,8 +1334,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       <!-- List of comments (you can fill manually or later via API) -->
       <div id="avisList">
         <!-- Example static comments -->
-        <p><strong>Sarah</strong> : Super boutique, livraison rapide !</p>
-        <p><strong>Marc</strong> : Très bon service, je recommande.</p>
+        <p>Chargement des avis...</p>
       </div>
 
       <!-- Netlify Form -->
@@ -1471,6 +1470,17 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       }
     });
 
+    /*load avis area*/
+    async function loadAvis() {
+      const res = await fetch('/.netlify/functions/getAvis');
+      const avis = await res.json();
+
+      const container = document.getElementById("avisList");
+      container.innerHTML = avis
+        .map(a => `<p><strong>${a.nom}</strong> : ${a.message}</p>`)
+        .join('');
+    }
+
     /*poppup area*/
     function toggleConcoursPopup() {
       document.getElementById("ConcoursPopup").style.display = "block";
@@ -1482,6 +1492,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
     function toggleAvisPopup() {
       document.getElementById("avisPopup").style.display = "block";
+      loadAvis();
     }
     function closeAvisPopup() {
       document.getElementById("avisPopup").style.display = "none";
