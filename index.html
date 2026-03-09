@@ -327,26 +327,6 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       display: block;
     }
 
-
-
-    .coup-de-coeur {
-      max-width: 1100px;
-      margin: 30px auto;
-      padding: 20px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    .coup-de-coeur h2 {
-      margin-bottom: 5px;
-      margin-top: 5px;
-      font-size: 20px;
-      /*#b8860b;*/
-    }
-
     .cdc-card {
       display: flex;
       align-items: center;
@@ -356,7 +336,6 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
     .cdc-card img {
-      width: 220px;
       border-radius: 10px;
     }
 
@@ -373,28 +352,12 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     .cdc-info p {
       margin: 8px 0;
       color: var(--muted);
-      font-size: 1.2rem;
-    }
-
-    .coup-de-coeur .price {
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin: 10px 0;
+      font-size: 1rem;
     }
 
     .promo-price {
       color: var(--promo-price);
       text-decoration: line-through;
-    }
-
-    .coup-de-coeur .btn-order {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #041019;
-      padding: 10px 18px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
     }
 
 
@@ -608,6 +571,19 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       flex-wrap: wrap;
     }
 
+    .btn-concours {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #041019;
+      font-weight: 700;
+    }
+
     .btn-order {
       display: inline-flex;
       align-items: center;
@@ -632,7 +608,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
     /*slogan section*/
     .slogan-vibe {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 26px;
       font-weight: 700;
       text-align: center;
@@ -933,9 +909,19 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   <!-- ===== Highlight Rotatif ===== -->
   <div class="highlight-rotatif">
     <div class="highlight-item active">
-      <h2>🔥 Promotion du moment</h2>
+      <h2 style="margin-top: 0%;">🎉🎉Jeu concours🎉🎉</h2>
       <div class="cdc-card">
-        <img src="images/Gift_box.png" alt="Produit Promotion">
+        <div class="cdc-info">
+          <h3>Sound Industry décide de vous faire plaisir!!!!</h3>
+          <p>Voir les conditions pour participer dans l'onglet "Je participe".</p>
+          <button class="btn-concours" onclick="toggleConcoursPopup()">🎉Je participe🎉</button>
+        </div>
+      </div>
+    </div>
+    <div class="highlight-item">
+      <h2 style="margin-top: 0%;">🔥 Promotion du moment</h2>
+      <div class="cdc-card">
+        <img src="images/Gift_box.png" alt="Produit Promotion" width="220">
         <div class="cdc-info">
           <h3>Coffret Accessoire 6 en 1</h3>
           <p>Notre sélection premium : Airpods pro 2 Inclus.</p>
@@ -946,9 +932,9 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       </div>
     </div>
     <div class="highlight-item">
-      <h2>⭐ Meilleur article</h2>
+      <h2 style="margin-top: 0%;">⭐ Meilleur article</h2>
       <div class="cdc-card">
-        <img src="images/Airpod_Pro_2.png" alt="Produit Meilleur article">
+        <img src="images/Airpod_Pro_2.png" alt="Produit Meilleur article" width="180">
         <div class="cdc-info">
           <h3>AirPods Pro 2</h3>
           <p>Notre sélection premium : réduction de bruit, autonomie renforcée, confort absolu.</p>
@@ -958,9 +944,9 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       </div>
     </div>
     <div class="highlight-item">
-      <h2>❤️ Coup de cœur</h2>
+      <h2 style="margin-top: 0%;">❤️ Coup de cœur</h2>
       <div class="cdc-card">
-        <img src="images/Apple_watch_serie_10.png" alt="Produit Coup de Coeur">
+        <img src="images/Apple_watch_serie_10.png" alt="Produit Coup de Coeur" width="220">
         <div class="cdc-info">
           <h3>Apple Watch série 11</h3>
           <p>Notre sélection premium : GPS 46 mm - Aluminium Noir de jais - Bracelet sport Noir.</p>
@@ -1337,19 +1323,28 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       onclick="openWhatsApp('Bonjour, Je veux avoir des renseignements sur un/des produits')">Aide</button>
     <!-- Bouton Avis -->
     <button class="btn" onclick="toggleAvisPopup()">Avis</button>
+    <button class="btn-concours" onclick="toggleConcoursPopup()">🎉Je participe🎉</button>
   </div>
-
 
   <!-- Popup Avis -->
   <div id="avisPopup" class="popup" style="display:none;">
     <div class="popup-content">
       <h3>Avis des clients</h3>
 
-      <div id="avisList"></div>
+      <!-- List of comments (you can fill manually or later via API) -->
+      <div id="avisList">
+        <!-- Example static comments -->
+        <p><strong>Sarah</strong> : Super boutique, livraison rapide !</p>
+        <p><strong>Marc</strong> : Très bon service, je recommande.</p>
+      </div>
 
-      <form id="avisForm">
+      <!-- Netlify Form -->
+      <form name="avis" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="avis">
+
         <input type="text" name="nom" placeholder="Pseudo" required>
-        <textarea name="message" placeholder="Avis ici..." required></textarea>
+        <textarea name="message" placeholder="Your comment..." required></textarea>
+
         <button type="submit">Envoyer</button>
       </form>
 
@@ -1357,6 +1352,29 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     </div>
   </div>
 
+
+  <!-- Popup Concours -->
+  <div id="ConcoursPopup" class="popup" style="display:none;">
+    <div class="popup-content">
+      <h3>Règle de participation</h3>
+      <p>Participez dès maintenant à notre grand tirage au sort !
+        Il vous suffit d’acheter n’importe quel article, à n’importe quel prix, pour valider automatiquement votre
+        participation.
+
+        🎁 À gagner :
+
+        2 Gift Box 6‑en‑1
+
+        1 AirPods 4
+        👉 3 gagnants seront tirés au sort le 15/05/2026 !
+
+        Ne laissez pas passer votre chance… tentez votre coup dès aujourd’hui !
+      </p>
+      <p>N'attendez pas.</p>
+
+      <button class="close-btn" onclick="closeConcoursPopup()">Fermer</button>
+    </div>
+  </div>
 
 
 
@@ -1451,40 +1469,21 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       }
     });
 
+
+    function toggleConcoursPopup() {
+      document.getElementById("ConcoursPopup").style.display = "block";
+    }
+    function closeConcoursPopup() {
+      document.getElementById("ConcoursPopup").style.display = "none";
+    }
+
+
     function toggleAvisPopup() {
       document.getElementById("avisPopup").style.display = "block";
-      fetchAvis();
     }
     function closeAvisPopup() {
       document.getElementById("avisPopup").style.display = "none";
     }
-    //Envoyer en fichier JSON
-    async function fetchAvis() {
-      const res = await fetch('/.netlify/functions/getAvis');
-      const avis = await res.json();
-      const container = document.getElementById("avisList");
-
-      container.innerHTML = avis
-        .map(a => `<p><strong>${a.nom}</strong> : ${a.message}</p>`)
-        .join('');
-    }
-    //add the form just right there
-
-    document.getElementById("avisForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const nom = e.target.nom.value;
-  const message = e.target.message.value;
-
-  await fetch('/.netlify/functions/addAvis', {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ nom, message })
-  });
-
-  e.target.reset();
-  fetchAvis(); // refresh list
-});
 
     /* ===== Scroll helper ===== */
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
