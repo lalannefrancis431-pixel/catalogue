@@ -1,9 +1,10 @@
 export async function handler() {
   try {
     const token = process.env.NETLIFY_TOKEN;
+    const siteId = process.env.SITE_ID;
 
     const submissionsRes = await fetch(
-      `https://api.netlify.com/api/v1/sites/${process.env.SITE_URL}/forms/avis/submissions?access_token=${token}`
+      `https://api.netlify.com/api/v1/sites/${siteId}/forms/avis/submissions?access_token=${token}`
     );
 
     const submissions = await submissionsRes.json();
