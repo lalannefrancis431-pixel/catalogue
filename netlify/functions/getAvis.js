@@ -1,18 +1,20 @@
 export async function handler() {
   try {
-    const token = process.env.NETLIFY_TOKEN;
-
     const res = await fetch(
-      `https://api.netlify.com/api/v1/sites/f5631fa2-0720-48be-8bd8-a26c47e228c3/forms/avis/submissions?access_token=${token}`
+      "https://sound-industry.netlify.app/forms/avis/submissions.json"
     );
 
-    const text = await res.text(); // read raw response
+    const submissions = await res.json();
+
+    const formatted = submissions.map(s => ({
+      nom: s.data.nom,
+      message: s.data.message
+    }));
 
     return {
       statusCode: 200,
-      body: text
+      body: JSON.stringify(formatted)
     };
-
   } catch (err) {
     return {
       statusCode: 500,
