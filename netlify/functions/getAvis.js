@@ -1,12 +1,17 @@
 export async function handler() {
   try {
-    const res = await fetch(
-      "https://sound-industry.netlify.app/forms/avis/submissions.json"
-    );
+    const res = await fetch("https://sound-industry.netlify.app/.netlify/functions/forms", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        action: "list-submissions",
+        formName: "avis"
+      })
+    });
 
-    const submissions = await res.json();
+    const data = await res.json();
 
-    const formatted = submissions.map(s => ({
+    const formatted = data.submissions.map(s => ({
       nom: s.data.nom,
       message: s.data.message
     }));
