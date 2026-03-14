@@ -1333,20 +1333,12 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       <h3>Avis des clients</h3>
 
       <!-- List of comments (you can fill manually or later via API) -->
-      <div id="avisList">
-        <!-- Example static comments -->
-        <p>Chargement des avis...</p>
-      </div>
+      <div id="avisList"></div>
 
       <!-- Netlify Form -->
-      <form name="avis" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="avis">
-        <input type="text" name="bot-field" style="display:none">
-
-
-        <input type="text" name="nom" placeholder="Pseudo" required>
-        <textarea name="message" placeholder="Your comment..." required></textarea>
-
+      <form id="avisForm">
+        <input type="text" name="nom" placeholder="Votre nom" required>
+        <textarea name="message" placeholder="Votre message" required></textarea>
         <button type="submit">Envoyer</button>
       </form>
 
@@ -1470,17 +1462,35 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         valentine.appendChild(heart);
       }
     });
+    /*getAVis function*/
+    document.getElementById("avisForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const form = new FormData(e.target);
+
+      await fetch("/.netlify/functions/addAvis", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nom: form.get("nom"),
+          message: form.get("message")
+        })
+      });
+
+      e.target.reset();
+      alert("Merci pour votre avis !");
+    });
 
     /*load avis area*/
     async function loadAvis() {
-      const res = await fetch('/.netlify/functions/getAvis');
+      const res = await fetch("/.netlify/functions/getAvis");
       const avis = await res.json();
 
-      const container = document.getElementById("avisList");
-      container.innerHTML = avis
-        .map(a => `<p><strong>${a.nom}</strong> : ${a.message}</p>`)
-        .join('');
+      document.getElementById("avisList").innerHTML = avis
+        .map(a => `<p><strong>${a.nom}</strong>: ${a.message}</p>`)
+        .join("");
     }
+
 
     /*poppup area*/
     function toggleConcoursPopup() {

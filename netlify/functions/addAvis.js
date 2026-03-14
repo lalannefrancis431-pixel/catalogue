@@ -1,27 +1,21 @@
-import { getStore } from '@netlify/blobs/node';
+import fetch from "node-fetch";
 
 export async function handler(event) {
-  const store = getStore('soundindustry-avis');
+  const { nom, message } = JSON.parse(event.body);
 
-  const body = JSON.parse(event.body || "{}");
-  const { nom, message } = body;
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_ANON_KEY;
 
-  if (!nom || !message) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ error: "Missing fields" })
-    };
-  }
-
-  const avis = await store.get('avis.json', { type: 'json' }) || [];
-
-  avis.push({
-    nom,
-    message,
-    date: new Date().toISOString()
+  const res = await fetch(`${url}/rest/v1/avis`, {
+    method: "POST",
+    headers: {
+      apikey: key,
+      Authorization: `Bearer ${key}`,
+      "Content-Type": "application/json",
+      Prefer: "return=minimal"
+    },
+    body: JSON.stringify({ nom, message })
   });
-
-  await store.set('avis.json', JSON.stringify(avis));
 
   return {
     statusCode: 200,
