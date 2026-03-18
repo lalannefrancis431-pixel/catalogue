@@ -1,24 +1,39 @@
-import fetch from "node-fetch";
+const { createClient } = require('@supabase/supabase-js')
 
-export async function handler(event) {
-  const { nom, message } = JSON.parse(event.body);
+exports.handler = async (event, context) => {
+  try {
+    const body = JSON.parse(event.body)
 
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_ANON_KEY;
+    const supabase = createClient(
+      process.env.SUPABASE_URL,
+      process.env.SUPABASE_SERVICE_ROLE_KEY
+    )
 
-  const res = await fetch(`${url}/rest/v1/avis`, {
-    method: "POST",
-    headers: {
-      apikey: key,
-      Authorization: `Bearer ${key}`,
-      "Content-Type": "application/json",
-      Prefer: "return=minimal"
-    },
-    body: JSON.stringify({ nom, message })
-  });
+    const { data, error } = await supabase
+      .from('avis')
+      .insert([
+        {
+          nom: body.nom,
+          message: body.message,
+          created_at: new Date().toISOString()
+        }
+      ])
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ success: true })
-  };
+    if (error) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error })
+      }
+    }
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ success: true })
+    }
+  } catch (err) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: err.message })
+    }
+  }
 }

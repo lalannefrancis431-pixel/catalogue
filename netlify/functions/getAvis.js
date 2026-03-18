@@ -1,6 +1,6 @@
-import fetch from "node-fetch";
+const fetch = require("node-fetch");
 
-export async function handler() {
+exports.handler = async () => {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_ANON_KEY;
 
@@ -17,4 +17,4 @@ export async function handler() {
     statusCode: 200,
     body: JSON.stringify(data)
   };
-}
+};
