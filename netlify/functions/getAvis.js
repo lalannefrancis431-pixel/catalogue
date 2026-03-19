@@ -1,5 +1,3 @@
-const fetch = require("node-fetch");
-
 exports.handler = async () => {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_ANON_KEY;
