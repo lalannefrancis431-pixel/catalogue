@@ -13,7 +13,6 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap');
 
-
     /* =========================
    Palette & Thème (Elegant)
    ========================= */
@@ -304,6 +303,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       border: 0;
     }
 
+
     /* coup de coeur section*/
     .highlight-rotatif {
       max-width: 1100px;
@@ -359,53 +359,6 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     .promo-price {
       color: var(--promo-price);
       text-decoration: line-through;
-    }
-
-
-    /* Sections (Accordion) */
-    .section {
-      max-width: 1100px;
-      margin: 18px auto 18px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 16px;
-      cursor: pointer;
-    }
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .section-title h2 {
-      margin: 0;
-      font: 700 1.25rem/1.25 Georgia, "Times New Roman", serif;
-    }
-
-    .section-header .toggle {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: #0d0f14;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--ink);
-    }
-
-    .section-content {
-      padding: 16px;
-      border-top: 1px solid var(--border);
     }
 
     /* Layouts: Grid & Carousel */
@@ -585,45 +538,6 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       font-weight: 700;
     }
 
-    .btn-order {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 0;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #041019;
-      font-weight: 700;
-    }
-
-    .btn-order .wa {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #3D3D3D;
-      /*#25D366*/
-      display: inline-block;
-    }
-
-    /*slogan section*/
-    .slogan-vibe {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 700;
-      text-align: center;
-      margin: 35px 0;
-      color: var(--ink);
-      letter-spacing: 0.5px;
-    }
-
-    .slogan-vibe span {
-      color: var(--accent);
-      text-shadow: 0 0 4px rgba(210, 185, 118, 0.5), 0 0 10px rgba(210, 185, 118, 0.3);
-      letter-spacing: 1px;
-    }
-
     /* Helper & footer nav */
     .helper {
       color: var(--muted);
@@ -636,6 +550,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       padding: 10px;
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 10px;
     }
 
@@ -652,41 +567,6 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       color: #041019;
       border: 0;
-    }
-
-    .suggest-box {
-      background: #000000;
-      /*chrismas color:#0d0f14 */
-      padding: 10px;
-      margin-top: 60px;
-      margin-bottom: 5px;
-      border-radius: 30px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .suggest-textarea {
-      width: 100%;
-      height: 140px;
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: #000000;
-      /*chrismas color:#131722 */
-      color: var(--ink);
-      font-size: 1rem;
-      resize: vertical;
-    }
-
-    .suggest-textarea::placeholder {
-      color: #6f7a89;
-    }
-
-    .submit-btn {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #25D366;
-      display: inline-block;
     }
 
     .info-flexbox {
@@ -891,181 +771,2117 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         grid-template-columns: 1fr;
       }
     }
+
+    /*new style*/
+
+    /* ============================
+   HERO PREMIUM
+============================ */
+
+    .hero-premium {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--ink);
+    }
+
+    /* Background */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("images/Image_Soundindustry/Image_deco/image_premier_plan.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.50;
+      /* ajuste si tu veux plus ou moins visible */
+      z-index: -1;
+    }
+
+
+    /* Logo */
+    .hero-logo {
+      width: 250px;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: var(--shadow);
+    }
+
+    /* Title */
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+
+    .hero-title span {
+      color: var(--accent);
+      text-shadow: 0 0 6px rgba(210, 185, 118, 0.5);
+    }
+
+    /* Subtitle */
+    .hero-subtitle {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    /* Icons row */
+    .hero-icons {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      margin: 35px 0;
+      flex-wrap: wrap;
+    }
+
+    .hero-icon {
+      position: relative;
+      /* required for the separator */
+      background: var(--panel);
+      padding: 2px 2px;
+      border-radius: 14px;
+      box-shadow: var(--card-shadow);
+      width: 90px;
+    }
+
+    /* Vertical separator */
+    .hero-icon:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -40px;
+      /* half of the 80px gap */
+      transform: translateY(-50%);
+      width: 2px;
+      height: 100px;
+      opacity: 0, 5;
+      background: linear-gradient(to bottom,
+          #67582d 0%,
+          #d2b976 50%,
+          #67582d 100%);
+
+      box-shadow: 0 0 6px rgba(210, 185, 118, 0.3);
+    }
+
+    .hero-icon-img {
+      width: 40px;
+      height: auto;
+      margin-bottom: 8px;
+    }
+
+    .hero-icon p {
+      margin: 0px;
+      font-size: 13px;
+    }
+
+    /* CTA */
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0 400px;
+    }
+
+    .hero-cta-cont {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      padding: 8px 10px;
+      border-radius: 20px;
+      border: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #041019;
+      font-weight: 700;
+    }
+
+    .hero-cta-cont p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border: 0;
+      margin: 0;
+    }
+
+    .hero-cta-cont img {
+      margin-top: 4px;
+      width: 10px;
+    }
+
+    /* Categories */
+    .hero-categories {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero-cat {
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      cursor: pointer;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 14px 18px;
+      border-radius: 14px;
+      box-shadow: var(--card-shadow);
+      width: 160px;
+      height: 145px;
+    }
+
+    .hero-cat img {
+      display: flex;
+      width: 70px;
+      height: auto;
+      margin-bottom: 2px;
+      border-radius: 12px;
+      padding: 5px;
+    }
+
+    .hero-cat-cont {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .hero-cat-cont p {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--ink);
+      font-size: 1rem;
+      margin: 0px;
+    }
+
+    .hero-cat-cont img {
+      margin-top: 5px;
+      width: 20px;
+    }
+
+    /* ============================
+   HIGHLIGHT PREMIUM ROTATIF
+============================ */
+
+    .highlight-premium-rotatif {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 15px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .highlight-premium-item {
+      display: none;
+    }
+
+    .highlight-premium-item.active {
+      display: block;
+    }
+
+    .highlight-header {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px;
+    }
+
+    .highlight-badge {
+      color: #d2b976;
+      font-size: 25px;
+      font-weight: 700;
+    }
+
+    .highlight-tag {
+      display: flex;
+      justify-items: center;
+      color: #d2b976;
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      gap: 5px;
+      padding: 5px 10px;
+    }
+
+    .highlight-tag img {
+      height: 25px;
+      margin-top: 2px;
+    }
+
+    .highlight-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .highlight-product {
+      position: relative;
+      display: inline-block;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      left: 85px;
+
+      background: #d2b976;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+
+      padding: 6px 12px;
+      border-radius: 20px;
+
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .highlight-product img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 20px;
+      box-shadow: var(--card-shadow);
+      margin-left: 75px;
+      object-fit: contain;
+    }
+
+    .highlight-info {
+      text-align: left;
+    }
+
+    .highlight-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .highlight-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+    }
+
+    .highlight-features li {
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .highlight-features img {
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+      margin-bottom: 2px;
+      vertical-align: middle;
+    }
+
+    .highlight-price {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: var(--promo-price);
+    }
+
+    .btn-order {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 369px;
+      height: 35px;
+      gap: 10px;
+      cursor: pointer;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #041019;
+      font-weight: 700;
+      margin: 0px 10px 10px;
+    }
+
+    .btn-order img {
+      width: 15px;
+      height: 15px;
+    }
+
+    .btn-order button {
+      border: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      cursor: pointer;
+    }
+
+    .btn-order .wa {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--border);
+      /*#25D366*/
+      display: inline-block;
+    }
+
+    .btn-order.sold-out {
+      opacity: 0.5;
+      filter: grayscale(10%);
+      cursor: not-allowed;
+    }
+
+    .btn-order.sold-out * {
+      pointer-events: none;
+    }
+
+    .discount {
+      background: var(--accent);
+      color: #041019;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    .new-price {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .highlight-pagination {
+      color: var(--accent);
+      margin-top: 20px;
+      text-align: right;
+      font-size: 1rem;
+    }
+
+    /* ============================
+   PROGRESS BAR
+============================ */
+
+    .highlight-progress {
+      width: 100%;
+      height: 6px;
+      background: #333;
+      /* background bar */
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .highlight-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--accent);
+      /* gold */
+      transition: width 10s linear;
+      /* matches your 10s rotation */
+    }
+
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .highlight-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+
+    /* =========================
+   SECTION CONTAINER
+========================= */
+
+    .section {
+      max-width: 1100px;
+      margin: 18px auto;
+      background: transparent;
+      border: none;
+      overflow: visible;
+    }
+
+    .modern-header {
+      display: flex;
+      align-items: center;
+
+      padding: 14px 18px;
+
+      background: var(--panel);
+
+      border: 1px solid var(--border);
+      border-radius: 14px;
+
+      cursor: pointer;
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .modern-header:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 8px 25px rgba(0, 0, 0, .25);
+    }
+
+    .section[data-collapsed="false"] .modern-header {
+      border-color: #d2b97659;
+
+      background:
+        linear-gradient(135deg,
+          rgba(210, 185, 118, .06),
+          rgba(210, 185, 118, .01));
+    }
+
+    .section-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .section-left img {
+      width: 60px;
+      height: 60px;
+
+      object-fit: contain;
+
+      border-radius: 12px;
+
+      transition:
+        transform .35s ease;
+    }
+
+    .modern-header:hover .section-left img {
+      transform: scale(1.06);
+    }
+
+    .section-text h2 {
+      margin: 0;
+
+      color: var(--ink);
+
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .section-text p {
+      margin: 4px 0 0;
+
+      color: var(--muted);
+
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    /* =========================
+   ARROW
+========================= */
+
+    .toggle {
+      margin-left: auto;
+
+      width: 24px;
+      height: 24px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--accent);
+
+      font-size: 1.6rem;
+      font-weight: 400;
+
+      transition:
+        transform .45s cubic-bezier(0.22, 1, 0.36, 1),
+        color .25s ease;
+    }
+
+    .modern-header:hover .toggle {
+      color: var(--accent);
+    }
+
+    /* Rotate when open */
+
+    .section[data-collapsed="false"] .toggle {
+      opacity: 0;
+      transform: rotate(90deg) scale(0.6);
+      pointer-events: none;
+    }
+
+    .section-content {
+      overflow: hidden;
+
+      max-height: 0;
+
+      opacity: 0;
+
+      transform: translateY(-15px);
+
+      padding: 0 12px;
+
+      transition:
+        max-height 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity .6s ease,
+        transform .6s ease;
+    }
+
+    /* Open state */
+
+    .section[data-collapsed="false"] .section-content {
+      max-height: 3500px;
+
+      opacity: 1;
+
+      transform: translateY(0);
+
+      padding: 20px 12px;
+    }
+
+    .track {
+      opacity: 0;
+      transform: translateY(20px);
+
+      transition:
+        opacity .6s ease,
+        transform .6s ease;
+    }
+
+    .section[data-collapsed="false"] .track {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section+.section {
+      margin-top: 18px;
+    }
+
+    /* ============================
+     gifftarea
+============================ */
+    .gift-area {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    .gift-area-cont {
+      width: 100%;
+      max-width: 1200px;
+      background: linear-gradient(180deg, #151515 0%, #111111 100%);
+      border: 1px solid rgba(210, 185, 118, 0.15);
+      /*var(--accent)*/
+      border-radius: 24px;
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .gift-cont {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .gift-cont img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border: 1px solid #d2b976;
+      border-radius: 50%;
+      padding: 12px;
+    }
+
+    .gift-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gift-cont h2 {
+      font-family: 'Cormorant Garamond', serif;
+      color: #d2b976;
+      font-size: 2.4rem;
+      margin: 0 0 6px;
+      font-weight: 700;
+    }
+
+    .gift-cont p {
+      color: #b3b3b3;
+      margin: 0;
+      font-size: 1.4rem;
+      line-height: 1.4;
+    }
+
+    .gift-offres {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg,
+          #d2b976 0%,
+          #e4c98b 100%);
+      color: #111;
+      font-weight: 700;
+      padding: 16px 30px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .gift-offres:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(210, 185, 118, 0.35);
+    }
+
+    .gift-offres img {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+    }
+
+    /*Suggestion section*/
+    .suggest-box {
+      /*chrismas color:#0d0f14 */
+      padding: 10px;
+      margin-top: 60px;
+      margin-bottom: 5px;
+      background: linear-gradient(180deg, #151515 0%, #111111 100%);
+      border: 1px solid rgba(210, 185, 118, 0.15);
+      /*var(--accent)*/
+      border-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .suggest-box span {
+      color: var(--accent);
+    }
+
+    .suggest-box p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    .suggest-textarea {
+      width: 100%;
+      height: 140px;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, #151515 0%, #111111 100%);
+      /*chrismas color:#131722 */
+      color: var(--ink);
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    .suggest-textarea::placeholder {
+      color: var(--h4tit);
+    }
+
+    .submit-btn {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #25D366;
+      display: inline-block;
+    }
+
+    /* Fullscreen slogan section */
+    .slogan-vibe {
+      width: 100%;
+      height: 50%;
+      /* fills the entire screen */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background image fills the screen */
+    .slogan-vibe img {
+      width: 100%;
+      height: 70%;
+      opacity: 0.5;
+    }
+
+    /* Vignette effect: edges darker, center clearer */
+    .slogan-vibe::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle,
+          rgba(0, 0, 0, 0) 40%,
+          /* clear center */
+          rgba(0, 0, 0, 0.45) 100%
+          /* darker edges */
+        );
+    }
+
+    /* Delivery Banner - Full Width */
+    .free-transport {
+      width: 100%;
+      /* fills the entire screen */
+      display: flex;
+      align-items: center;
+      gap: 100px;
+      padding: 40px 60px;
+      /* spacing left & right */
+      background: #0b0c10;
+      /* premium black */
+      border-top: 2px solid var(--accent);
+      border-bottom: 2px solid var(--accent);
+      border-radius: 0;
+      margin-top: 40px;
+      /* full-width banners have no rounded corners */
+    }
+
+    /* Left icon */
+    .free-transport img {
+      width: 80px;
+      height: 80px;
+      filter: drop-shadow(0 0 6px rgba(210, 185, 118, 0.4));
+      /* gold glow */
+    }
+
+    /* Title */
+    .free-transport-cont h2 {
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin: 0 0 12px 0;
+      font-family: "Georgia", serif;
+    }
+
+    .free-transport-cont span {
+      color: var(--accent);
+      font-size: 1.8rem;
+    }
+
+    /* Text lines */
+    .free-transport-text p {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #d0d0d0;
+      font-size: 1.2rem;
+      margin: 8px 0;
+    }
+
+    .free-transport-text img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .contact-panel {
+      width: 100%;
+      background-color: #000;
+      border: 1px solid var(--accent);
+      padding: 14px 30px;
+      border-radius: 16px;
+      font-family: 'Inter', sans-serif;
+      color: white;
+      margin: 100px auto 30px;
+    }
+
+    /* Title */
+    .contact-title {
+      display: flex;
+      align-items: center;
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    .contact-title img {
+      width: 34px;
+      height: 34px;
+      margin-right: 10px;
+    }
+
+    /* Rows */
+    .contact-row {
+      background: #0f0f0f;
+      border: 1px solid #2a2a2a;
+      border-radius: 14px;
+      margin-bottom: 14px;
+    }
+
+    .contact-row-cont {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--accent);
+      border-radius: 10px;
+      padding: 14px 40px;
+      gap: 20px;
+      cursor: pointer;
+    }
+
+    .reponse {
+      display: flex;
+      justify-content: center;
+      margin: 0px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Icons */
+    .contact-icon {
+      width: 28px;
+      height: 28px;
+      margin-right: 14px;
+    }
+
+    /* Labels */
+    .contact-label {
+      font-size: 17px;
+      font-weight: 500;
+      width: 160px;
+      /* Alignement parfait comme l’image */
+    }
+
+    /* Values */
+    .contact-value {
+      font-size: 17px;
+      font-weight: 300;
+      opacity: 0.9;
+      margin-left: 50px;
+    }
+
+    /* ============================
+   COMPARAISON PRODUITS
+============================ */
+
+    /* ============================
+   PRODUCT BOX (STYLE IMAGE)
+============================ */
+
+    .product-box {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: var(--card-shadow);
+      max-width: 500px;
+      margin: 40px auto;
+      transition: .15s ease;
+    }
+
+    .product-box:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .5);
+    }
+
+    /* IMAGE */
+    .product-box-img img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+    }
+
+    /* META */
+    .product-box-meta {
+      margin-top: 18px;
+    }
+
+    /* TITRE */
+    .pb-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    /* SOUS-TITRE */
+    .pb-subtitle {
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    /* COMPATIBILITÉ */
+    .pb-compat {
+      color: var(--ink);
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* LISTE */
+    .pb-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+    }
+
+    .pb-features li {
+      color: var(--muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* PRIX */
+    .pb-price-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .pb-new-price {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .pb-old-price {
+      text-decoration: line-through;
+      color: var(--muted);
+    }
+
+    .pb-discount {
+      background: var(--accent);
+      color: #041019;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    /* STOCK */
+    .pb-stock {
+      color: #ff4d4d;
+      font-weight: 700;
+      margin-bottom: 14px;
+      font-size: 1.1rem;
+    }
+
+    /* BOUTON */
+    .pb-btn {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #041019;
+      font-weight: 700;
+      cursor: pointer;
+      border: 0;
+      margin-bottom: 18px;
+    }
+
+    /* FOOTER ICONES */
+    .pb-footer {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: .9rem;
+      margin-top: 10px;
+    }
+
+    .pb-footer span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ============================
+   COMPARAISON PRODUITS
+============================ */
+
+    .compare-card {
+      width: 415px;
+      height: 600px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: var(--card-shadow);
+      transition: .15s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .compare-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .5);
+    }
+
+    /*NEW PART*/
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform .45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .carousel-track img {
+      width: 100%;
+      flex-shrink: 0;
+      border-radius: 16px;
+    }
+
+    /* Arrows (desktop only) */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, .45);
+      border: none;
+      color: var(--accent);
+      font-size: 2rem;
+      padding: 6px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .carousel-arrow.left {
+      left: 10px;
+    }
+
+    .carousel-arrow.right {
+      right: 10px;
+    }
+
+    @media (min-width: 900px) {
+      .carousel-arrow {
+        display: block;
+      }
+    }
+
+    .carousel-arrow {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease;
+    }
+
+    @media (min-width: 900px) {
+      .compare-img:hover .carousel-arrow {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+
+    /* Dots */
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+    }
+
+    .carousel-dots div {
+      width: 8px;
+      height: 8px;
+      background: var(--muted);
+      border-radius: 50%;
+      transition: .3s;
+    }
+
+    .carousel-dots .active {
+      background: var(--accent);
+    }
+
+    .carousel-dots {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease;
+    }
+
+    @media (min-width: 900px) {
+      .compare-img:hover .carousel-dots {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    /*FIN*/
+
+
+    .compare-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .compare-img img {
+      width: 100%;
+      max-width: 380px;
+      /* ajuste ici */
+      height: 278px;
+      display: block;
+      margin-right: 2.5px;
+    }
+
+
+    /* TITLE */
+    .compare-title {
+      font-weight: 800;
+      margin: 0px;
+      color: var(--accent);
+      padding: 5px;
+    }
+
+    /* COMPATIBILITY BAR */
+    .compare-compat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 5px;
+      border-radius: 10px;
+      font-size: .9rem;
+    }
+
+    /* FEATURE GRID */
+    .compare-feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 10px 0px;
+      gap: 2px 8px;
+      border-top: 1px solid var(--accent);
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .feature-item img {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* PRICE BOX */
+    .compare-price-box {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+    }
+
+    .compare-price-box-cont {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .compare-new-price {
+      font-weight: 900;
+      color: var(--price);
+    }
+
+    .compare-old-price {
+      text-decoration: line-through;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .compare-discount {
+      background: var(--accent);
+      color: #041019;
+      padding: 2px 4px;
+      border-radius: 6px;
+      font-size: .8rem;
+      font-weight: 600;
+    }
+
+    /* STOCK */
+    .compare-stock {
+      font-weight: 700;
+      color: #ff4d4d;
+      margin-bottom: 6px;
+      font-size: .95rem;
+    }
+
+    /* BUTTON */
+    .compare-btn {
+      width: 100%;
+      padding: 6px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #041019;
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer;
+      border: 0;
+      margin-bottom: 12px;
+    }
+
+    .compare-btn:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    /* FOOTER */
+    .compare-footer {
+      display: flex;
+      justify-content: space-around;
+      gap: 5px;
+      margin-top: auto;
+    }
+
+    /* Vertical separator */
+    .compare-footer>div {
+      position: relative;
+    }
+
+    .compare-footer>div:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -20px;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 40px;
+      opacity: 0.5;
+      background: linear-gradient(to bottom,
+          #67582d 0%,
+          #d2b976 50%,
+          #67582d 100%);
+      box-shadow: 0 0 6px rgba(210, 185, 118, 0.3);
+    }
+
+
+    .secu {
+      display: flex;
+      text-align: center;
+      color: var(--muted);
+      font-size: .7rem;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .secu img {
+      height: 30px;
+      margin-bottom: 6px;
+    }
+
+    .livra {
+      display: flex;
+      text-align: center;
+      color: var(--muted);
+      font-size: .7rem;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .livra img {
+      height: 25px;
+    }
+
+    .garan {
+      display: flex;
+      text-align: center;
+      color: var(--muted);
+      font-size: .7rem;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .garan img {
+      height: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .compare-feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
 <body>
   <div id="desc-popup"></div>
 
-  <!-- ===== Header ===== -->
-  <div class="header-wrapper">
-    <img src="images/Industry_logo.png" alt="Logo" class="brand-logo">
-    <div class="header">
-      <h1>Bienvenu chez Sound Industry!!!</h1>
-      <p>Une sélection raffinée d’appareils haut de gamme, présentés avec style et simplicité, tout en offrant les prix
-        les plus bas du marché pour une qualité incomparable. </p>
+  <!-- ============================
+     HERO TOP PREMIUM
+     (Basé sur ton visuel)
+============================ -->
+  <section class="hero-premium">
+    <!-- ===== Background image ===== -->
+    <!-- Remplace le lien ci-dessous par ton image de fond -->
+    <div class="hero-bg">
+      <!-- background-image: url('images/TON_BACKGROUND.png'); -->
     </div>
-  </div>
 
-  <!-- ===== Highlight Rotatif ===== -->
-  <div class="highlight-rotatif">
-    <div class="highlight-item active">
-      <h2 style="margin-top: 0%;">🎉Jeu concours🎉</h2>
-      <div class="cdc-card">
-        <div class="cdc-info">
-          <h3>Sound Industry décide de vous faire plaisir!!!!</h3>
-          <p>Voir les conditions pour participer dans l'onglet "Je participe".</p>
-          <button class="btn-concours" onclick="toggleConcoursPopup()">🎉Je participe🎉</button>
-        </div>
+    <!-- ===== Logo + Slogan ===== -->
+    <div class="hero-brand">
+      <!-- Logo rond -->
+      <img src="images/Industry_logo.png" alt="Sound Industry Logo" class="hero-logo">
+
+      <h1 class="hero-title">Bienvenue chez <span>SoundIndustry !</span></h1>
+
+      <p class="hero-subtitle">
+        Une sélection raffinée d’appareils haut de gamme, présentés avec style et simplicité,
+        tout en offrant les prix les plus bas du marché pour une qualité incomparable.
+      </p>
+    </div>
+
+    <!-- ===== Icons row ===== -->
+    <div class="hero-icons">
+
+      <!-- Icône Paiement sécurisé -->
+      <div class="hero-icon">
+        <img src="images/Image_Soundindustry/Embleme/Payement_securise.png" class="hero-icon-img" alt="">
+        <p>Paiement sécurisé</p>
+      </div>
+
+      <!-- Icône Livraison rapide -->
+      <div class="hero-icon">
+        <img src="images/Image_Soundindustry/Embleme/Livraison_rapide.png" class="hero-icon-img" alt="">
+        <p>Livraison rapide</p>
+      </div>
+
+      <!-- Icône Qualité garantie -->
+      <div class="hero-icon">
+        <img src="images/Image_Soundindustry/Embleme/Qualite_garantie.png" class="hero-icon-img" alt="">
+        <p>Qualité garantie</p>
+      </div>
+      <!-- Icône Service client -->
+      <div class="hero-icon">
+        <img src="images/Image_Soundindustry/Embleme/Service.png" class="hero-icon-img" alt="">
+        <p>Un service à votre écoute</p>
+      </div>
+
+    </div>
+
+    <!-- ===== CTA ===== -->
+    <div class="hero-cta">
+      <div class="hero-cta-cont" onclick="scrollToProducts()">
+        <p>Découvrir nos produits</p>
+        <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png">
       </div>
     </div>
-    <div class="highlight-item">
-      <h2 style="margin-top: 0%;">🔥 Promotion du moment</h2>
-      <div class="cdc-card">
-        <img src="images/Gift_box.png" alt="Produit Promotion" width="220">
-        <div class="cdc-info">
-          <h3>Coffret Accessoire 6 en 1</h3>
-          <p>Notre sélection premium : Airpods pro 2 Inclus.</p>
-          <div class="promo-price">115 €</div>
-          <div class="price">100 €</div>
-          <button class="btn-order" onclick="orderWhatsApp('Coffret Accessoire 6 en 1',100)">Commander</button>
+
+
+    <!-- ===== Category buttons ===== -->
+    <div class="hero-categories">
+
+      <div class="hero-cat" onclick="scrollToSection('airpods')">
+        <img src="images/Image_Soundindustry/Image_Produit/airpod_fond.png" alt="">
+        <div class="hero-cat-cont">
+          <p>AirPods</p>
+          <img src="images/Image_Soundindustry/Icon_accessoire/fleche_produit.png">
         </div>
       </div>
-    </div>
-    <div class="highlight-item">
-      <h2 style="margin-top: 0%;">⭐ Meilleur article</h2>
-      <div class="cdc-card">
-        <img src="images/Airpod_Pro_2.png" alt="Produit Meilleur article" width="180">
-        <div class="cdc-info">
-          <h3>AirPods pro 3</h3>
-          <p>Notre sélection premium : réduction de bruit, autonomie renforcée, confort absolu.</p>
-          <div class="price">90 €</div>
-          <button class="btn-order" onclick="orderWhatsApp('AirPods Pro 2',90)">Commander</button>
+
+      <div class="hero-cat" onclick="scrollToSection('airpodsmax')">
+        <img src="images/Image_Soundindustry/Image_Produit/casque_fond_noir.png" alt="">
+        <div class="hero-cat-cont">
+          <p>AirPods Max</p>
+          <img src="images/Image_Soundindustry/Icon_accessoire/fleche_produit.png">
         </div>
       </div>
-    </div>
-    <div class="highlight-item">
-      <h2 style="margin-top: 0%;">❤️ Coup de cœur</h2>
-      <div class="cdc-card">
-        <img src="images/Apple_watch_serie_10.png" alt="Produit Coup de Coeur" width="220">
-        <div class="cdc-info">
-          <h3>Apple Watch série 11</h3>
-          <p>Notre sélection premium : GPS 46 mm - Aluminium Noir de jais - Bracelet sport Noir.</p>
-          <div class="price">120 €</div>
-          <button class="btn-order" onclick="orderWhatsApp('Apple Watch série 11',120)">Commander</button>
+
+      <div class="hero-cat" onclick="scrollToSection('enceintesbluetooth')">
+        <img src="images/Image_Soundindustry/Image_Produit/baffe_fond_noir.png" alt="">
+        <div class="hero-cat-cont">
+          <p>Enceintes Bluetooth</p>
+          <img src="images/Image_Soundindustry/Icon_accessoire/fleche_produit.png">
         </div>
       </div>
+
+      <div class="hero-cat" onclick="scrollToSection('giftbox')">
+        <img src="images/Image_Soundindustry/Image_Produit/boite_cadeau_fond_noir.png" alt="">
+        <div class="hero-cat-cont">
+          <p>Coffret Accessoire</p>
+          <img src="images/Image_Soundindustry/Icon_accessoire/fleche_produit.png">
+        </div>
+      </div>
+
     </div>
-  </div>
+
+  </section>
+
+  <!-- ============================
+     HIGHLIGHT PREMIUM ROTATIF
+============================ -->
+  <section class="highlight-premium-rotatif">
+
+    <!-- SLIDE 1 -->
+    <div class="highlight-premium-item active">
+      <div class="highlight-header">
+        <span class="highlight-badge">⭐ Meilleur article</span>
+        <span class="highlight-tag">
+          <img src="images/Image_Soundindustry/Icon_accessoire/coeur_vide.png">
+          Coup de coeur</span>
+      </div>
+
+      <div class="highlight-content">
+        <div class="highlight-product">
+          <span class="product-badge">Nouveau</span>
+          <img src="images/Airpod_pro_3.png" alt="AirPods Pro 3">
+        </div>
+
+        <div class="highlight-info">
+          <h2 class="highlight-title">AirPods Pro 3</h2>
+
+          <ul class="highlight-features">
+            <li><img src="images/Image_Soundindustry/Icon_produit/airpods_gold_circle.png"> Réduction active du bruit
+            </li>
+            <li><img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png"> Audio spatial
+              personnalisé</li>
+            <li><img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png"> Autonomie jusqu’à 30 h
+            </li>
+            <li><img src="images/Image_Soundindustry/Icon_produit/resistant_gold_circle.png"> Résistance IPX4</li>
+          </ul>
+
+          <div class="highlight-price">
+            <span class="new-price">210 €</span>
+            <span class="old-price">279 €</span>
+            <span class="discount">-25%</span>
+          </div>
+          <div class="btn-order">
+            <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+            <button onclick="orderWhatsApp('AirPods Pro 3',210)">Commander
+              maintenant</button>
+            <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+          </div>
+
+        </div>
+      </div>
+      <div class="highlight-pagination">01 / 03</div>
+
+      <div class="highlight-progress">
+        <div class="highlight-progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="highlight-premium-item">
+      <div class="highlight-header">
+        <span class="highlight-badge">🔥 Promotion</span>
+        <span class="highlight-tag"><img src="images/Image_Soundindustry/Icon_accessoire/bon_plan.png">Bon plan</span>
+      </div>
+
+      <div class="highlight-content">
+        <div class="highlight-product">
+          <img src="images/Image_Soundindustry/Image_Produit/Giftbox_fond_noir.png" alt="Gift Box">
+        </div>
+
+        <div class="highlight-info">
+          <h2 class="highlight-title">Coffret Accessoire 6 en 1</h2>
+
+          <ul class="highlight-features">
+            <li><img src="images/Image_Soundindustry/Icon_produit/airpods_gold_circle.png">Ecouteurs sans fil</li>
+            <li><img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">Coque premium</li>
+            <li><img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">Câble USB‑C</li>
+            <li><img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">Batterie induction</li>
+          </ul>
+
+          <div class="highlight-price">
+            <span class="new-price">100 €</span>
+            <span class="old-price">115 €</span>
+            <span class="discount">-15%</span>
+          </div>
+          <div class="btn-order">
+            <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+            <button onclick="orderWhatsApp('Coffret Accessoire 6 en 1',100)">Commander
+              maintenant</button>
+            <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+          </div>
+
+        </div>
+      </div>
+      <div class="highlight-pagination">02 / 03</div>
+
+      <div class="highlight-progress">
+        <div class="highlight-progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="highlight-premium-item">
+      <div class="highlight-header">
+        <span class="highlight-badge">❤️ Coup de cœur</span>
+        <span class="highlight-tag"><img src="images/Image_Soundindustry/Icon_accessoire/decouvrir.png">À
+          découvrir</span>
+      </div>
+
+      <div class="highlight-content">
+        <div class="highlight-product">
+          <span class="product-badge">Nouveau</span>
+          <img src="images/Image_Soundindustry/Image_Produit/Montre_fond_noir.png" alt="Apple Watch">
+        </div>
+
+        <div class="highlight-info">
+          <h2 class="highlight-title">Apple Watch Série 11</h2>
+
+          <ul class="highlight-features">
+            <li><img src="images/Image_Soundindustry/Icon_produit/GPS_gold_circle.png">GPS 46 mm</li>
+            <li><img src="images/Image_Soundindustry/Icon_produit/sport_gold_circle.png">Relever d'activité</li>
+            <li><img src="images/Image_Soundindustry/Icon_produit/bracelet_gold_circle.png">Bracelet noir</li>
+            <li><img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">Autonomie 36 h</li>
+          </ul>
+
+          <div class="highlight-price">
+            <span class="new-price">120 €</span>
+          </div>
+          <div class="btn-order">
+            <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+            <button onclick="orderWhatsApp('Apple Watch Série 11',120)">Commander
+              maintenant</button>
+            <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+          </div>
+
+        </div>
+      </div>
+      <div class="highlight-pagination">03 / 03</div>
+
+      <div class="highlight-progress">
+        <div class="highlight-progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4 
+    <div class="highlight-premium-item">
+      <div class="highlight-header">
+        <span class="highlight-badge">🎉 Jeu concours</span>
+        <span class="highlight-tag">Incontournable</span>
+      </div>
+
+      <div class="highlight-content">
+        <div class="highlight-product">
+          <img src="images/Image_Soundindustry/Image_Produit/boite_cadeau_fond_noir.png" alt="Concours">
+        </div>
+
+        <div class="highlight-info">
+          <h2 class="highlight-title">Grand tirage au sort</h2>
+
+          <ul class="highlight-features">
+            <li>2 Gift Box 6‑en‑1</li>
+            <li>1 AirPods 4</li>
+            <li>Participation automatique</li>
+          </ul>
+
+          <button class="btn-order highlight-btn" onclick="toggleConcoursPopup()">Je participe 🎉</button>
+
+          <div class="highlight-pagination">04 / 04</div>
+        </div>
+      </div>
+    </div> -->
+
+  </section>
 
 
   <!-- ===== Sections (Accordion style) ===== -->
-  <section class="section" data-collapsed="true">
-    <div class="section-header" onclick="toggleSection(this)">
-      <div class="section-title">
-        <h2>Airpods</h2>
+  <section id="airpods" class="section" data-collapsed="true">
+    <div id="products" class="modern-header" onclick="toggleSection(this)">
+      <div class="section-left">
+        <img src="images/Image_Soundindustry/Image_Produit/airpod_fond.png">
+
+        <div class="section-text">
+          <h2>AirPods</h2>
+          <p>Écouteurs sans fil haute performance.</p>
+        </div>
       </div>
-      <div class="toggle">></div>
+
+      <div class="toggle">›</div>
     </div>
+
     <div class="section-content">
       <div class="scrollwrap layout-carousel">
         <div class="track" id="track-audio">
           <!-- Cards -->
-          <article class="card">
-            <div class="image-carousel" data-images='[
-              "images/Airpod_2.png",
-              "images/Airpods_2_1.png",
-              "images/Airpods_2_2.png",
-              "images/Airpod_2_3.png"
-              ]'>
-              <button class="img-prev">⟵</button>
-              <img class="product-img" src="images/Airpod_2.png" alt="AirPods 2">
-              <button class="img-next">⟶</button>
+          <article class="compare-card">
+
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/airpod_2.png" alt="AirPods 2">
+                <img src="images/Airpods_2_1.png" alt="AirPods 2">
+                <img src="images/Airpods_2_2.png" alt="AirPods 2">
+                <img src="images/Airpod_2_3.png" alt="">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
             </div>
-            <div class="meta">
-              <h4>AirPods 2</h4>
-              <p>AirPods (2ᵉ génération)–Autonomie 5h d’écoute/24h avec boîtier. </p>
-              <div class="price">60 €</div>
-              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods 2',60)"><span
-                    class="wa"></span> Commander </button></div>
+
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">AirPods 2</h3>
+              <div class="compare-compat">
+                <span>AirPods (2ᵉ génération)</span>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
+                  <span>Son clair et équilibré.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Connexion instantanée.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
+                  <span>Puce H1 réactive.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/ecouteur_gold_circle.png">
+                  <span>Commandes simples et fluides.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Autonomie longue durée.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/design_gold_circle.png">
+                  <span>Boîtier de charge compact.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">60,25 €</span>
+                  <span class="compare-old-price">75 €</span>
+                  <span class="compare-discount">-13%</span>
+                </div>
+                <!-- <div class="compare-stock">Stock épuisé</div> -->
+              </div>
+
+              <div class="btn-order">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('AirPods 2',60)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
+              </div>
             </div>
           </article>
-          <article class="card">
-            <div class="image-carousel" data-images='[
-              "images/Airpod_Pro_2.png",
-              "images/Airpod_pro_2_1.png",
-              "images/Airpods_pro_2_4.png",
-              "images/Airpod_pro_2_2.png"
-              ]'>
-              <button class="img-prev">⟵</button>
-              <img class="product-img" src="images/Airpod_Pro_2.png" alt="AirPods Pro 2">
-              <button class="img-next">⟶</button>
+
+
+          <article class="compare-card">
+
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/Airpod_Pro_2.png" alt="AirPods Pro 2">
+                <img src="images/Airpod_pro_2_1.png" alt="AirPods Pro 2">
+                <img src="images/Airpods_pro_2_3.png" alt="AirPods Pro 2">
+                <img src="images/Airpod_pro_2_2.png" alt="AirPods Pro 2">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
             </div>
-            <div class="meta">
-              <h4>AirPods Pro 2</h4>
-              <p>AirPods Pro 2 (USB‑C)- Réduction de bruit - Autonomie 6h/30h avec boîtier.</p>
-              <div class="price">75 €</div>
-              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods Pro 2',75)"><span
-                    class="wa"></span> Commander</button></div>
+
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">AirPods Pro 2</h3>
+              <div class="compare-compat">
+                <span>AirPods Pro 2 (USB‑C)</span>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/ecouteur_gold_circle.png">
+                  <span>Une réduction de bruit avancée.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
+                  <span>Mode Transparence naturel.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
+                  <span>Audio spatial immersif.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Puce H2 ultra performante.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Autonomie améliorée.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">
+                  <span>Boîtier USB‑C optimisé.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">73,95 €</span>
+                  <span class="compare-old-price">85 €</span>
+                  <span class="compare-discount">-13%</span>
+                </div>
+                <div class="compare-stock">Stock épuisé</div>
+              </div>
+
+              <div class="btn-order sold-out">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('AirPods Pro 2',73.95)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
+              </div>
             </div>
           </article>
-          <article class="card">
-            <div class="image-carousel" data-images='[
-              "images/Airpod_3.png",
-              "images/Airpod_3_3.png",
-              "images/Airpod_3_1.png",
-              "images/Airpod_3_2.png"
-              ]'>
-              <button class="img-prev">⟵</button>
-              <img class="product-img" src="images/Airpod_3.png" alt="Airpod 3">
-              <button class="img-next">⟶</button>
+
+
+          <article class="compare-card">
+
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/Airpod_3.png" alt="AirPods 3">
+                <img src="images/Airpod_3_1.png" alt="AirPods 3">
+                <img src="images/Airpod_3_2.png" alt="AirPods 3">
+                <img src="images/Airpod_3_3.png" alt="AirPods 3">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
             </div>
-            <div class="meta">
-              <h4>AirPods 3</h4>
-              <p>AirPods 3 – Autonomie 6 h / 30 h avec boîtier - Design compact et
-                ergonomique.</p>
-              <div class="price">85 €</div>
-              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods 3',85)"><span
-                    class="wa"></span> Commander</button></div>
+
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">AirPods 3</h3>
+              <div class="compare-compat">
+                <span>AirPods 3</span>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/design_gold_circle.png">
+                  <span>Design ergonomique repensé.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
+                  <span>Son spatial dynamique.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Autonomie étendue.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/resistant_gold_circle.png">
+                  <span>Résistance à l’eau IPX4.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Appairage instantané.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/reduction_bruit_gold_circle.png">
+                  <span>Microphones optimisés.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">85 €</span>
+                  <!--<span class="compare-old-price">85 €</span>
+                  <span class="compare-discount">-13%</span>-->
+                </div>
+                <!-- <div class="compare-stock">Stock épuisé</div> -->
+              </div>
+
+              <div class="btn-order">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('AirPods 3',85)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
+              </div>
             </div>
           </article>
-          <article class="card">
-            <div class="image-carousel" data-images='[
-              "images/Airpod_pro_3.png",
-              "images/Airpod_pro_3_1.png",
-              "images/Airpod_pro_3_2.png",
-              "images/Airpod_pro_3_3.png",
-              "images/Airpod_4_3.png"
-              ]'>
-              <button class="img-prev">⟵</button>
-              <img class="product-img" src="images/Airpod_pro_3.png" alt="Airpod pro 3">
-              <button class="img-next">⟶</button>
+
+
+          <article class="compare-card">
+
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/Airpod_Pro_3.png" alt="AirPods Pro 3">
+                <img src="images/Airpod_pro_3_1.png" alt="AirPods Pro 3">
+                <img src="images/Airpod_pro_3_2.png" alt="AirPods Pro 3">
+                <img src="images/Airpod_pro_3_3.png" alt="AirPods Pro 3">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
             </div>
-            <div class="meta">
-              <h4>AirPods pro 3</h4>
-              <p>AirPods pro 3 – Réduction de bruit - Autonomie 6 h / 30 h avec boîtier.</p>
-              <div class="price">90 €</div>
-              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods pro 3',90)"><span
-                    class="wa"></span> Commander</button></div>
+
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">AirPods Pro 3</h3>
+              <div class="compare-compat">
+                <span>AirPods Pro 3</span>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>ANC de nouvelle génération.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
+                  <span>Audio adaptatif intelligent.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Son plus riche et détaillé.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/reduction_bruit_gold_circle.png">
+                  <span>Microphones améliorés.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">
+                  <span>Boîtier USB‑C précis.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Autonomie optimisée.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">90 €</span>
+                  <span class="compare-old-price">100 €</span>
+                  <span class="compare-discount">-10%</span>
+                </div>
+                <!-- <div class="compare-stock">Stock épuisé</div> -->
+              </div>
+
+              <div class="btn-order">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('AirPods Pro 3',90)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
+              </div>
             </div>
           </article>
-           <article class="card">
-            <div class="image-carousel" data-images='[
-              "images/Airpod_4_1.png",
-              "images/Airpod_4.png",
-              "images/Airpod_4_2.png",
-              "images/Airpod_4_3.png"
-              ]'>
-              <button class="img-prev">⟵</button>
-              <img class="product-img" src="images/Airpod_4_1.png" alt="Airpod 4">
-              <button class="img-next">⟶</button>
+
+
+          <article class="compare-card">
+
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/Airpod_4_1.png" alt="AirPods 4">
+                <img src="images/Airpod_4.png" alt="AirPods 4">
+                <img src="images/Airpod_4_2.png" alt="AirPods 4">
+                <img src="images/Airpod_4_3.png" alt="AirPods 4">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
             </div>
-            <div class="meta">
-              <h4>AirPods 4</h4>
-              <p>AirPods 4 – Qualité sonore améliorée - Autonomie 6h / 30h avec boîtier USB.</p>
-              <div class="price">100 €</div>
-              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods 4',100)"><span
-                    class="wa"></span> Commander</button></div>
+
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">AirPods 4</h3>
+              <div class="compare-compat">
+                <span>AirPods 4</span>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
+                  <span>Son plus immersif.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Connexion ultra‑rapide.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Autonomie prolongée.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/design_gold_circle.png">
+                  <span>Design léger et confortable.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/reduction_bruit_gold_circle.png">
+                  <span>Microphones haute précision.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">
+                  <span>Boîtier USB‑C moderne.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">100,05 €</span>
+                  <span class="compare-old-price">115 €</span>
+                  <span class="compare-discount">-13%</span>
+                </div>
+                <!-- <div class="compare-stock">Stock épuisé</div> -->
+              </div>
+
+              <div class="btn-order">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('AirPods 4',100.05)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
+              </div>
             </div>
           </article>
         </div>
@@ -1073,16 +2889,118 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     </div>
   </section>
 
-  <section class="section" data-collapsed="true">
-    <div class="section-header" onclick="toggleSection(this)">
-      <div class="section-title">
-        <h2>AirPods Max</h2>
+  <section id="airpodsmax" class="section" data-collapsed="true">
+    <div class="modern-header" onclick="toggleSection(this)">
+      <div class="section-left">
+        <img src="images/Image_Soundindustry/Image_Produit/casque_fond_noir.png">
+
+        <div class="section-text">
+          <h2>AirPods Max</h2>
+          <p>Son haute fidélité et confort ultime.</p>
+        </div>
       </div>
-      <div class="toggle">></div>
+
+      <div class="toggle">›</div>
     </div>
+
     <div class="section-content">
       <div class="scrollwrap layout-carousel">
         <div class="track" id="track-smartphones">
+
+          <article class="compare-card">
+
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/Airpods_Max_USB-C.png" alt="AirPods Max">
+                <img src="images/Airpods_Max_USB-C_1.png" alt="AirPods Max">
+                <img src="images/Airpods_Max_USB-C_2.png" alt="AirPods Max">
+                <img src="images/Airpods_Max_USB-C_3.png" alt="AirPods Max">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
+            </div>
+
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">Apple AirPods Max 2</h3>
+              <div class="compare-compat">
+                <span>AirPods Max</span>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
+                  <span>Son plus immersif.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Connexion ultra‑rapide.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Autonomie prolongée.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/design_gold_circle.png">
+                  <span>Design léger et confortable.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/reduction_bruit_gold_circle.png">
+                  <span>Microphones haute précision.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">
+                  <span>Boîtier USB‑C moderne.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">197,80 €</span>
+                  <span class="compare-old-price">230 €</span>
+                  <span class="compare-discount">-14%</span>
+                </div>
+                <!-- <div class="compare-stock">Stock épuisé</div> -->
+              </div>
+
+              <div class="btn-order">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('Apple AirPods Max 2',197.80)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
+              </div>
+            </div>
+          </article>
+
+
           <!-- ===== aipods max bleu ===== 
           <article class="card">
             <div class="image-carousel" data-images='[
@@ -1102,154 +3020,504 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods Max lighting',199)"><span
                     class="wa"></span> Commander</button></div>
             </div>
-          </article> -->
-          <article class="card">
-            <div class="image-carousel" data-images='[
-              "images/Airpods_Max_USB-C.png",
-              "images/Airpods_Max_USB-C_1.png",
-              "images/Airpods_Max_USB-C_2.png",
-              "images/Airpods_Max_USB-C_3.png"
-              ]'>
-              <button class="img-prev">⟵</button>
-              <img class="product-img" src="images/Airpods_Max_USB-C.png" alt="Airpods Max USB-C">
-              <button class="img-next">⟶</button>
-            </div>
-            <div class="meta">
-              <h4>Apple AirPods Max 2</h4>
-              <p>AirPods Max – Autonomie 10 h – Noir – Port USB‑C – Traduction en Direct.</p>
-              <div class="price">199,99 €</div>
-              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('AirPods Max USB-C',199)"><span
-                    class="wa"></span> Commander</button></div>
-            </div>
-          </article>
+          </article>-->
         </div>
       </div>
     </div>
   </section>
-  <section class="section" data-collapsed="true">
-    <div class="section-header" onclick="toggleSection(this)">
-      <div class="section-title">
-        <h2>Enceinte Bluetooth</h2>
+  <section id="enceintesbluetooth" class="section" data-collapsed="true">
+    <div class="modern-header" onclick="toggleSection(this)">
+      <div class="section-left">
+        <img src="images/Image_Soundindustry/Image_Produit/baffe_fond_noir.png">
+
+        <div class="section-text">
+          <h2>Enceintes Bluetooth</h2>
+          <p>Puissance et autonomie pour tous.</p>
+        </div>
       </div>
-      <div class="toggle">></div>
+
+      <div class="toggle">›</div>
     </div>
+
     <div class="section-content">
       <div class="scrollwrap layout-carousel">
         <div class="track" id="track-accessoires">
-          <article class="card">
-            <div class="image-carousel" data-images='[
-              "images/JBL_Pulse_5.png",
-              "images/JBL_Pulse_5_1.png",
-              "images/JBL_Pulse_5_2.png"
-              ]'>
-              <button class="img-prev">⟵</button>
-              <img class="product-img" src="images/JBL_Pulse_5.png" alt="JBL Pulse 5">
-              <button class="img-next">⟶</button>
+
+          <article class="compare-card">
+
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/JBL_Pulse_5.png" alt="JBL Pulse 5">
+                <img src="images/JBL_Pulse_5_1.png" alt="JBL Pulse 5">
+                <img src="images/JBL_Pulse_5_2.png" alt="JBL Pulse 5">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
             </div>
-            <div class="meta">
-              <h4>Enceinte JBL Pulse 5</h4>
-              <p>JBL Pulse 5 – Son 360° – Puissance 40 W – Autonomie 12 h – Bluetooth
-                5.3 – Port USB‑C – Design transparent lumineux.</p>
-              <div class="price">85 €</div>
-              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Enceinte JBL Pulse 5',85)"><span
-                    class="wa"></span> Commander</button></div>
+
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">Enceinte JBL Pulse 5</h3>
+              <div class="compare-compat">
+                <span>JBL Pulse 5</span>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/reduction_bruit_gold_circle.png">
+                  <span>Son 360°.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/puissance_gold_circle.png">
+                  <span>Puissance 40 W.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Autonomie 12 h.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Bluetooth 5.3.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">
+                  <span>Port USB‑C.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/design_gold_circle.png">
+                  <span>Design transparent lumineux.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">85 €</span>
+                  <span class="compare-old-price">100 €</span>
+                  <span class="compare-discount">-15%</span>
+                </div>
+                <!-- <div class="compare-stock">Stock épuisé</div> -->
+              </div>
+
+              <div class="btn-order">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('Enceinte JBL Pulse 5',85)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
+              </div>
             </div>
           </article>
-          <article class="card">
-            <div class="image-carousel" data-images='[
-              "images/JBL_Flip_7.png",
-              "images/JBL_Flip_7_1.png",
-              "images/JBL_Flip_7_2.png",
-              "images/JBL_Flip_7_3.png"
-              ]'>
-              <button class="img-prev">⟵</button>
-              <img class="product-img" src="images/JBL_Flip_7.png" alt="JBL Flip 7">
-              <button class="img-next">⟶</button>
+
+
+          <article class="compare-card">
+
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/JBL_FLIP_7.png" alt="JBL FLIP 7">
+                <img src="images/JBL_Flip_7_1.png" alt="JBL FLIP 7">
+                <img src="images/JBL_Flip_7_2.png" alt="JBL FLIP 7">
+                <img src="images/JBL_Flip_7_3.png" alt="JBL FLIP 7">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
             </div>
-            <div class="meta">
-              <h4>Enceinte JBL FLIP 7</h4>
-              <p>JBL Flip 7 (USB‑C) – Son stéréo amélioré – Puissance 30 W – Autonomie 15 h – Bluetooth 5.3 – Design
-                compact renforcé.</p>
-              <div class="price">70 €</div>
-              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Enceinte JBL FLIP 7',70)"><span
-                    class="wa"></span> Commander</button></div>
+
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">Enceinte JBL FLIP 7</h3>
+              <div class="compare-compat">
+                <span>JBL FLIP 7</span>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/reduction_bruit_gold_circle.png">
+                  <span>Son stéréo amélioré.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/puissance_gold_circle.png">
+                  <span>Puissance 30 W.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Autonomie 15 h.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Bluetooth 5.3.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/design_gold_circle.png">
+                  <span>Un design compact renforcé.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Connexion rapide.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">69,60 €</span>
+                  <span class="compare-old-price">80 €</span>
+                  <span class="compare-discount">-13%</span>
+                </div>
+                <!-- <div class="compare-stock">Stock épuisé</div> -->
+              </div>
+
+              <div class="btn-order">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('Enceinte JBL FLIP7',69.60)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
+              </div>
             </div>
-          </article>
+          </article>            
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" data-collapsed="true">
-    <div class="section-header" onclick="toggleSection(this)">
-      <div class="section-title">
-        <h2>Gift Box</h2>
+  <section id="giftbox" class="section" data-collapsed="true">
+    <div class="modern-header" onclick="toggleSection(this)">
+      <div class="section-left">
+        <img src="images/Image_Soundindustry/Image_Produit/Giftbox_fond_noir.png">
+
+        <div class="section-text">
+          <h2>Coffret Accessoire</h2>
+          <p>Coffrets cadeaux prêts à offrir.</p>
+        </div>
       </div>
-      <div class="toggle">></div>
+
+      <div class="toggle">›</div>
     </div>
+
     <div class="section-content">
       <div class="scrollwrap layout-carousel">
         <div class="track" id="track-coffrets">
-          <article class="card">
-            <div class="image-carousel" data-images='[
-              "images/Gift_box_5_1.png",
-              "images/Gift_box_5_1_2.png"
-              ]'>
-              <button class="img-prev">⟵</button>
-              <img class="product-img" src="images/Gift_box_5_1.png" alt="Gift box">
-              <button class="img-next">⟶</button>
+
+          <article class="compare-card">
+
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/Gift_box_5_1.png" alt="Coffret Accessoire 5 en 1">
+                <img src="images/Gift_box_5_1_2.png" alt="Coffret Accessoire 5 en 1">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
             </div>
-            <div class="meta">
-              <h4>Coffret Accessoire 5 en 1</h4>
-              <p>Compatibilité : Iphone (11/12/13/14/15/16/17).</p>
-              <p>Câble USB-C + Coque de protection + Batterie externe à induction.</p>
-              <div class="price">75 €</div>
-              <div class="actions"><button class="btn-order"
-                  onclick="event.stopPropagation();orderWhatsApp('Coffret Accessoire 5 en 1',75)"><span
-                    class="wa"></span> Commander</button>
+
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">Coffret Accessoire 5 en 1</h3>
+              <div class="compare-compat">
+                <span>Compatibilité : iPhone (11/12/13/14/15/16/17)</span>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">
+                  <span>Câble USB‑C haute qualité.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
+                  <span>Coque MagSafe premium.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/lighting_gold_circle.png">
+                  <span>Chargeur PD 20W.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/magnet_gold_circle.png">
+                  <span>Support magnétique.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Une batterie externe induction.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">75 €</span>
+                  <!--<span class="compare-old-price">189 €</span>
+                  <span class="compare-discount">-21%</span>-->
+                </div>
+              </div>
+
+              <div class="btn-order">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('Coffret Accessoire 5 en 1',75)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
               </div>
             </div>
           </article>
-          <article class="card">
-            <div class="image-carousel" data-images='[
-              "images/Gift_box.png",
-              "images/gift_box_1.png"
-              ]'>
-              <button class="img-prev">⟵</button>
-              <img class="product-img" src="images/Gift_box.png" alt="Gift box">
-              <button class="img-next">⟶</button>
+
+          <article class="compare-card">
+
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/Gift_box_6_1.png" alt="Coffret Accessoire 6 en 1">
+                <img src="images/Gift_box_6_1_2.png" alt="Coffret Accessoire 6 en 1">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
             </div>
-            <div class="meta">
-              <h4>Coffret Accessoire 6 en 1</h4>
-              <p>Compatibilité : Iphone (11/12/13/14/15/16/17).</p>
-              <p>Câble USB-C + Airpods pro 2 + Coque de protection + Batterie externe à induction.</p>
-              <div class="promo-price">115 €</div>
-              <div class="price">100 €</div>
-              <div class="actions"><button class="btn-order"
-                  onclick="event.stopPropagation();orderWhatsApp('Coffret Accessoire 6 en 1',100)"><span
-                    class="wa"></span> Commander</button>
+
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">Coffret Accessoire 6 en 1</h3>
+              <div class="compare-compat">
+                <span>Compatibilité : iPhone (11/12/13/14/15/16/17)</span>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">
+                  <span>Câble USB‑C haute qualité.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
+                  <span>Coque MagSafe premium.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/lighting_gold_circle.png">
+                  <span>Chargeur PD 20W.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/magnet_gold_circle.png">
+                  <span>Support magnétique.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Batterie externe induction.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/ecouteur_gold_circle.png">
+                  <span>Écouteurs Bluetooth sans fil.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">100,80 €</span>
+                  <span class="compare-old-price">120 €</span>
+                  <span class="compare-discount">-16%</span>
+                </div>
+              </div>
+
+              <div class="btn-order">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('Coffret Accessoire 6 en 1',100.80)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
               </div>
             </div>
           </article>
-          <article class="card">
-            <div class="image-carousel" data-images='[
-              "images/Gift_box_7_1.png",
-              "images/Gift_box_7_1_1.png"
-              ]'>
-              <button class="img-prev">⟵</button>
-              <img class="product-img" src="images/Gift_box_7_1.png" alt="Gift box">
-              <button class="img-next">⟶</button>
+
+          <article class="compare-card">
+
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/Gift_box_7_1.png" alt="Coffret Accessoire 7 en 1">
+                <img src="images/Gift_box_7_1_1.png" alt="Coffret Accessoire 7 en 1">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
             </div>
-            <div class="meta">
-              <h4>Coffret Accessoire 7 en 1</h4>
-              <p>Compatibilité : Iphone (11/12/13/14/15/16/17).</p>
-              <p>Câble USB-C + Airpods pro 2 + Coque Iphone + Batterie à induction + Montre connectée.
-              </p>
-              <div class="price">130 €</div>
-              <p style="color:red;">Stock épuisé</p>
-              <div class="actions"><button class="btn-order"
-                  onclick="event.stopPropagation();orderWhatsApp('Coffret Accessoire 7 en 1',130)"><span
-                    class="wa"></span> Commander</button>
+
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">Coffret Accessoire 7 en 1</h3>
+              <div class="compare-compat">
+                <span>Compatibilité : iPhone (11/12/13/14/15/16/17)</span>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">
+                  <span>Câble USB‑C haute qualité.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
+                  <span>Coque MagSafe premium.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/lighting_gold_circle.png">
+                  <span>Chargeur PD 20W.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/magnet_gold_circle.png">
+                  <span>Support magnétique.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Batterie externe induction.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/ecouteur_gold_circle.png">
+                  <span>Écouteurs sans fil.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/airpods_gold_circle.png">
+                  <span>Montre connectée.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">130,50 €</span>
+                  <span class="compare-old-price">150 €</span>
+                  <span class="compare-discount">-13%</span>
+                </div>
+                <div class="compare-stock">Stock épuisé</div>
+              </div>
+
+              <div class="btn-order sold-out">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('Coffret Accessoire 7 en 1',130.50)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
               </div>
             </div>
           </article>
@@ -1258,97 +3526,317 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     </div>
   </section>
 
-  <section class="section" data-collapsed="true">
-    <div class="section-header" onclick="toggleSection(this)">
-      <div class="section-title">
-        <h2>Apple Watch</h2>
+  <section id="applewatch" class="section" data-collapsed="true">
+    <div class="modern-header" onclick="toggleSection(this)">
+      <div class="section-left">
+        <img src="images/Image_Soundindustry/Image_Produit/Montre_fond_noir.png">
+
+        <div class="section-text">
+          <h2>Apple Watch</h2>
+          <p>Performance, santé et élégance.</p>
+        </div>
       </div>
-      <div class="toggle">></div>
+
+      <div class="toggle">›</div>
     </div>
+
     <div class="section-content">
       <div class="scrollwrap layout-carousel">
         <div class="track" id="track-maison">
-          <article class="card">
-            <div class="image-carousel" data-images='[
-              "images/Apple_watch_ultra_2.png",
-              "images/Apple_watch_ultra_2_1.png"
-              ]'>
-              <button class="img-prev">⟵</button>
-              <img class="product-img" src="images/Apple_watch_ultra_2.png" alt="Apple watch ultra 2">
-              <button class="img-next">⟶</button>
+
+          <article class="compare-card">
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/Apple_watch_ultra_2.png" alt="Watch Ultra 2">
+                <img src="images/Apple_watch_ultra_2_1.png" alt="Watch Ultra 2">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
             </div>
-            <div class="meta">
-              <h4>Apple Watch Ultra 2</h4>
-              <p>Apple Watch Ultra 2 + Cellular 49 mm - Titane naturel - Bracelet Noir</p>
-              <div class="price">150 €</div>
-              <p style="color:red;">Stock épuisé</p>
-              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Apple Watch Ultra 2',150)"><span
-                    class="wa"></span> Commander</button></div>
+
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">Apple Watch Ultra 2</h3>
+              <div class="compare-compat">
+                <span>Watch Ultra 2</span>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">
+                  <span>Câble USB‑C haute qualité.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
+                  <span>Coque MagSafe premium.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Chargeur PD 20W.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/magnet_gold_circle.png">
+                  <span>Support magnétique.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/lighting_gold_circle.png">
+                  <span>Batterie externe induction.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/airpods_gold_circle.png">
+                  <span>Écouteurs sans fil.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">150 €</span>
+                  <span class="compare-old-price">200 €</span>
+                  <span class="compare-discount">-25%</span>
+                </div>
+                <!--<div class="compare-stock">Stock épuisé</div>-->
+              </div>
+
+              <div class="btn-order">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('Apple Watch Ultra 2',150)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
+              </div>
             </div>
           </article>
-          <article class="card">
-            <div class="image-carousel" data-images='[
-              "images/Apple_watch_serie_10.png",
-              "images/Apple_watch_serie_10_1.png",
-              "images/Apple_watch_serie_10_2.png"
-              ]'>
-              <button class="img-prev">⟵</button>
-              <img class="product-img" src="images/Apple_watch_serie_10.png" alt="Apple watch serie 10">
-              <button class="img-next">⟶</button>
+
+          <article class="compare-card">
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/Apple_watch_serie_10.png" alt="Watch série 11">
+                <img src="images/Apple_watch_serie_10_1.png" alt="Watch série 11">
+                <img src="images/Apple_watch_serie_10_2.png" alt="Watch série 11">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
             </div>
-            <div class="meta">
-              <h4>Apple Watch série 11</h4>
-              <p>Apple Watch Series 11 - GPS 46 mm - Aluminium Noir de jais - Bracelet sport Noir</p>
-              <div class="price">120 €</div>
-              <div class="actions"><button class="btn-order" onclick="orderWhatsApp('Apple Watch série 11',120)"><span
-                    class="wa"></span> Commander</button></div>
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">Apple Watch série 11</h3>
+              <div class="compare-compat">
+                <span>Watch série 11</span>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">
+                  <span>Câble USB‑C haute qualité.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
+                  <span>Coque MagSafe premium.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Chargeur PD 20W.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/magnet_gold_circle.png">
+                  <span>Support magnétique.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/lighting_gold_circle.png">
+                  <span>Batterie externe induction.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/airpods_gold_circle.png">
+                  <span>Écouteurs sans fil.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">120 €</span>
+                  <!--<span class="compare-old-price">200 €</span>
+                  <span class="compare-discount">-25%</span>-->
+                </div>
+                <!--<div class="compare-stock">Stock épuisé</div>-->
+              </div>
+
+              <div class="btn-order">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('Apple Watch Ultra 2',150)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
+              </div>
             </div>
           </article>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="gift-area">
+    <div class="gift-area-cont">
+
+      <div class="gift-cont">
+        <img src="images/Image_Soundindustry/Image_deco/cadeau_étoile_fond_noir.png">
+
+        <div class="gift-text">
+          <h2>Idée cadeau ?</h2>
+          <p>Offrez le meilleur de la tech avec nos coffrets exclusifs.</p>
+        </div>
+      </div>
+
+      <div class="gift-offres">
+        Voir les Gift Box
+        <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png">
+      </div>
+
+    </div>
+  </div>
+
   <div class="suggest-box">
-    <h2>💡 Suggestion de nouveaux produits</h2>
+    <h2>💡 Suggestion de <span>nouveaux produits</span></h2>
     <p>Dites-nous quels sont les produits que vous aimeriez que nous ajoutions.</p>
     <textarea id="suggestMessage" class="suggest-textarea"
       placeholder="Exemple : Pouvez-vous ajouter des câbles USB-C, etc."></textarea>
     <div class="actions">
       <button class="btn-order" onclick="sendSuggestion()"><span class="wa"></span>
-        Soumettre votre demande
-      </button>
+        Soumettre votre demande <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png"></button>
     </div>
   </div>
 
-  <p class="slogan-vibe">
-    Sound Industry — Plus qu’un son… <span>UNE VYBZ !!!</span>
-  </p>
+  <!--<div class="slogan-vibe">
+    <img src="images/Image_Soundindustry/Image_deco/Slogan.png" alt="">
+  </div>-->
 
-  <div class="info-flexbox">
-    <div class="info-card">
-      <h3>🕒 Livraison partout en Guyane!!</h3>
-      <p>Disponible 7j/7.</p>
-      <p>Nous nous adaptons à votre emploi du temps.</p>
-      <p>Notre service est en cours de déploiement pour tous les DROM‑TOM.</p>
-    </div>
-
-    <div class="info-card">
-      <h3>📞 Contact</h3>
-      <p><strong>Téléphone :</strong> +594 694 00 63 28</p>
-      <p><strong>Instagram :</strong> SoundIndustry.off</p>
-      <p><strong>Email :</strong> Soundindustry.store@gmail.com</p>
-      <p><strong>Réponse moyenne :</strong> moins de 24h</p>
+  <div class="free-transport">
+    <img src="images/Image_Soundindustry/Embleme/Livraison_rapide.png" alt="">
+    <div class="free-transport-cont">
+      <h2>Livraison partout en <span>Guyane!!!</span></h2>
+      <div class="free-transport-text">
+        <p><img src="images/Image_Soundindustry/Icon_accessoire/Icon_valide.png" alt="">Disponible 7j/7.</p>
+        <p><img src="images/Image_Soundindustry/Icon_accessoire/Icon_valide.png" alt="">Nous nous adaptons à votre
+          emploi du temps.</p>
+        <p><img src="images/Image_Soundindustry/Icon_accessoire/Icon_valide.png" alt="">Notre service est en cours de
+          déploiement pour tous les DROM‑TOM.</p>
+      </div>
     </div>
   </div>
+
+  <!-- CONTACT PANEL CONTAINER -->
+  <div class="contact-panel">
+    <h2 class="contact-title">
+      <img src="images/Image_Soundindustry/Icon_accessoire/telephone_fix.png" alt="contact">
+      Contact
+    </h2>
+
+    <!-- PHONE -->
+    <div class="contact-row">
+      <div class="contact-row-cont">
+        <img src="images/Image_Soundindustry/Icon_accessoire/telephone_mobile.png" class="contact-icon" alt="phone">
+        <span class="contact-label">Téléphone :</span>
+        <span class="contact-value">+594 694 00 83 28</span>
+        <div class="toggle">></div>
+      </div>
+    </div>
+
+    <!-- INSTAGRAM -->
+    <div class="contact-row">
+      <div class="contact-row-cont">
+        <img src="images/Image_Soundindustry/Icon_accessoire/instagram.png" class="contact-icon" alt="instagram">
+        <span class="contact-label">Instagram :</span>
+        <span class="contact-value">SoundIndustry.off</span>
+        <div class="toggle">></div>
+      </div>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="contact-row">
+      <div class="contact-row-cont">
+        <img src="images/Image_Soundindustry/Icon_accessoire/email.png" class="contact-icon" alt="email">
+        <span class="contact-label">Email :</span>
+        <span class="contact-value">soundindustry.store@gmail.com</span>
+        <div class="toggle">></div>
+      </div>
+    </div>
+
+    <!-- RESPONSE TIME -->
+    <div class="contact-row">
+      <div class="contact-row-cont">
+        <img src="images/Image_Soundindustry/Icon_accessoire/Temps_reponse.png" class="contact-icon" alt="clock">
+        <span class="contact-label">Tik-Tok :</span>
+        <span class="contact-value">soundindustry.gf</span>
+        <div class="toggle">></div>
+      </div>
+    </div>
+    <div class="reponse">
+      Nous répondons généralement dans les 24 heures.
+    </div>
+  </div>
+
 
 
   <!-- Footer navigation -->
   <div class="footer-nav">
-    <button class="btn" onclick="scrollToTop()">↑ Haut</button>
+    <button class="btn" onclick="scrollToTop()"><img src="images/Image_Soundindustry/Icon_accessoire/fleche-vers-le-haut_white.png" style="width: 15px; height: 15px;" alt="Haut"> Haut</button>
     <button class="btn primary"
-      onclick="openWhatsApp('Bonjour, Je veux avoir des renseignements sur un/des produits')">Aide</button>
+      onclick="openWhatsApp('Bonjour, Je veux avoir des renseignements sur un/des produits')">Aide <img src="images/Image_Soundindustry/Icon_accessoire/aide_black.png" style="width: 15px; height: 15px;" alt="Aide"></button>
     <!-- Bouton Avis -->
-    <button class="btn" onclick="toggleAvisPopup()">Avis</button>
+    <button class="btn" onclick="toggleAvisPopup()"><img src="images/Image_Soundindustry/Icon_accessoire/etoile_white.png" style="width: 15px; height: 15px; margin-right: 5px;" alt="Avis">Avis</button>
     <button class="btn-concours" onclick="toggleConcoursPopup()">Je participe🎉</button>
   </div>
 
@@ -1400,42 +3888,104 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     /* ===== Config WhatsApp (optionnel) ===== */
     const WHATSAPP_NUMBER = '594694006328';
 
-    const highlights = document.querySelectorAll('.highlight-item');
-    let hIndex = 0;
+    /* ===== Highlight Premium Rotatif ===== */
+    const premiumHighlights = document.querySelectorAll('.highlight-premium-item');
+    let premiumIndex = 0;
 
-    function rotateHighlight() {
-      highlights.forEach(h => h.classList.remove('active'));
-      highlights[hIndex].classList.add('active');
-      hIndex = (hIndex + 1) % highlights.length;
+    function rotatePremiumHighlight() {
+      // Remove active from all slides
+      premiumHighlights.forEach(h => h.classList.remove('active'));
+
+      // Activate current slide
+      const currentSlide = premiumHighlights[premiumIndex];
+      currentSlide.classList.add('active');
+
+      // Reset all progress bars
+      document.querySelectorAll('.highlight-progress-fill').forEach(bar => {
+        bar.style.width = "0%";
+        bar.style.transition = "none"; // reset instantly
+      });
+
+      // Animate the progress bar of the active slide
+      const activeBar = currentSlide.querySelector('.highlight-progress-fill');
+      setTimeout(() => {
+        activeBar.style.transition = "width 10s linear";
+        activeBar.style.width = "100%";
+      }, 50);
+
+      // Move to next slide
+      premiumIndex = (premiumIndex + 1) % premiumHighlights.length;
     }
 
-    rotateHighlight(); // affiche le premier
-    setInterval(rotateHighlight, 10000); // change toutes les 10 sec
+    // Start immediately
+    rotatePremiumHighlight();
+
+    // Rotate every 10 seconds
+    setInterval(rotatePremiumHighlight, 10000);
 
 
 
-    /* ===== Accordion toggle ===== */
+
+    /* ============================
+    PREMIUM ACCORDION SYSTEM
+ ============================ */
     function toggleSection(el) {
+
       const section = el.closest('.section');
-      const collapsed = section.getAttribute('data-collapsed') === 'true';
-      section.setAttribute('data-collapsed', collapsed ? 'false' : 'true');
-      section.querySelector('.section-content').style.display = collapsed ? '' : 'none';
-      el.querySelector('.toggle').textContent = collapsed ? '⌄' : '›';
+
+      const collapsed =
+        section.getAttribute('data-collapsed') === 'true';
+
+      section.setAttribute(
+        'data-collapsed',
+        collapsed ? 'false' : 'true'
+      );
+
+      el.querySelector('.toggle').innerHTML =
+        collapsed ? '⌄' : '›';
     }
+
     window.toggleSection = toggleSection;
 
-    /* Init: ensure open by default */
-    document.querySelectorAll('.section').forEach(sec => {
-      const collapsed = sec.getAttribute('data-collapsed') === 'true';
-      sec.querySelector('.section-content').style.display = collapsed ? 'none' : '';
-    });
+
+
+    /*Sroll to products*/
+    function scrollToProducts() {
+      document.getElementById('products').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
+    /*Sroll to airpods*/
+    function scrollToSection(sectionId) {
+
+      const section = document.getElementById(sectionId);
+
+      if (!section) return;
+
+      // Scroll first
+      section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+
+      // Open 1 second later
+      setTimeout(() => {
+
+        if (section.getAttribute('data-collapsed') === 'true') {
+          toggleSection(section.querySelector('.modern-header'));
+        }
+
+      }, 1200);
+    }
 
     /* ===== Carousel scrolling ===== */
     function scrollTrack(id, dir) {
       const el = document.getElementById(id);
       const card = el.querySelector('.card');
       const delta = card ? (card.offsetWidth + 16) : 260;
-      el.scrollBy({ left: dir * delta, behavior: 'smooth' });
+      el.scrollBy({left: dir * delta, behavior: 'smooth'});
     }
     window.scrollTrack = scrollTrack;
 
@@ -1494,7 +4044,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
       await fetch("/.netlify/functions/addAvis", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
           nom: form.get("nom"),
           message: form.get("message")
@@ -1516,6 +4066,94 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
 
+    /*SWIPE IMAGE*/
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      const track = carousel.querySelector('.carousel-track');
+      const images = track.children;
+      const dotsContainer = carousel.querySelector('.carousel-dots');
+
+      let index = 0;
+      const total = images.length;
+
+      // Create dots
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('div');
+        if (i === 0) dot.classList.add('active');
+        dotsContainer.appendChild(dot);
+      }
+
+      const dots = dotsContainer.children;
+
+      function updateCarousel() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        [...dots].forEach(d => d.classList.remove('active'));
+        dots[index].classList.add('active');
+      }
+
+      // Arrows
+      const left = carousel.querySelector('.left');
+      const right = carousel.querySelector('.right');
+
+      if (left && right) {
+        left.onclick = () => {
+          index = (index - 1 + total) % total;
+          updateCarousel();
+        };
+        right.onclick = () => {
+          index = (index + 1) % total;
+          updateCarousel();
+        };
+      }
+
+      // Swipe (mobile)
+      let startX = 0;
+
+      track.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+      });
+
+      track.addEventListener('touchend', e => {
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) index = (index + 1) % total;
+          else index = (index - 1 + total) % total;
+          updateCarousel();
+        }
+      });
+    });
+
+    /*copié dans le press papier*/
+
+    document.querySelectorAll('.contact-row-cont').forEach(row => {
+      row.addEventListener('click', () => {
+        const value = row.querySelector('.contact-value')?.textContent.trim();
+        if (!value) return;
+
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(value);
+        } else {
+          const textarea = document.createElement('textarea');
+          textarea.value = value;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+        }
+
+        const valueEl = row.querySelector('.contact-value');
+        const originalText = valueEl.textContent;
+
+        valueEl.textContent = '✅ Copié !';
+
+        setTimeout(() => {
+          valueEl.textContent = originalText;
+        }, 1500);
+      });
+    });
+
+
     /*poppup area*/
     function toggleConcoursPopup() {
       document.getElementById("ConcoursPopup").style.display = "block";
@@ -1534,9 +4172,9 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
     /* ===== Scroll helper ===== */
-    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    function scrollToTop() {window.scrollTo({top: 0, behavior: 'smooth'});}
   </script>
-  <!--<div class="snow"></div>-->
+  <div class="snow"></div>
   <!--<div class="valentine"></div>-->
 </body>
 
