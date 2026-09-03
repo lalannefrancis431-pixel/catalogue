@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sound Industry</title>
   <link rel="icon" type="image/png" href="images/Industry_logo1.png">
   <meta name="description" content="Découvrez notre catalogue interactif et l’ensemble de nos gammes de produits." />
@@ -67,7 +67,14 @@
 
     html,
     body {
-      height: 100%;
+
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
     }
 
     body {
@@ -831,6 +838,21 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       font-size: 1.1rem;
     }
 
+    /*TELEPHONE*/
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        max-width: 700px;
+        margin: 0 auto;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+    }
+
     /* Icons row */
     .hero-icons {
       display: flex;
@@ -860,7 +882,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       transform: translateY(-50%);
       width: 2px;
       height: 100px;
-      opacity: 0, 5;
+      opacity: 0.7;
       background: linear-gradient(to bottom,
           #67582d 0%,
           #d2b976 50%,
@@ -878,6 +900,33 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     .hero-icon p {
       margin: 0px;
       font-size: 13px;
+    }
+
+    /*TELEPHONE*/
+
+    @media (max-width: 768px) {
+
+      .hero-icons {
+        gap: 7px;
+      }
+
+      .hero-icon {
+        width: 70px;
+      }
+
+      .hero-icon:not(:last-child)::after {
+        right: -3.5px;
+        /* half of 5px */
+        height: 50px;
+      }
+
+      .hero-icon-img {
+        width: 25px;
+      }
+
+      .hero-icon p {
+        font-size: 10px;
+      }
     }
 
     /* CTA */
@@ -962,6 +1011,51 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       margin-top: 5px;
       width: 20px;
     }
+
+    /*TELEPHONE*/
+
+    @media (max-width: 768px) {
+
+      .hero-categories {
+        gap: 15px;
+      }
+
+      .hero-cat {
+        width: 90px;
+        height: 90px;
+        padding: 10px;
+      }
+
+      .hero-cat img {
+        width: 40px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+      }
+
+      .hero-cat-cont p {
+        font-size: 0.7rem;
+      }
+
+      .hero-cat-cont img {
+        width: 15px;
+      }
+    }
+
+    /* iF I WANT 2 BY 2 ADD THIS
+
+    @media (max-width: 768px) {
+
+    .hero-categories {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .hero-cat {
+        width: auto;
+        height: 120px;
+    }
+    }*/
 
     /* ============================
    HIGHLIGHT PREMIUM ROTATIF
@@ -1160,6 +1254,71 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       margin-top: 20px;
       text-align: right;
       font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .highlight-header {
+        align-items: center;
+      }
+
+      .highlight-badge {
+        font-size: 15px;
+      }
+
+      .highlight-tag {
+        padding: 5px;
+      }
+
+      .highlight-tag img {
+        height: 15px;
+        width: auto;
+        margin-top: 7px;
+      }
+
+      .highlight-product {
+        display: inline;
+      }
+
+      .product-badge {
+        left: auto;
+      }
+
+      .highlight-product img {
+        max-width: 300px;
+        margin-left: 0;
+      }
+
+      .highlight-title {
+        font-size: 1.5rem;
+        margin-top: 0px;
+      }
+
+      .highlight-features {
+        margin-bottom: 5px;
+      }
+
+      .highlight-features li {
+        color: var(--muted);
+        margin-bottom: 3px;
+        margin-left: 10px;
+        font-size: 0.8rem;
+      }
+
+      .highlight-features img {
+        width: 15px;
+        height: 15px;
+        margin-right: 4px;
+        margin-bottom: 1px;
+        vertical-align: middle;
+      }
+
+      .highlight-price {
+        margin-bottom: 5px;
+      }
+
+      .btn-order {
+        width: 300px;
+      }
     }
 
     /* ============================
@@ -1453,6 +1612,44 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       object-fit: contain;
     }
 
+    @media (max-width: 768px) {
+
+      .gift-area-cont {
+        padding: 10px 2px;
+      }
+
+      .gift-cont img {
+        width: 50px;
+        height: 50px;
+        padding: 2px;
+      }
+
+      .gift-cont h2 {
+        font-size: 1.4rem;
+      }
+
+      .gift-cont p {
+        font-size: 0.8rem;
+        line-height: 1.2;
+      }
+
+      .gift-offres {
+        font-size: 10px;
+        gap: 5px;
+        padding: 5px;
+        border-radius: 10px;
+      }
+
+      .gift-offres img {
+        width: 10px;
+        height: 10px;
+        margin-right: 10px;
+      }
+    }
+
+
+
+
     /*Suggestion section*/
     .suggest-box {
       /*chrismas color:#0d0f14 */
@@ -1588,6 +1785,36 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       height: 24px;
     }
 
+    /*TELEPHONE*/
+    @media (max-width: 768px) {
+      .free-transport {
+        gap: 10px;
+        padding: 10px 5px;
+      }
+
+      .free-transport img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .free-transport-cont h2 {
+        font-size: 1rem;
+      }
+
+      .free-transport-cont span {
+        font-size: 1rem;
+      }
+
+      .free-transport-text p {
+        font-size: 0.8rem;
+      }
+
+      .free-transport-text p img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
     .contact-panel {
       width: 100%;
       background-color: #000;
@@ -1630,6 +1857,33 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       padding: 14px 40px;
       gap: 20px;
       cursor: pointer;
+    }
+    /*TELEPHONE*/
+    @media (max-width: 768px) {
+      .contact-row {
+        margin-bottom: 5px;
+      }
+
+      .contact-row-cont {
+        padding: 14px 10px;
+        gap: 10px;
+      }
+
+      .contact-icon {
+        width: 10px !important;
+        height: 10px !important;
+      }
+
+
+      .contact-label {
+        font-size: 12px !important;
+        width: 100px !important;
+      }
+
+      .contact-value {
+        font-size: 10px !important;
+        margin-left: 0px !important;
+      }
     }
 
     .reponse {
@@ -2260,13 +2514,13 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
           </ul>
 
           <div class="highlight-price">
-            <span class="new-price">210 €</span>
-            <span class="old-price">279 €</span>
-            <span class="discount">-25%</span>
+            <span class="new-price">90 €</span>
+            <span class="old-price">100 €</span>
+            <span class="discount">-10%</span>
           </div>
           <div class="btn-order">
             <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
-            <button onclick="orderWhatsApp('AirPods Pro 3',210)">Commander
+            <button onclick="orderWhatsApp('AirPods Pro 3',90)">Commander
               maintenant</button>
             <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
           </div>
@@ -2303,13 +2557,13 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
           </ul>
 
           <div class="highlight-price">
-            <span class="new-price">100 €</span>
-            <span class="old-price">115 €</span>
-            <span class="discount">-15%</span>
+            <span class="new-price">100,80 €</span>
+            <span class="old-price">120 €</span>
+            <span class="discount">-16%</span>
           </div>
           <div class="btn-order">
             <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
-            <button onclick="orderWhatsApp('Coffret Accessoire 6 en 1',100)">Commander
+            <button onclick="orderWhatsApp('Coffret Accessoire 6 en 1',100.80)">Commander
               maintenant</button>
             <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
           </div>
@@ -3227,7 +3481,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
                 </div>
               </div>
             </div>
-          </article>            
+          </article>
         </div>
       </div>
     </div>
@@ -3832,11 +4086,17 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
   <!-- Footer navigation -->
   <div class="footer-nav">
-    <button class="btn" onclick="scrollToTop()"><img src="images/Image_Soundindustry/Icon_accessoire/fleche-vers-le-haut_white.png" style="width: 15px; height: 15px;" alt="Haut"> Haut</button>
+    <button class="btn" onclick="scrollToTop()"><img
+        src="images/Image_Soundindustry/Icon_accessoire/fleche-vers-le-haut_white.png"
+        style="width: 15px; height: 15px;" alt="Haut"> Haut</button>
     <button class="btn primary"
-      onclick="openWhatsApp('Bonjour, Je veux avoir des renseignements sur un/des produits')">Aide <img src="images/Image_Soundindustry/Icon_accessoire/aide_black.png" style="width: 15px; height: 15px;" alt="Aide"></button>
+      onclick="openWhatsApp('Bonjour, Je veux avoir des renseignements sur un/des produits')">Aide <img
+        src="images/Image_Soundindustry/Icon_accessoire/aide_black.png" style="width: 15px; height: 15px;"
+        alt="Aide"></button>
     <!-- Bouton Avis -->
-    <button class="btn" onclick="toggleAvisPopup()"><img src="images/Image_Soundindustry/Icon_accessoire/etoile_white.png" style="width: 15px; height: 15px; margin-right: 5px;" alt="Avis">Avis</button>
+    <button class="btn" onclick="toggleAvisPopup()"><img
+        src="images/Image_Soundindustry/Icon_accessoire/etoile_white.png"
+        style="width: 15px; height: 15px; margin-right: 5px;" alt="Avis">Avis</button>
     <button class="btn-concours" onclick="toggleConcoursPopup()">Je participe🎉</button>
   </div>
 
