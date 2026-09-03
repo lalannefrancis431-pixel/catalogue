@@ -807,6 +807,19 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       z-index: -1;
     }
 
+    @media (max-width: 700px) {
+      .hero-bg {
+        background-image: url("images/Image_Soundindustry/Image_deco/image_premier_plan2_0.png");
+        background-size: contain;
+        margin-top: 400px;
+        opacity: 0.25;
+      }
+
+      .hero-cta {
+        margin: 20px 0 400px;
+      }
+    }
+
 
     /* Logo */
     .hero-logo {
@@ -1200,7 +1213,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       border-radius: 10px;
       border: 0;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #041019;
+      color: #ffffff;
       font-weight: 700;
       margin: 0px 10px 10px;
     }
@@ -1858,6 +1871,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       gap: 20px;
       cursor: pointer;
     }
+
     /*TELEPHONE*/
     @media (max-width: 768px) {
       .contact-row {
@@ -2163,11 +2177,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       background: var(--accent);
     }
 
-    .carousel-dots {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .3s ease;
-    }
+
 
     @media (min-width: 900px) {
       .compare-img:hover .carousel-dots {
@@ -2192,6 +2202,12 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       height: 278px;
       display: block;
       margin-right: 2.5px;
+    }
+
+    @media (max-width: 768px) {
+      .compare-img img {
+        height: 225px;
+      }
     }
 
 
@@ -4245,7 +4261,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       const el = document.getElementById(id);
       const card = el.querySelector('.card');
       const delta = card ? (card.offsetWidth + 16) : 260;
-      el.scrollBy({left: dir * delta, behavior: 'smooth'});
+      el.scrollBy({ left: dir * delta, behavior: 'smooth' });
     }
     window.scrollTrack = scrollTrack;
 
@@ -4304,7 +4320,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
       await fetch("/.netlify/functions/addAvis", {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           nom: form.get("nom"),
           message: form.get("message")
@@ -4432,9 +4448,9 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
     /* ===== Scroll helper ===== */
-    function scrollToTop() {window.scrollTo({top: 0, behavior: 'smooth'});}
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
   </script>
-  <div class="snow"></div>
+  <!--<div class="snow"></div>-->
   <!--<div class="valentine"></div>-->
 </body>
 
