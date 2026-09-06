@@ -405,6 +405,12 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       background: #111;
     }
 
+    /* Disable horizontal scroll when child carousel is swiping */
+    .track.no-scroll {
+      overflow-x: hidden !important;
+    }
+
+
     .track .card {
       flex: 0 0 260px;
     }
@@ -1026,33 +1032,73 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
     /*TELEPHONE*/
-
     @media (max-width: 768px) {
 
+      /* 300px row containing all 4 buttons */
       .hero-categories {
-        gap: 15px;
+        width: 300px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 6px;
+        margin: 0 auto;
       }
 
+      /* Each button: horizontal layout */
       .hero-cat {
         width: 70px;
-        height: 90px;
-        padding: 5px;
+        /* 4 buttons fit in 300px */
+        height: 55px;
+
+        display: flex;
+        flex-direction: row;
+        /* <-- your request */
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+
+        background: #0d0f14;
+        border: 1px solid #d2b976;
+        border-radius: 12px;
+
+        padding: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, .4);
+        cursor: pointer;
       }
 
-      .hero-cat img {
-        width: 40px;
-        padding-bottom: 0px;
-        margin-bottom: 0px;
+      /* Icon */
+      .hero-cat>img {
+        width: 22px;
+        /* reduced size */
+        height: 22px;
+        object-fit: contain;
+      }
+
+      /* Text + arrow */
+      .hero-cat-cont {
+        display: flex;
+        flex-direction: row;
+        /* horizontal */
+        align-items: center;
+        gap: 2px;
       }
 
       .hero-cat-cont p {
-        font-size: 0.7rem;
+        font-size: 0.55rem;
+        /* reduced text size */
+        color: white;
+        margin: 0;
       }
 
       .hero-cat-cont img {
-        width: 15px;
+        width: 10px;
+        /* small arrow */
+        height: auto;
       }
     }
+
+
+
 
     /* iF I WANT 2 BY 2 ADD THIS
 
@@ -2154,6 +2200,49 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       }
     }
 
+    @media (max-width: 768px) {
+      .compare-card {
+        width: 280px;
+        height: 500px;
+      }
+
+      .btn-order {
+        width: 200px;
+        gap: 5px;
+        height: 28px;
+      }
+
+      .btn-order button {
+        font-size: 11px;
+        font-weight: 700;
+        padding: 0px 3px;
+      }
+
+      .secu,
+      .livra,
+      .garan {
+        font-size: .55rem !important;
+        gap: 4px !important;
+      }
+
+      .secu img {
+        height: 25px !important;
+      }
+
+      .livra img {
+        height: 20px;
+      }
+
+      .garan img {
+        height: 15px;
+      }
+
+      .compare-footer {
+        gap: 2.5px !important;
+        font-size: .55rem !important;
+      }
+    }
+
 
     /* Dots */
     .carousel-dots {
@@ -2206,7 +2295,11 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
     @media (max-width: 768px) {
       .compare-img img {
-        height: 225px;
+        height: 180px;
+      }
+
+      .compare-stock {
+        font-size: .5rem !important;
       }
     }
 
@@ -2331,7 +2424,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       content: "";
       position: absolute;
       top: 50%;
-      right: -20px;
+      right: -8px;
       transform: translateY(-50%);
       width: 1px;
       height: 40px;
@@ -2344,7 +2437,9 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
 
-    .secu {
+    .secu,
+    .livra,
+    .garan {
       display: flex;
       text-align: center;
       color: var(--muted);
@@ -2358,26 +2453,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       margin-bottom: 6px;
     }
 
-    .livra {
-      display: flex;
-      text-align: center;
-      color: var(--muted);
-      font-size: .7rem;
-      align-items: center;
-      gap: 10px;
-    }
-
     .livra img {
       height: 25px;
-    }
-
-    .garan {
-      display: flex;
-      text-align: center;
-      color: var(--muted);
-      font-size: .7rem;
-      align-items: center;
-      gap: 10px;
     }
 
     .garan img {
@@ -2385,9 +2462,22 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
     /* Responsive */
-    @media (max-width: 900px) {
+    @media (max-width: 768px) {
       .compare-feature-grid {
         grid-template-columns: 1fr;
+      }
+
+      .compare-feature-grid .feature-item:nth-child(5),
+      .compare-feature-grid .feature-item:nth-child(6) {
+        display: none;
+      }
+
+      .compare-compat{
+        height: 40px;
+      }
+
+      .compare-compat span {
+        display: none;
       }
     }
   </style>
@@ -2710,35 +2800,35 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <!-- TITLE -->
               <h3 class="compare-title">AirPods 2</h3>
               <div class="compare-compat">
-                <span>AirPods (2ᵉ génération)</span>
+                <p>AirPods (2ᵉ génération)</p>
               </div>
 
               <!-- FEATURE GRID (like the image) -->
               <div class="compare-feature-grid">
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Jusqu'à 24h d'autonomie.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/son_gold_circle.png">
                   <span>Son clair et équilibré.</span>
                 </div>
 
                 <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
-                  <span>Connexion instantanée.</span>
+                  <span>Connexion rapide.</span>
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
-                  <span>Puce H1 réactive.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/ecouteur_gold_circle.png">
+                  <img src="images/Image_Soundindustry/Icon_produit/personne_gold_circle.png">
                   <span>Commandes simples et fluides.</span>
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
-                  <span>Autonomie longue durée.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
+                  <span>Puce H1 réactive.</span>
                 </div>
 
                 <div class="feature-item">
@@ -2804,35 +2894,35 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <!-- TITLE -->
               <h3 class="compare-title">AirPods Pro 2</h3>
               <div class="compare-compat">
-                <span>AirPods Pro 2 (USB‑C)</span>
+                <p>AirPods Pro 2 (USB‑C)</p>
               </div>
 
               <!-- FEATURE GRID (like the image) -->
               <div class="compare-feature-grid">
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/ecouteur_gold_circle.png">
-                  <span>Une réduction de bruit avancée.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
-                  <span>Mode Transparence naturel.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
-                  <span>Audio spatial immersif.</span>
-                </div>
-
-                <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
-                  <span>Puce H2 ultra performante.</span>
+                  <span>Réduction active de bruit.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/personne_gold_circle.png">
+                  <span>Mode Transparence.</span>
                 </div>
 
                 <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
-                  <span>Autonomie améliorée.</span>
+                  <span>Jusqu'à 30h d'autonomie.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
+                  <span>Audio spacial personnalisé.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Puce H2 ultra performante.</span>
                 </div>
 
                 <div class="feature-item">
@@ -2898,40 +2988,40 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <!-- TITLE -->
               <h3 class="compare-title">AirPods 3</h3>
               <div class="compare-compat">
-                <span>AirPods 3</span>
+                <p>AirPods 3</p>
               </div>
 
               <!-- FEATURE GRID (like the image) -->
               <div class="compare-feature-grid">
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/design_gold_circle.png">
-                  <span>Design ergonomique repensé.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
-                  <span>Son spatial dynamique.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/reduction_bruit_gold_circle.png">
+                  <span>Son spatial immersif.</span>
                 </div>
 
                 <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
-                  <span>Autonomie étendue.</span>
+                  <span>Jusqu'à 30h d'autonomie.</span>
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/resistant_gold_circle.png">
+                  <img src="images/Image_Soundindustry/Icon_produit/bluetooth_gold_circle.png">
+                  <span>Connexion rapide.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/son_gold_circle.png">
+                  <span>Microphone intégré.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/son_gold_circle.png">
                   <span>Résistance à l’eau IPX4.</span>
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
-                  <span>Appairage instantané.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/reduction_bruit_gold_circle.png">
-                  <span>Microphones optimisés.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/design_gold_circle.png">
+                  <span>Design ergonomique repensé.</span>
                 </div>
               </div>
 
@@ -2992,7 +3082,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <!-- TITLE -->
               <h3 class="compare-title">AirPods Pro 3</h3>
               <div class="compare-compat">
-                <span>AirPods Pro 3</span>
+                <p>AirPods Pro 3</p>
               </div>
 
               <!-- FEATURE GRID (like the image) -->
@@ -3004,18 +3094,18 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
-                  <span>Audio adaptatif intelligent.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
-                  <span>Son plus riche et détaillé.</span>
-                </div>
-
-                <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/reduction_bruit_gold_circle.png">
-                  <span>Microphones améliorés.</span>
+                  <span>Son riche et détaillé.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/personne_gold_circle.png">
+                  <span>Ajustement confortable.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Jusqu'à 30h d'autonomie.</span>
                 </div>
 
                 <div class="feature-item">
@@ -3024,8 +3114,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
-                  <span>Autonomie optimisée.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
+                  <span>Audio adaptatif intelligent.</span>
                 </div>
               </div>
 
@@ -3086,35 +3176,35 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <!-- TITLE -->
               <h3 class="compare-title">AirPods 4</h3>
               <div class="compare-compat">
-                <span>AirPods 4</span>
+                <p>AirPods 4</p>
               </div>
 
               <!-- FEATURE GRID (like the image) -->
               <div class="compare-feature-grid">
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
-                  <span>Son plus immersif.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
-                  <span>Connexion ultra‑rapide.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/reduction_bruit_gold_circle.png">
+                  <span>Son haute qualité.</span>
                 </div>
 
                 <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
-                  <span>Autonomie prolongée.</span>
+                  <span>Jusqu'à 30h d'autonomie.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/son_gold_circle.png">
+                  <span>Microphone améliorés.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/bluetooth_gold_circle.png">
+                  <span>Connexion instantanée.</span>
                 </div>
 
                 <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/design_gold_circle.png">
                   <span>Design léger et confortable.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/reduction_bruit_gold_circle.png">
-                  <span>Microphones haute précision.</span>
                 </div>
 
                 <div class="feature-item">
@@ -3201,30 +3291,30 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <!-- TITLE -->
               <h3 class="compare-title">Apple AirPods Max 2</h3>
               <div class="compare-compat">
-                <span>AirPods Max</span>
+                <p>AirPods Max</p>
               </div>
 
               <!-- FEATURE GRID (like the image) -->
               <div class="compare-feature-grid">
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/audio_spacial_gold_circle.png">
-                  <span>Son plus immersif.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/reduction_bruit_gold_circle.png">
+                  <span>Réduction active du bruit.</span>
                 </div>
 
                 <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
-                  <span>Connexion ultra‑rapide.</span>
+                  <span>Audio spatial personnalisé.</span>
                 </div>
 
                 <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
-                  <span>Autonomie prolongée.</span>
+                  <span>Jusqu'à 20h d'autonomie.</span>
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/design_gold_circle.png">
-                  <span>Design léger et confortable.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">
+                  <span>Recharge USB-C .</span>
                 </div>
 
                 <div class="feature-item">
@@ -3233,8 +3323,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">
-                  <span>Boîtier USB‑C moderne.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/design_gold_circle.png">
+                  <span>Un beau design.</span>
                 </div>
               </div>
 
@@ -3336,30 +3426,30 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <!-- TITLE -->
               <h3 class="compare-title">Enceinte JBL Pulse 5</h3>
               <div class="compare-compat">
-                <span>JBL Pulse 5</span>
+                <p>JBL Pulse 5</p>
               </div>
 
               <!-- FEATURE GRID (like the image) -->
               <div class="compare-feature-grid">
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/reduction_bruit_gold_circle.png">
+                  <img src="images/Image_Soundindustry/Icon_produit/son_gold_circle.png">
                   <span>Son 360°.</span>
                 </div>
 
                 <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/puissance_gold_circle.png">
-                  <span>Puissance 40 W.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
-                  <span>Autonomie 12 h.</span>
+                  <span>Autonomie jusqu'à 12 h.</span>
                 </div>
 
                 <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
-                  <span>Bluetooth 5.3.</span>
+                  <span>Éclairage LED dynamique.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/resistant_gold_circle.png">
+                  <span>Résistant à l'eau (IPX7).</span>
                 </div>
 
                 <div class="feature-item">
@@ -3368,8 +3458,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/design_gold_circle.png">
-                  <span>Design transparent lumineux.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/puissance_gold_circle.png">
+                  <span>Puissance 40 W.</span>
                 </div>
               </div>
 
@@ -3430,7 +3520,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <!-- TITLE -->
               <h3 class="compare-title">Enceinte JBL FLIP 7</h3>
               <div class="compare-compat">
-                <span>JBL FLIP 7</span>
+                <p>JBL FLIP 7</p>
               </div>
 
               <!-- FEATURE GRID (like the image) -->
@@ -3438,7 +3528,17 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
                 <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/reduction_bruit_gold_circle.png">
-                  <span>Son stéréo amélioré.</span>
+                  <span>Son JBL Pro.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Autonomie jusqu'à 16h.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Résistant à la poussière(IP68).</span>
                 </div>
 
                 <div class="feature-item">
@@ -3447,22 +3547,12 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
-                  <span>Autonomie 15 h.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
-                  <span>Bluetooth 5.3.</span>
-                </div>
-
-                <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/design_gold_circle.png">
                   <span>Un design compact renforcé.</span>
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <img src="images/Image_Soundindustry/Icon_produit/bluetooth_gold_circle.png">
                   <span>Connexion rapide.</span>
                 </div>
               </div>
@@ -3541,9 +3631,9 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
             <div class="compare-meta">
               <!-- TITLE -->
-              <h3 class="compare-title">Coffret Accessoire 5 en 1</h3>
+              <h3 class="compare-title">Coffret 5 en 1</h3>
               <div class="compare-compat">
-                <span>Compatibilité : iPhone (11/12/13/14/15/16/17)</span>
+                <p><span>Compatibilité : </span>IPhone (11/12/13/14/15/16/17)</p>
               </div>
 
               <!-- FEATURE GRID (like the image) -->
@@ -3626,9 +3716,9 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
             <div class="compare-meta">
               <!-- TITLE -->
-              <h3 class="compare-title">Coffret Accessoire 6 en 1</h3>
+              <h3 class="compare-title">Coffret 6 en 1</h3>
               <div class="compare-compat">
-                <span>Compatibilité : iPhone (11/12/13/14/15/16/17)</span>
+                <p><span>Compatibilité : </span>IPhone (11/12/13/14/15/16/17)</p>
               </div>
 
               <!-- FEATURE GRID (like the image) -->
@@ -3716,9 +3806,9 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
             <div class="compare-meta">
               <!-- TITLE -->
-              <h3 class="compare-title">Coffret Accessoire 7 en 1</h3>
+              <h3 class="compare-title">Coffret 7 en 1</h3>
               <div class="compare-compat">
-                <span>Compatibilité : iPhone (11/12/13/14/15/16/17)</span>
+                <p><span>Compatibilité : </span>IPhone (11/12/13/14/15/16/17)</p>
               </div>
 
               <!-- FEATURE GRID (like the image) -->
@@ -3835,40 +3925,40 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <!-- TITLE -->
               <h3 class="compare-title">Apple Watch Ultra 2</h3>
               <div class="compare-compat">
-                <span>Watch Ultra 2</span>
+                <p>Watch Ultra 2</p>
               </div>
 
               <!-- FEATURE GRID (like the image) -->
               <div class="compare-feature-grid">
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">
-                  <span>Câble USB‑C haute qualité.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Autonomie jusqu'à 36h.</span>
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
-                  <span>Coque MagSafe premium.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/sport_gold_circle.png">
+                  <span>Suivi sportif avancé.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/puissance_gold_circle.png">
+                  <span>Robustesse extrème.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/sante_gold_circle.png">
+                  <span>Santé et bien être.</span>
                 </div>
 
                 <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
-                  <span>Chargeur PD 20W.</span>
+                  <span>Option musique.</span>
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/magnet_gold_circle.png">
-                  <span>Support magnétique.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/lighting_gold_circle.png">
-                  <span>Batterie externe induction.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/airpods_gold_circle.png">
-                  <span>Écouteurs sans fil.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
+                  <span>Réponds aux appels.</span>
                 </div>
               </div>
 
@@ -3925,40 +4015,40 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <!-- TITLE -->
               <h3 class="compare-title">Apple Watch série 11</h3>
               <div class="compare-compat">
-                <span>Watch série 11</span>
+                <p>Watch série 11</p>
               </div>
 
               <!-- FEATURE GRID (like the image) -->
               <div class="compare-feature-grid">
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/usb_gold_circle.png">
-                  <span>Câble USB‑C haute qualité.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Autonomie jusqu'à 24h.</span>
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
-                  <span>Coque MagSafe premium.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/sante_gold_circle.png">
+                  <span>Suivi santé complet.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/notification_gold_circle.png">
+                  <span>Notification en temps réel.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/resistant_gold_circle.png">
+                  <span>Résistant à l'eau.</span>
                 </div>
 
                 <div class="feature-item">
                   <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
-                  <span>Chargeur PD 20W.</span>
+                  <span>Option musique.</span>
                 </div>
 
                 <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/magnet_gold_circle.png">
-                  <span>Support magnétique.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/lighting_gold_circle.png">
-                  <span>Batterie externe induction.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/airpods_gold_circle.png">
-                  <span>Écouteurs sans fil.</span>
+                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
+                  <span>Réponds aux appels.</span>
                 </div>
               </div>
 
@@ -4041,8 +4131,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         <p><img src="images/Image_Soundindustry/Icon_accessoire/Icon_valide.png" alt="">Disponible 7j/7.</p>
         <p><img src="images/Image_Soundindustry/Icon_accessoire/Icon_valide.png" alt="">Nous nous adaptons à votre
           emploi du temps.</p>
-        <p><img src="images/Image_Soundindustry/Icon_accessoire/Icon_valide.png" alt="">Notre service est en cours de
-          déploiement pour tous les DROM‑TOM.</p>
+        <p><img src="images/Image_Soundindustry/Icon_accessoire/Icon_valide.png" alt="">Expédition express dès
+          validation de votre commande.</p>
       </div>
     </div>
   </div>
@@ -4256,7 +4346,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       }, 1200);
     }
 
-    /* ===== Carousel scrolling ===== */
+    /* ===== Carousel scrolling ===== 
     function scrollTrack(id, dir) {
       const el = document.getElementById(id);
       const card = el.querySelector('.card');
@@ -4265,7 +4355,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
     window.scrollTrack = scrollTrack;
 
-    /* ===== Product Image Carousel (inside cards) ===== */
+     ===== Product Image Carousel (inside cards) ===== 
+
     document.querySelectorAll('.image-carousel').forEach(carousel => {
       const img = carousel.querySelector('.product-img');
       const images = JSON.parse(carousel.getAttribute('data-images'));
@@ -4280,7 +4371,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         index = (index + 1) % images.length;
         img.src = images[index];
       });
-    });
+    });*/
 
     /* ===== WhatsApp helpers ===== */
     function openWhatsApp(message) {
@@ -4341,8 +4432,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         .join("");
     }
 
-
-    /*SWIPE IMAGE*/
+    /*section swipe*/
     document.querySelectorAll('.carousel').forEach(carousel => {
       const track = carousel.querySelector('.carousel-track');
       const images = track.children;
@@ -4383,9 +4473,19 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
       // Swipe (mobile)
       let startX = 0;
+      let isSwiping = false;
 
       track.addEventListener('touchstart', e => {
         startX = e.touches[0].clientX;
+        isSwiping = true;
+
+        // Disable parent scroll
+        carousel.closest('.track').classList.add('no-scroll');
+      });
+
+      track.addEventListener('touchmove', e => {
+        // Prevent parent scroll while swiping
+        if (isSwiping) e.stopPropagation();
       });
 
       track.addEventListener('touchend', e => {
@@ -4397,8 +4497,14 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
           else index = (index - 1 + total) % total;
           updateCarousel();
         }
+
+        isSwiping = false;
+
+        // Re-enable parent scroll
+        carousel.closest('.track').classList.remove('no-scroll');
       });
     });
+
 
     /*copié dans le press papier*/
 
