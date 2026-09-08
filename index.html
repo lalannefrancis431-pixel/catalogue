@@ -817,12 +817,12 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       .hero-bg {
         background-image: url("images/Image_Soundindustry/Image_deco/image_premier_plan.png");
         background-size: contain;
-        margin-top: 500px;
+        margin-top: 400px;
         opacity: 0.6;
       }
 
       .hero-cta {
-        margin: 20px 0 400px;
+        margin: 20px 0 300px !important;
       }
     }
 
@@ -927,6 +927,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
       .hero-icons {
         gap: 7px;
+        display:none;
       }
 
       .hero-icon {
@@ -985,8 +986,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     .hero-categories {
       display: flex;
       justify-content: center;
-      gap: 60px;
-      flex-wrap: wrap;
+      gap: 8px;
+      flex-wrap: nowrap;
       align-items: center;
     }
 
@@ -1032,68 +1033,99 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
     /*TELEPHONE*/
-    @media (max-width: 768px) {
 
-      /* 300px row containing all 4 buttons */
+    @media (max-width: 767px) {
+
       .hero-categories {
-        width: 300px;
+        position: relative;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
-        gap: 6px;
-        margin: 0 auto;
+        align-items: center;
+        gap: 0;
+
+        height: 100px;
+        padding: 0 8px;
+
+        border: 2px solid rgba(106, 94, 62, .45);
+        border-radius: 20px;
+
+        background: #0b0b0b;
+
+        overflow: hidden;
+
+        box-shadow:
+          inset 0 0 25px rgba(255, 255, 255, .03),
+          0 0 10px rgba(0, 0, 0, .5);
       }
 
-      /* Each button: horizontal layout */
+      /* Golden glow INSIDE the box */
+      .hero-categories::before {
+        content: "";
+        position: absolute;
+
+        left: 50%;
+        bottom: -25px;
+        transform: translateX(-50%);
+
+        width: 300px;
+        height: 60px;
+
+        border-radius: 50%;
+
+        background: rgba(210, 185, 118, .8);
+
+        filter: blur(20px);
+
+        opacity: .5;
+      }
+
       .hero-cat {
-        width: 70px;
-        /* 4 buttons fit in 300px */
-        height: 55px;
+        position: relative;
 
-        display: flex;
-        flex-direction: row;
-        /* <-- your request */
-        align-items: center;
-        justify-content: center;
-        gap: 4px;
+        flex: 1;
 
-        background: #0d0f14;
-        border: 1px solid #d2b976;
-        border-radius: 12px;
+        display: grid;
+        justify-items: center;
+        align-content: end;
 
-        padding: 6px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, .4);
-        cursor: pointer;
+        width: auto;
+        height: 63px;
+
+        padding: 0;
+
+        background: none;
+        border: none;
+        box-shadow: none;
       }
 
-      /* Icon */
-      .hero-cat>img {
-        width: 22px;
-        /* reduced size */
-        height: 22px;
-        object-fit: contain;
+      .hero-cat:not(:last-child)::after {
+        content: "";
+        position: absolute;
+
+        top: 50%;
+        right: 0;
+
+        transform: translateY(-50%);
+
+        width: 1px;
+        height: 70px;
+
+        background: linear-gradient(to bottom,
+            transparent,
+            rgba(210, 185, 118, .7),
+            transparent);
       }
 
-      /* Text + arrow */
-      .hero-cat-cont {
-        display: flex;
-        flex-direction: row;
-        /* horizontal */
-        align-items: center;
-        gap: 2px;
+      .hero-cat img {
+        width: 38px;
       }
 
       .hero-cat-cont p {
-        font-size: 0.55rem;
-        /* reduced text size */
-        color: white;
-        margin: 0;
+        font-size: .7rem;
       }
 
       .hero-cat-cont img {
-        width: 10px;
-        /* small arrow */
-        height: auto;
+        display: none;
       }
     }
 
@@ -1937,7 +1969,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
       .contact-label {
         font-size: 12px !important;
-        width: 100px !important;
+        width: 90px !important;
       }
 
       .contact-value {
@@ -1950,7 +1982,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       display: flex;
       justify-content: center;
       margin: 0px;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
     }
 
@@ -2551,33 +2583,33 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     <div class="hero-categories">
 
       <div class="hero-cat" onclick="scrollToSection('airpods')">
-        <img src="images/Image_Soundindustry/Image_Produit/airpod_fond.png" alt="">
+        <img src="images/Image_Soundindustry/Image_Produit/airpod_transparent.png" alt="">
         <div class="hero-cat-cont">
-          <p>AirPods</p>
+          <p>Écouteurs</p>
           <img src="images/Image_Soundindustry/Icon_accessoire/fleche_produit.png">
         </div>
       </div>
 
       <div class="hero-cat" onclick="scrollToSection('airpodsmax')">
-        <img src="images/Image_Soundindustry/Image_Produit/casque_fond_noir.png" alt="">
+        <img src="images/Image_Soundindustry/Image_Produit/casque_transparent.png" alt="">
         <div class="hero-cat-cont">
-          <p>AirPods Max</p>
+          <p>Casques</p>
           <img src="images/Image_Soundindustry/Icon_accessoire/fleche_produit.png">
         </div>
       </div>
 
       <div class="hero-cat" onclick="scrollToSection('enceintesbluetooth')">
-        <img src="images/Image_Soundindustry/Image_Produit/baffe_fond_noir.png" alt="">
+        <img src="images/Image_Soundindustry/Image_Produit//baffe_transparent.png" alt="">
         <div class="hero-cat-cont">
-          <p>Enceintes Bluetooth</p>
+          <p>Enceintes</p>
           <img src="images/Image_Soundindustry/Icon_accessoire/fleche_produit.png">
         </div>
       </div>
 
       <div class="hero-cat" onclick="scrollToSection('giftbox')">
-        <img src="images/Image_Soundindustry/Image_Produit/boite_cadeau_fond_noir.png" alt="">
+        <img src="images/Image_Soundindustry/Image_Produit/boite_cadeau_transparent.png" alt="">
         <div class="hero-cat-cont">
-          <p>Coffret Accessoire</p>
+          <p>Coffret</p>
           <img src="images/Image_Soundindustry/Icon_accessoire/fleche_produit.png">
         </div>
       </div>
@@ -2761,7 +2793,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   <section id="airpods" class="section" data-collapsed="true">
     <div id="products" class="modern-header" onclick="toggleSection(this)">
       <div class="section-left">
-        <img src="images/Image_Soundindustry/Image_Produit/airpod_fond.png">
+        <img src="images/Image_Soundindustry/Image_Produit/airpod_transparent.png">
 
         <div class="section-text">
           <h2>AirPods</h2>
@@ -3252,7 +3284,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   <section id="airpodsmax" class="section" data-collapsed="true">
     <div class="modern-header" onclick="toggleSection(this)">
       <div class="section-left">
-        <img src="images/Image_Soundindustry/Image_Produit/casque_fond_noir.png">
+        <img src="images/Image_Soundindustry/Image_Produit/casque_transparent.png" alt="AirPods Max">
 
         <div class="section-text">
           <h2>AirPods Max</h2>
@@ -3388,7 +3420,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
   <section id="enceintesbluetooth" class="section" data-collapsed="true">
     <div class="modern-header" onclick="toggleSection(this)">
       <div class="section-left">
-        <img src="images/Image_Soundindustry/Image_Produit/baffe_fond_noir.png">
+        <img src="images/Image_Soundindustry/Image_Produit/baffe_transparent.png">
 
         <div class="section-text">
           <h2>Enceintes Bluetooth</h2>
