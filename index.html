@@ -814,15 +814,19 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
     @media (max-width: 700px) {
+      .hero-premium {
+        padding: 20px;
+      }
+
       .hero-bg {
-        background-image: url("images/Image_Soundindustry/Image_deco/image_premier_plan.png");
+        background-image: url("images/Image_Soundindustry/Image_deco/image_premier_plan2_0.png");
         background-size: contain;
-        margin-top: 400px;
+        margin-top: 300px;
         opacity: 0.6;
       }
 
       .hero-cta {
-        margin: 20px 0 300px !important;
+        margin: 20px 0 250px !important;
       }
     }
 
@@ -927,7 +931,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
       .hero-icons {
         gap: 7px;
-        display:none;
+        display: none;
       }
 
       .hero-icon {
@@ -1348,6 +1352,11 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
     @media (max-width: 768px) {
+
+      .highlight-premium-rotatif {
+        margin: 30px auto;
+      }
+
       .highlight-header {
         align-items: center;
       }
@@ -1405,10 +1414,6 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
       .highlight-price {
         margin-bottom: 5px;
-      }
-
-      .btn-order {
-        width: 300px;
       }
     }
 
@@ -2241,7 +2246,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       .btn-order {
         width: 200px;
         gap: 5px;
-        height: 28px;
+        height: 32px;
       }
 
       .btn-order button {
@@ -2504,7 +2509,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         display: none;
       }
 
-      .compare-compat{
+      .compare-compat {
         height: 40px;
       }
 
@@ -4464,7 +4469,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         .join("");
     }
 
-    /*section swipe*/
+    /*section swipe
     document.querySelectorAll('.carousel').forEach(carousel => {
       const track = carousel.querySelector('.carousel-track');
       const images = track.children;
@@ -4535,7 +4540,95 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         // Re-enable parent scroll
         carousel.closest('.track').classList.remove('no-scroll');
       });
+    });*/
+
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      const track = carousel.querySelector('.carousel-track');
+      const images = track.children;
+      const dotsContainer = carousel.querySelector('.carousel-dots');
+
+      let index = 0;
+      const total = images.length;
+
+      // Create dots
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('div');
+        if (i === 0) dot.classList.add('active');
+        dotsContainer.appendChild(dot);
+      }
+
+      const dots = dotsContainer.children;
+
+      function updateCarousel() {
+        track.style.transition = "transform .35s ease";
+        track.style.transform = `translateX(-${index * 100}%)`;
+
+        [...dots].forEach(d => d.classList.remove('active'));
+        dots[index].classList.add('active');
+      }
+
+      // Arrows
+      const left = carousel.querySelector('.left');
+      const right = carousel.querySelector('.right');
+
+      if (left && right) {
+        left.onclick = () => {
+          index = (index - 1 + total) % total;
+          updateCarousel();
+        };
+        right.onclick = () => {
+          index = (index + 1) % total;
+          updateCarousel();
+        };
+      }
+
+      // Swipe (mobile)
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+
+      // Parent horizontal scroller (your section)
+      const parentScroller = carousel.closest('.scrollwrap');
+
+      track.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        currentX = startX;
+        isDragging = true;
+
+        track.style.transition = "none";
+
+        // BLOCK parent horizontal scroll
+        if (parentScroller) parentScroller.style.overflowX = "hidden";
+      });
+
+      track.addEventListener('touchmove', e => {
+        if (!isDragging) return;
+
+        currentX = e.touches[0].clientX;
+        const diff = currentX - startX;
+
+        // Move track visually while dragging
+        track.style.transform = `translateX(calc(-${index * 100}% + ${diff}px))`;
+
+        e.stopPropagation();
+      });
+
+      track.addEventListener('touchend', () => {
+        const diff = currentX - startX;
+
+        if (Math.abs(diff) > 50) {
+          if (diff < 0) index = (index + 1) % total;
+          else index = (index - 1 + total) % total;
+        }
+
+        isDragging = false;
+        updateCarousel();
+
+        // RE‑ENABLE parent scroll
+        if (parentScroller) parentScroller.style.overflowX = "auto";
+      });
     });
+
 
 
     /*copié dans le press papier*/
