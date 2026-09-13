@@ -2246,13 +2246,18 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       .btn-order {
         width: 200px;
         gap: 5px;
-        height: 32px;
+        height: 28px;
       }
 
       .btn-order button {
         font-size: 11px;
         font-weight: 700;
         padding: 0px 3px;
+      }
+
+      .btn-order-text {
+        font-size: 10px;
+        font-weight: 1000;
       }
 
       .secu,
@@ -2277,6 +2282,10 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       .compare-footer {
         gap: 2.5px !important;
         font-size: .55rem !important;
+      }
+
+      .compare-footer>div:not(:last-child)::after {
+        right: -6px !important;
       }
     }
 
@@ -2340,8 +2349,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       }
 
       .compare-new-price {
-      font-size: 13px;
-    }
+        font-size: 13px;
+      }
     }
 
 
@@ -2465,7 +2474,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       content: "";
       position: absolute;
       top: 50%;
-      right: -8px;
+      right: -28px;
       transform: translateY(-50%);
       width: 1px;
       height: 40px;
@@ -3634,6 +3643,209 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     </div>
   </section>
 
+
+  <section id="applewatch" class="section" data-collapsed="true">
+    <div class="modern-header" onclick="toggleSection(this)">
+      <div class="section-left">
+        <img src="images/Image_Soundindustry/Image_Produit/Montre_fond_noir.png">
+
+        <div class="section-text">
+          <h2>Apple Watch</h2>
+          <p>Performance, santé et élégance.</p>
+        </div>
+      </div>
+
+      <div class="toggle">›</div>
+    </div>
+
+    <div class="section-content">
+      <div class="scrollwrap layout-carousel">
+        <div class="track" id="track-maison">
+
+          <article class="compare-card">
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/Apple_watch_ultra_2.png" alt="Watch Ultra 2">
+                <img src="images/Apple_watch_ultra_2_1.png" alt="Watch Ultra 2">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
+            </div>
+
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">Apple Watch Ultra 2</h3>
+              <div class="compare-compat">
+                <p>Watch Ultra 2</p>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Autonomie jusqu'à 36h.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/sport_gold_circle.png">
+                  <span>Suivi sportif avancé.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/puissance_gold_circle.png">
+                  <span>Robustesse extrème.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/sante_gold_circle.png">
+                  <span>Santé et bien être.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Option musique.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
+                  <span>Réponds aux appels.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">150 €</span>
+                  <span class="compare-old-price">200 €</span>
+                  <span class="compare-discount">-25%</span>
+                </div>
+                <!--<div class="compare-stock">Stock épuisé</div>-->
+              </div>
+
+              <div class="btn-order">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('Apple Watch Ultra 2',150)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="compare-card">
+            <div class="compare-img carousel" data-index="0">
+
+              <div class="carousel-track">
+                <img src="images/Apple_watch_serie_10.png" alt="Watch série 11">
+                <img src="images/Apple_watch_serie_10_1.png" alt="Watch série 11">
+                <img src="images/Apple_watch_serie_10_2.png" alt="Watch série 11">
+              </div>
+
+              <!-- Desktop arrows -->
+              <button class="carousel-arrow left">‹</button>
+              <button class="carousel-arrow right">›</button>
+
+              <!-- Dots -->
+              <div class="carousel-dots"></div>
+
+            </div>
+            <div class="compare-meta">
+              <!-- TITLE -->
+              <h3 class="compare-title">Apple Watch série 11</h3>
+              <div class="compare-compat">
+                <p>Watch série 11</p>
+              </div>
+
+              <!-- FEATURE GRID (like the image) -->
+              <div class="compare-feature-grid">
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
+                  <span>Autonomie jusqu'à 24h.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/sante_gold_circle.png">
+                  <span>Suivi santé complet.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/notification_gold_circle.png">
+                  <span>Notification en temps réel.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/resistant_gold_circle.png">
+                  <span>Résistant à l'eau.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
+                  <span>Option musique.</span>
+                </div>
+
+                <div class="feature-item">
+                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
+                  <span>Réponds aux appels.</span>
+                </div>
+              </div>
+
+              <!-- PRICE BOX -->
+              <div class="compare-price-box">
+                <div class="compare-price-box-cont">
+                  <span class="compare-new-price">120 €</span>
+                  <!--<span class="compare-old-price">200 €</span>
+                  <span class="compare-discount">-25%</span>-->
+                </div>
+                <!--<div class="compare-stock">Stock épuisé</div>-->
+              </div>
+
+              <div class="btn-order">
+                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
+                <button onclick="orderWhatsApp('Apple Watch Ultra 2',150)">Commander
+                  maintenant</button>
+                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
+              </div>
+
+              <!-- FOOTER -->
+              <div class="compare-footer">
+                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
+                  Paiement<br>sécurisé
+                </div>
+                <div class="livra"><img
+                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
+                </div>
+                <div class="garan"><img
+                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="giftbox" class="section" data-collapsed="true">
     <div class="modern-header" onclick="toggleSection(this)">
       <div class="section-left">
@@ -3922,208 +4134,6 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     </div>
   </section>
 
-  <section id="applewatch" class="section" data-collapsed="true">
-    <div class="modern-header" onclick="toggleSection(this)">
-      <div class="section-left">
-        <img src="images/Image_Soundindustry/Image_Produit/Montre_fond_noir.png">
-
-        <div class="section-text">
-          <h2>Apple Watch</h2>
-          <p>Performance, santé et élégance.</p>
-        </div>
-      </div>
-
-      <div class="toggle">›</div>
-    </div>
-
-    <div class="section-content">
-      <div class="scrollwrap layout-carousel">
-        <div class="track" id="track-maison">
-
-          <article class="compare-card">
-            <div class="compare-img carousel" data-index="0">
-
-              <div class="carousel-track">
-                <img src="images/Apple_watch_ultra_2.png" alt="Watch Ultra 2">
-                <img src="images/Apple_watch_ultra_2_1.png" alt="Watch Ultra 2">
-              </div>
-
-              <!-- Desktop arrows -->
-              <button class="carousel-arrow left">‹</button>
-              <button class="carousel-arrow right">›</button>
-
-              <!-- Dots -->
-              <div class="carousel-dots"></div>
-
-            </div>
-
-            <div class="compare-meta">
-              <!-- TITLE -->
-              <h3 class="compare-title">Apple Watch Ultra 2</h3>
-              <div class="compare-compat">
-                <p>Watch Ultra 2</p>
-              </div>
-
-              <!-- FEATURE GRID (like the image) -->
-              <div class="compare-feature-grid">
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
-                  <span>Autonomie jusqu'à 36h.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/sport_gold_circle.png">
-                  <span>Suivi sportif avancé.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/puissance_gold_circle.png">
-                  <span>Robustesse extrème.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/sante_gold_circle.png">
-                  <span>Santé et bien être.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
-                  <span>Option musique.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
-                  <span>Réponds aux appels.</span>
-                </div>
-              </div>
-
-              <!-- PRICE BOX -->
-              <div class="compare-price-box">
-                <div class="compare-price-box-cont">
-                  <span class="compare-new-price">150 €</span>
-                  <span class="compare-old-price">200 €</span>
-                  <span class="compare-discount">-25%</span>
-                </div>
-                <!--<div class="compare-stock">Stock épuisé</div>-->
-              </div>
-
-              <div class="btn-order">
-                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
-                <button onclick="orderWhatsApp('Apple Watch Ultra 2',150)">Commander
-                  maintenant</button>
-                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
-              </div>
-
-              <!-- FOOTER -->
-              <div class="compare-footer">
-                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
-                  Paiement<br>sécurisé
-                </div>
-                <div class="livra"><img
-                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
-                </div>
-                <div class="garan"><img
-                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="compare-card">
-            <div class="compare-img carousel" data-index="0">
-
-              <div class="carousel-track">
-                <img src="images/Apple_watch_serie_10.png" alt="Watch série 11">
-                <img src="images/Apple_watch_serie_10_1.png" alt="Watch série 11">
-                <img src="images/Apple_watch_serie_10_2.png" alt="Watch série 11">
-              </div>
-
-              <!-- Desktop arrows -->
-              <button class="carousel-arrow left">‹</button>
-              <button class="carousel-arrow right">›</button>
-
-              <!-- Dots -->
-              <div class="carousel-dots"></div>
-
-            </div>
-            <div class="compare-meta">
-              <!-- TITLE -->
-              <h3 class="compare-title">Apple Watch série 11</h3>
-              <div class="compare-compat">
-                <p>Watch série 11</p>
-              </div>
-
-              <!-- FEATURE GRID (like the image) -->
-              <div class="compare-feature-grid">
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/autonomie_gold_circle.png">
-                  <span>Autonomie jusqu'à 24h.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/sante_gold_circle.png">
-                  <span>Suivi santé complet.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/notification_gold_circle.png">
-                  <span>Notification en temps réel.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/resistant_gold_circle.png">
-                  <span>Résistant à l'eau.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/charger_gold_circle.png">
-                  <span>Option musique.</span>
-                </div>
-
-                <div class="feature-item">
-                  <img src="images/Image_Soundindustry/Icon_produit/protection_gold_circle.png">
-                  <span>Réponds aux appels.</span>
-                </div>
-              </div>
-
-              <!-- PRICE BOX -->
-              <div class="compare-price-box">
-                <div class="compare-price-box-cont">
-                  <span class="compare-new-price">120 €</span>
-                  <!--<span class="compare-old-price">200 €</span>
-                  <span class="compare-discount">-25%</span>-->
-                </div>
-                <!--<div class="compare-stock">Stock épuisé</div>-->
-              </div>
-
-              <div class="btn-order">
-                <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
-                <button onclick="orderWhatsApp('Apple Watch Ultra 2',150)">Commander
-                  maintenant</button>
-                <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
-              </div>
-
-              <!-- FOOTER -->
-              <div class="compare-footer">
-                <div class="secu"><img src="images/Image_Soundindustry/Embleme/Payement_securise.png">
-                  Paiement<br>sécurisé
-                </div>
-                <div class="livra"><img
-                    src="images/Image_Soundindustry/Embleme/Livraison_rapide.png">Livraison<br>rapide
-                </div>
-                <div class="garan"><img
-                    src="images/Image_Soundindustry/Embleme/Qualite_garantie.png">Qualite<br>garantie
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <div class="gift-area">
     <div class="gift-area-cont">
 
@@ -4151,7 +4161,9 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       placeholder="Exemple : Pouvez-vous ajouter des câbles USB-C, etc."></textarea>
     <div class="actions">
       <button class="btn-order" onclick="sendSuggestion()"><span class="wa"></span>
-        Soumettre votre demande <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png"></button>
+        <div class="btn-order-text">Soumettre votre demande</div>
+        <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png">
+      </button>
     </div>
   </div>
 
@@ -4586,8 +4598,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       let currentX = 0;
       let isDragging = false;
 
-      // Parent horizontal scroller (your section)
-      const parentScroller = carousel.closest('.scrollwrap');
+      // Correct parent horizontal scroller (the real one)
+      const parentScroller = carousel.closest('.scrollwrap').querySelector('.track');
 
       track.addEventListener('touchstart', e => {
         startX = e.touches[0].clientX;
@@ -4597,7 +4609,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         track.style.transition = "none";
 
         // BLOCK parent horizontal scroll
-        if (parentScroller) parentScroller.style.overflowX = "hidden";
+        if (parentScroller) parentScroller.style.pointerEvents = "none";
       });
 
       track.addEventListener('touchmove', e => {
@@ -4624,9 +4636,10 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         updateCarousel();
 
         // RE‑ENABLE parent scroll
-        if (parentScroller) parentScroller.style.overflowX = "auto";
+        if (parentScroller) parentScroller.style.pointerEvents = "auto";
       });
     });
+
 
 
 
