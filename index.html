@@ -2288,14 +2288,26 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         right: -6px !important;
       }
 
-      .carousel-track,
+      /*.carousel-track,
       .carousel {
         touch-action: pan-y;
       }
 
       .scrollwrap .track {
         overscroll-behavior: contain;
+      }*/
+
+      /* Allow horizontal swipe inside the carousel */
+      .carousel-track {
+        touch-action: pan-x;
       }
+
+      /* Prevent the parent horizontal scroll from interfering */
+      .scrollwrap .track {
+        touch-action: pan-y;
+        overscroll-behavior: contain;
+      }
+
 
     }
 
@@ -4612,7 +4624,6 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       const parentScroller = carousel.closest('.scrollwrap').querySelector('.track');
 
       track.addEventListener('touchstart', e => {
-        e.preventDefault();
         startX = e.touches[0].clientX;
         currentX = startX;
         isDragging = true;
