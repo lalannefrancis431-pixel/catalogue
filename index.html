@@ -2287,6 +2287,16 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       .compare-footer>div:not(:last-child)::after {
         right: -6px !important;
       }
+
+      .carousel-track,
+      .carousel {
+        touch-action: pan-y;
+      }
+
+      .scrollwrap .track {
+        overscroll-behavior: contain;
+      }
+
     }
 
 
@@ -2341,7 +2351,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
     @media (max-width: 768px) {
       .compare-img img {
-        height: 180px;
+        height: 170px;
       }
 
       .compare-stock {
@@ -4101,7 +4111,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
               <!-- PRICE BOX -->
               <div class="compare-price-box">
                 <div class="compare-price-box-cont">
-                  <span class="compare-new-price">130,50 €</span>
+                  <span class="compare-new-price">130 €</span>
                   <span class="compare-old-price">150 €</span>
                   <span class="compare-discount">-13%</span>
                 </div>
@@ -4110,7 +4120,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
               <div class="btn-order sold-out">
                 <img src="images/Image_Soundindustry/Icon_accessoire/Achat.png" alt="">
-                <button onclick="orderWhatsApp('Coffret Accessoire 7 en 1',130.50)">Commander
+                <button onclick="orderWhatsApp('Coffret Accessoire 7 en 1',130)">Commander
                   maintenant</button>
                 <img src="images/Image_Soundindustry/Icon_accessoire/fleche_action.png" alt="">
               </div>
@@ -4602,6 +4612,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       const parentScroller = carousel.closest('.scrollwrap').querySelector('.track');
 
       track.addEventListener('touchstart', e => {
+        e.preventDefault();
         startX = e.touches[0].clientX;
         currentX = startX;
         isDragging = true;
