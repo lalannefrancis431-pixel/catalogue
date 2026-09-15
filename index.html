@@ -2252,7 +2252,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       .btn-order button {
         font-size: 11px;
         font-weight: 700;
-        padding: 0px 3px;
+        padding: 0px 3px;        
+        color:#000;
       }
 
       .btn-order-text {
@@ -2287,27 +2288,6 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       .compare-footer>div:not(:last-child)::after {
         right: -6px !important;
       }
-
-      /*.carousel-track,
-      .carousel {
-        touch-action: pan-y;
-      }
-
-      .scrollwrap .track {
-        overscroll-behavior: contain;
-      }*/
-
-      /* Allow horizontal swipe inside the carousel */
-      .carousel-track {
-        touch-action: pan-x;
-      }
-
-      /* Prevent the parent horizontal scroll from interfering */
-      .scrollwrap .track {
-        touch-action: pan-y;
-        overscroll-behavior: contain;
-      }
-
 
     }
 
@@ -4620,7 +4600,7 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
       let currentX = 0;
       let isDragging = false;
 
-      // Correct parent horizontal scroller (the real one)
+      // The REAL parent horizontal scroller
       const parentScroller = carousel.closest('.scrollwrap').querySelector('.track');
 
       track.addEventListener('touchstart', e => {
@@ -4630,8 +4610,10 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 
         track.style.transition = "none";
 
-        // BLOCK parent horizontal scroll
-        if (parentScroller) parentScroller.style.pointerEvents = "none";
+        // iOS FIX → block parent scroll ONLY while dragging
+        if (parentScroller) {
+          parentScroller.style.overflowX = "hidden";
+        }
       });
 
       track.addEventListener('touchmove', e => {
@@ -4643,6 +4625,8 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         // Move track visually while dragging
         track.style.transform = `translateX(calc(-${index * 100}% + ${diff}px))`;
 
+        // Prevent Safari from stealing the gesture
+        e.preventDefault();
         e.stopPropagation();
       });
 
@@ -4657,9 +4641,12 @@ display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
         isDragging = false;
         updateCarousel();
 
-        // RE‑ENABLE parent scroll
-        if (parentScroller) parentScroller.style.pointerEvents = "auto";
+        // Re-enable parent scroll IMMEDIATELY after swipe
+        if (parentScroller) {
+          parentScroller.style.overflowX = "auto";
+        }
       });
+
     });
 
 
