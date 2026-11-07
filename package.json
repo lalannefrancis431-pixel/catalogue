@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
+    "@neondatabase/serverless": "^1.2.0",
     "@netlify/blobs": "^6.0.0",
     "node-fetch": "^3.3.2"
   },
