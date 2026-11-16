@@ -2339,6 +2339,72 @@
         font-size: 24px;
       }
     }
+
+
+    .payment-confirm-modal {
+      width: min(90%, 440px);
+      padding: 0;
+      border: 1px solid #d8b45d;
+      border-radius: 16px;
+      background: #171717;
+      color: #fff;
+      text-align: center;
+    }
+
+    .payment-confirm-modal::backdrop {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(4px);
+    }
+
+    .payment-confirm-content {
+      padding: 30px 24px;
+    }
+
+    .payment-confirm-content h2 {
+      color: #d8b45d;
+      font-family: Georgia, serif;
+      margin: 0 0 16px;
+    }
+
+    .payment-confirm-content p {
+      color: #dedbd3;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    #paymentOrderReference {
+      display: block;
+      padding: 14px 10px;
+      margin: 18px 0;
+      border: 1px dashed #d8b45d;
+      border-radius: 8px;
+      color: #d8b45d;
+      font-size: 17px;
+      letter-spacing: 1px;
+      overflow-wrap: anywhere;
+    }
+
+    .payment-confirm-note {
+      font-size: 12px !important;
+      color: #aaa !important;
+    }
+
+    #confirmPaymentBtn {
+      width: 100%;
+      margin-top: 14px;
+    }
+
+    .payment-cancel-btn {
+      display: block;
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px;
+      background: transparent;
+      border: 1px solid #555;
+      border-radius: 30px;
+      color: #ddd;
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -2506,8 +2572,8 @@
             alt="Sound Industry Logo" class="logo"></span><span><strong>SOUND
             INDUSTRY</strong><small>PREMIUM TECH STORE</small></span></a><span>© <span id="year"></span> SoundIndustry.
         Tous droits réservés.</span>
-      <div class="footer-links"><a href="#engagements">Nos produits</a><a href="#"
-          id="openPrivacy">Confidentialité</a><a href="#" id="openContact">Contact</a></div>
+      <div class="footer-links"><a href="#boutique">Nos produits</a><a href="#" id="openPrivacy">Confidentialité</a><a
+          href="#" id="openContact">Contact</a></div>
     </div>
   </footer>
   <div class="overlay" id="overlay"></div>
@@ -2872,6 +2938,33 @@
     </div>
   </div>
 
+
+  <dialog id="paymentConfirmModal" class="payment-confirm-modal">
+    <div class="payment-confirm-content">
+      <h2>Confirmation de commande</h2>
+      <p>Merci pour votre confiance !</p>
+
+      <p>
+        Merci d'indiquer cette référence dans la description du paiement :
+      </p>
+
+      <strong id="paymentOrderReference"></strong>
+
+      <p class="payment-confirm-note">
+        Conservez cette référence pour faciliter le suivi de votre commande.
+      </p>
+
+      <button type="button" id="confirmPaymentBtn" class="btn btn-gold">
+        Continuer vers le paiement →
+      </button>
+
+      <button type="button" id="cancelPaymentBtn" class="payment-cancel-btn">
+        Retour au panier
+      </button>
+    </div>
+  </dialog>
+
+
   <script>
     const products = [
       {id: 1, name: "Rayban META", category: "Lunette", images: ["./images/produits/Lunettes/Rayban.png", "./images/produits/Lunettes/Rayban_1.png", "./images/produits/Lunettes/Rayban.png"], price: 130, old: null, badge: "Nouveau", rating: "4,9", desc: "Un son précis, partout.", longDesc: "• Photos et vidéos<br>• Audio intégré<br>• Appels mains libres<br>• Commande vocale<br>• Connexion rapide<br>• Design iconique", featured: true},
@@ -2885,13 +2978,13 @@
       {id: 9, name: "AirPods Max 2 (Blanc)", category: "Casques", images: ["./images/produits/AirPodsMax/Airpod_Max_Blanc.png", "./images/produits/AirPodsMax/Airpod_Max_Blanc_1.png", "./images/produits/AirPodsMax/Airpod_Max_Blanc_2.png", "./images/produits/AirPodsMax/Airpod_Max_Blanc_3.png"], price: 150, old: null, badge: "Nouveau", rating: "4,8", desc: "Immersion et confort longue durée.", longDesc: "• Son haute qualité<br>• Réduction du bruit<br>• Confort optimal<br>• Audio immersif<br>• Design premium<br>• Finition blanc", featured: false},
       {id: 10, name: "Enceinte Bluetooth", category: "Enceintes", images: ["./images/produits/Enceintes/JBL_Pulse_5.png", "./images/produits/Enceintes/JBL_Pulse_5_1.png", "./images/produits/Enceintes/JBL_Pulse_5_2.png"], price: 85, old: null, badge: "Essentiel", rating: "4,7", desc: "Un son puissant et équilibré.", longDesc: "• Son 360°<br>• Effets lumineux<br>• Bluetooth rapide<br>• Ambiance festive<br>• Grande autonomie<br>• Design moderne", featured: false},
       {id: 11, name: "Enceinte Bluetooth", category: "Enceintes", images: ["./images/produits/Enceintes/JBL_Flip_7.png", "./images/produits/Enceintes/JBL_Flip_7_1.png", "./images/produits/Enceintes/JBL_Flip_7_2.png", "./images/produits/Enceintes/JBL_Flip_7_3.png"], price: 69.60, old: null, badge: "Sélection", rating: "4,7", desc: "Un son puissant et équilibré.", longDesc: "• Son puissant<br>• Bluetooth rapide<br>• Étanche<br>• Grande autonomie<br>• Format compact<br>• Facile à transporter", featured: false},
-      {id: 12, name: "Enceinte Xiaomi", category: "Enceintes", images: ["./images/produits/Enceintes/Xiaomi.png", "./images/produits/Enceintes/Xiaomi_1.png", "./images/produits/Enceintes/Xiaomi_2.png", "./images/produits/Enceintes/Xiaomi_3.png"], price: 69.60, old: 80, badge: "Nouveau", rating: "4,7", desc: "Un son puissant et équilibré.", longDesc: "• Son clair<br>• Bluetooth stable<br>• Format compact<br>• Utilisation simple<br>• Bonne autonomie<br>• Bon rapport qualité-prix", featured: false},
+      {id: 12, name: "Enceinte Xiaomi", category: "Enceintes", images: ["./images/produits/Enceintes/Xiaomi.png"], price: 69.60, old: 80, badge: "Nouveau", rating: "4,7", desc: "Un son puissant et équilibré.", longDesc: "• Son clair<br>• Bluetooth stable<br>• Format compact<br>• Utilisation simple<br>• Bonne autonomie<br>• Bon rapport qualité-prix", featured: false},
       {id: 13, name: "Enceinte Marshall", category: "Enceintes", images: ["./images/produits/Enceintes/Marshall.png", "./images/produits/Enceintes/Marshall_1.png", "./images/produits/Enceintes/Marshall_2.png"], price: 120, old: null, badge: "Nouveau", rating: "4,7", desc: "Un son puissant et équilibré.", longDesc: "• Son puissant.<br>• Basses profondes.<br>• Style iconique.<br>• Bluetooth stable.<br>• Design premium.<br>• Grande autonomie.", featured: true},
       {id: 14, name: "Whoop", category: "Montres", images: ["./images/produits/Montres/Whoop.png", "./images/produits/Montres/Whoop_1.png", "./images/produits/Montres/Whoop_2.png"], price: 98, old: null, badge: "Nouveau", rating: "4,8", desc: "Le style, au rythme de votre journée.", longDesc: "• Suivi sportif<br>• Analyse sommeil<br>• Suivi santé<br>• Données précises<br>• Confort quotidien<br>• Performance optimisée", featured: true},
       {id: 15, name: "Ring light", category: "Accessoires", images: ["./images/produits/Accessoires/Ring_light.png", "./images/produits/Accessoires/Ring_light_1.png"], price: 24.90, old: null, badge: "Nouveau", rating: "4,7", desc: "Les détails qui font la différence.", longDesc: "• Éclairage homogène<br>• Luminosité réglable<br>• Photos réussies<br>• Vidéos professionnelles<br>• Installation rapide<br>• Utilisation simple", featured: false},
-      {id: 16, name: "Hubaura", category: "Accessoires", images: ["./images/produits/Accessoires/Hubaura.png", "./images/produits/Accessoires/Hubaura_1.png"], price: 29, old: null, badge: "Nouveau", rating: "4,7", desc: "Les détails qui font la différence.", longDesc: "• Diffusion parfumée<br>• Design moderne<br>• Ambiance relaxante<br>• Fonctionnement silencieux<br>• Utilisation simple<br>• Usage quotidien", featured: true},
+      {id: 16, name: "Hubaura", category: "Accessoires", images: ["./images/produits/Accessoires/Hubaura.png", "./images/produits/Accessoires/Hubaura_1.png"], price: 29, old: null, badge: "Nouveau", rating: "4,7", desc: "Les détails qui font la différence.", longDesc: "• LEDs RGB.<br>• Ambiance immersive.<br>• Contrôle mobile.<br>• Couleurs personnalisables.<br>• Installation facile.<br>• Effet cinéma.", featured: true},
       {id: 17, name: "Kit proctection Écran (Anti-espion)", category: "Accessoires", images: ["./images/produits/Accessoires/Anti_espion.png", "./images/produits/Accessoires/Anti_espion_1.png"], price: 15, old: null, badge: "Essentiel", rating: "4,7", desc: "Les détails qui font la différence.", longDesc: "• Protection optimale.<br>• Effet anti-espion.<br>• Vision privée.<br>• Anti-rayures.<br>• Installation facile.<br>• Écran protégé.", featured: true},
-      {id: 17, name: "Ruban LED", category: "Accessoires", images: ["./images/produits/Accessoires/Ruban_led.png", "./images/produits/Accessoires/Ruban_led_1.png"], price: 15, old: null, badge: "Essentiel", rating: "4,7", desc: "Les détails qui font la différence.", longDesc: "• LEDs RGB.<br>• Ambiance immersive.<br>• Contrôle mobile.<br>• Couleurs personnalisables.<br>• Installation facile.<br>• Effet cinéma.", featured: false},
+      {id: 17, name: "Ruban LED", category: "Accessoires", images: ["./images/produits/Accessoires/Ruban_led.png", "./images/produits/Accessoires/Ruban_led_1.png"], price: 15, old: null, badge: "Essentiel", rating: "4,7", desc: "Les détails qui font la différence.", longDesc: "• Lumières RGB.<br> • Couleurs dynamiques.<br>• Ambiance unique.<br>• Contrôle mobile.<br>• Décoration moderne.<br>• 20 Mètres.", featured: false},
       {id: 18, name: "Support téléphone voiture", category: "Accessoires", images: ["./images/produits/Accessoires/Support_voit.png", "./images/produits/Accessoires/Support_voit_1.png"], price: 24.90, old: null, badge: "Essentiel", rating: "4,7", desc: "Les détails qui font la différence.", longDesc: "• Maintien sécurisé.<br>• Installation rapide.<br>• Rotation 360°.<br>• Compatible smartphones.<br>• Format compact.<br>• Conduite pratique.", featured: false},
       {id: 19, name: "Hub", category: "Accessoires", images: ["./images/produits/Accessoires/Hub.png"], price: 50, old: null, badge: "Essentiel", rating: "4,7", desc: "Les détails qui font la différence.", longDesc: "• Ports multiples.<br>• Connexion USB-C.<br>• Sortie HDMI.<br>• Lecture SD.<br>• Réseau Ethernet.<br>• Utilisation pratique.", featured: false},
       {id: 20, name: "Gift box 5 en 1", category: "Accessoires", images: ["./images/produits/Accessoires/Gift_box_5_1.png", "./images/produits/Accessoires/Gift_box_5_1_2.png"], price: 75, old: null, badge: "Essentiel", rating: "4,7", desc: "Les détails qui font la différence.", longDesc: "• Câble USB‑C haute qualité.<br>• Coque MagSafe premium.<br>• Chargeur PD 20W.<br>• Support magnétique.<br>• Une batterie externe induction.", featured: false},
@@ -3096,14 +3189,14 @@
     let toastTimer; function showToast(msg) {const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 2300)}
 
 
-    // SOUNINDUSTRY CHECKOUT CONFIGURATION
+
+    // SOUNDINDUSTRY CHECKOUT CONFIGURATION
     const WHATSAPP_NUMBER = "594694006328";
     const REVOLUT_PAYMENT_URL = "https://revolut.me/landrod9jd?currency=EUR";
 
     // Generate a unique order reference
     function generateOrderReference() {
-      const date = new Date();
-      const datePart = date.toISOString().slice(0, 10).replace(/-/g, "");
+      const datePart = new Date().toISOString().slice(0, 10).replace(/-/g, "");
       const randomPart = Math.random().toString(36).substring(2, 8).toUpperCase();
 
       return `SI-${datePart}-${randomPart}`;
@@ -3154,10 +3247,8 @@
 
     // Open WhatsApp with the order
     function openWhatsApp(message) {
-      const url =
-        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
-      window.open(url, "_blank", "noopener,noreferrer");
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      return window.open(url, "_blank");
     }
 
     // Discuss order button
@@ -3173,45 +3264,69 @@
         const reference = generateOrderReference();
         const order = buildOrderMessage(reference);
 
-        if (order) openWhatsApp(order.message);
+        if (order) {
+          openWhatsApp(order.message);
+        }
       });
 
-    // Checkout button
-    document.getElementById("checkoutBtn")
-      .addEventListener("click", function () {
-        if (!Object.values(cart).some(quantity => quantity > 0)) {
-          showToast("Votre panier est vide.");
-          return;
-        }
 
-        if (
-          WHATSAPP_NUMBER === "594694006328" ||
-          REVOLUT_PAYMENT_URL === "https://revolut.me/landrod9jd?currency=EUR"
-        ) {
-          showToast("La configuration du paiement est incomplète.");
-          return;
-        }
+    let pendingOrder = null;
 
-        const reference = generateOrderReference();
-        const order = buildOrderMessage(reference);
+    const paymentConfirmModal = document.getElementById("paymentConfirmModal");
 
-        if (!order) return;
+    // First click: prepare order and show confirmation popup
+    document.getElementById("checkoutBtn").addEventListener("click", function () {
+      if (!Object.values(cart).some(quantity => quantity > 0)) {
+        showToast("Votre panier est vide.");
+        return;
+      }
 
-        const whatsappMessage = [
+      const reference = generateOrderReference();
+      const order = buildOrderMessage(reference);
+
+      if (!order) return;
+
+      pendingOrder = {
+        reference,
+        message: [
           order.message,
           "",
           "Je vais maintenant procéder au paiement via Revolut.",
-          `Merci d'indiquer ${reference} dans la description du paiement.`
-        ].join("\n");
+        ].join("\n")
+      };
 
-        // Open WhatsApp first
-        openWhatsApp(whatsappMessage);
+      document.getElementById("paymentOrderReference").textContent =
+        `${reference}`;
 
-        // Redirect current tab to Revolut
-        window.location.href = REVOLUT_PAYMENT_URL;
-      });
+      paymentConfirmModal.showModal();
+    });
+
+    // Cancel: return to the cart
+    document.getElementById("cancelPaymentBtn").addEventListener("click", function () {
+      paymentConfirmModal.close();
+      pendingOrder = null;
+    });
+
+    // Second click: open WhatsApp and Revolut
+    document.getElementById("confirmPaymentBtn").addEventListener("click", function () {
+      if (!pendingOrder) return;
+
+      const whatsappURL =
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(pendingOrder.message)}`;
+
+      const whatsappWindow = window.open(whatsappURL, "_blank");
+
+      if (!whatsappWindow) {
+        showToast("Autorisez les fenêtres pop-up pour continuer.");
+        return;
+      }
+
+      paymentConfirmModal.close();
+      window.location.assign(REVOLUT_PAYMENT_URL);
+    });
 
 
+    // Filter buttons
     document.getElementById("filterButtons").addEventListener("click", e => {
       const button = e.target.closest(".filter");
       if (!button) return;
@@ -3222,17 +3337,50 @@
       renderProducts();
     });
 
+    // Search
     document.getElementById("searchInput").addEventListener("input", renderProducts);
 
-    document.querySelectorAll("[data-jump]").forEach(a => a.addEventListener("click", () => {activeFilter = a.dataset.jump; document.querySelectorAll(".filter").forEach(x => x.classList.toggle("active", x.dataset.filter === activeFilter)); renderProducts()}));
-    document.getElementById("cartOpen").addEventListener("click", openCart); document.getElementById("cartClose").addEventListener("click", closeCart); document.getElementById("overlay").addEventListener("click", closeCart); document.addEventListener("keydown", e => {if (e.key === "Escape") closeCart()});
-    document.getElementById("menuToggle").addEventListener("click", () => document.getElementById("navlinks").classList.toggle("open")); document.querySelectorAll(".navlinks a").forEach(a => a.addEventListener("click", () => document.getElementById("navlinks").classList.remove("open")));
-    document.getElementById("checkoutBtn").addEventListener("click", () => showToast("Le paiement n'est pas activé dans cette démo."));
+    // Category navigation
+    document.querySelectorAll("[data-jump]").forEach(a =>
+      a.addEventListener("click", () => {
+        activeFilter = a.dataset.jump;
+
+        document.querySelectorAll(".filter").forEach(x =>
+          x.classList.toggle("active", x.dataset.filter === activeFilter)
+        );
+
+        renderProducts();
+      })
+    );
+
+    // Cart controls
+    document.getElementById("cartOpen").addEventListener("click", openCart);
+    document.getElementById("cartClose").addEventListener("click", closeCart);
+    document.getElementById("overlay").addEventListener("click", closeCart);
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") closeCart();
+    });
+
+    // Mobile navigation
+    document.getElementById("menuToggle").addEventListener("click", () => {
+      document.getElementById("navlinks").classList.toggle("open");
+    });
+
+    document.querySelectorAll(".navlinks a").forEach(a =>
+      a.addEventListener("click", () => {
+        document.getElementById("navlinks").classList.remove("open");
+      })
+    );
+
+    // Current year
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Initial rendering
     renderFilters();
     renderProducts();
     renderCart();
+
 
     // CUSTOMER REVIEWS SYSTEM
 
